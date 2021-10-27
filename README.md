@@ -13,9 +13,11 @@
 
 😊Fulid文档：[Github](https://github.com/fluid-dev/hexo-theme-fluid) [文档](https://hexo.fluid-dev.com/docs/start/)
 
+🙎‍♂️微博地址：[点击进入](https://weibo.com/u/2681023174)
 
+📧邮箱地址：1004545477@qq.com
 
-------
+## 
 
 更新时间：2021/10/27
 
