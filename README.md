@@ -10,7 +10,7 @@
 
 ❤️Hexo文档：[点击进入](https://hexo.io/zh-cn/docs/)
 
-😊Fulid文档：[Github](https://github.com/fluid-dev/hexo-theme-fluid) [文档](https://hexo.fluid-dev.com/docs/start/)
+😊Fulid文档：[Github](https://github.com/fluid-dev/hexo-theme-fluid) [文档](https://hexo.fluid-dev.com/docs/start/) [配置指南](https://hexo.fluid-dev.com/docs/guide/#%E5%85%B3%E4%BA%8E%E6%8C%87%E5%8D%97)
 
 🙎‍♂️微博地址：[点击进入](https://weibo.com/u/2681023174)
 
