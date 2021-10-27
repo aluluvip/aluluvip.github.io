@@ -18,6 +18,8 @@
 
 🧩壁纸网站：[点击进入](https://wallhaven.cc/)
 
+🍻腾讯图床：[点击进入](http://top.cnzzla.com/tuchuang/qq.html)
+
 <br/>
 
 
