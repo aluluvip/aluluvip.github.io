@@ -1,3 +1,21 @@
-# [一只路路的博客](https://aluluvip.github.io)
-一只路路的博客，基于hexo+Github+Typora工具搭建，正在研究，稍后就来~
+## [一只路路的博客](https://aluluvip.github.io)
+
+
+一只路路的博客，基于 Hexo+Github+[Typora](https://www.typora.io/)+[SourceTree](https://www.sourcetreeapp.com/)+Git 工具搭建，正在研究，稍后就来~
+
+
+
+💎Github地址：[点击进入](https://github.com/aluluvip)
+
+😍My博客地址：[点击进入](https://aluluvip.github.io)
+
+❤️Hexo文档：[点击进入](https://hexo.io/zh-cn/docs/)
+
+😊Fulid文档：[Github](https://github.com/fluid-dev/hexo-theme-fluid) [文档](https://hexo.fluid-dev.com/docs/start/)
+
+
+
+------
+
+更新时间：2021/10/27
 
