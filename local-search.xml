@@ -4,9 +4,59 @@
   
   
   <entry>
+    <title>产品学习篇：用户故事编写规则</title>
+    <link href="/2021/11/02/%E4%BA%A7%E5%93%81%E5%AD%A6%E4%B9%A0%E7%AF%87%EF%BC%9A%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B%E7%BC%96%E5%86%99%E8%A7%84%E5%88%99/"/>
+    <url>/2021/11/02/%E4%BA%A7%E5%93%81%E5%AD%A6%E4%B9%A0%E7%AF%87%EF%BC%9A%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B%E7%BC%96%E5%86%99%E8%A7%84%E5%88%99/</url>
+    
+    <content type="html"><![CDATA[<h1 id="用户故事描述规范"><a href="#用户故事描述规范" class="headerlink" title="用户故事描述规范"></a><strong><center>用户故事描述规范<center/></strong></h1><h3 id="前言：用户故事格式"><a href="#前言：用户故事格式" class="headerlink" title="前言：用户故事格式"></a><strong>前言：用户故事格式</strong></h3><div class="note note-secondary">            <p><strong>【故事标题】</strong></p><p>用户故事标题</p><p><strong>【描述内容】</strong></p><p>  作为[用户角色或岗位]，通过[完成活动]，以便于[实现什么目的或价值]</p><p><strong>【业务规则】</strong></p><ol><li>业务规则1</li><li>业务规则2</li><li>业务规则3<br>…</li></ol><p><strong>【测试规则】</strong></p><ol><li>测试描述1</li><li>测试描述2</li><li>测试描述3<br>…</li></ol><p><strong>【方案链接】</strong></p><p><a href="https://blog.luluvip.cn/">https://blog.luluvip.cn/</a></p>          </div><h3 id="一、故事标题"><a href="#一、故事标题" class="headerlink" title="一、故事标题"></a><strong>一、故事标题</strong></h3><p>用户故事的描述在列表中进行管理时，不利于快速理解，也不能一行展示。为每个故事取个标题（名字）就很有必要。</p><p>类似邮件的主题，用户故事的标题是为了让读者能快速了解这个用户故事的要点和大致范围；怎么写好标题也是有章可循的。<br>常见的做法有：</p><h5 id="1-用户角度的动宾短语"><a href="#1-用户角度的动宾短语" class="headerlink" title="1. 用户角度的动宾短语"></a><strong>1. 用户角度的动宾短语</strong></h5><p>如：创建商品、输入名称、修改头像等等这是动作+对象形式，擅长描述从用户看到的活动或功能。</p><h5 id="2-系统角度的动宾短语"><a href="#2-系统角度的动宾短语" class="headerlink" title="2. 系统角度的动宾短语"></a><strong>2. 系统角度的动宾短语</strong></h5><p>此处的系统是指待开发的对象。</p><p>如，toast提示网络异常，记录用户访问次数，显示搜索结果，显示倒计时。擅长描述系统要执行的反馈和操作。</p><h5 id="3-主谓宾短语"><a href="#3-主谓宾短语" class="headerlink" title="3. 主谓宾短语"></a><strong>3. 主谓宾短语</strong></h5><p>有时动宾短语不能推断主语时使用主谓宾短句，或者可能有可能混淆时需要明确主语，此时就需要增加动作主语，如，超级管理员重置普通管理员的口令；A系统推送批量客户和合同信息。</p><p>随着时间推移，新增的用户故事有不少是基于原有的功能来再提升修改，这时往往要在标题里加上状语来区分，比如根据客户所在城市来查询客户列表，在客户没有登记电话号码时强制客户登记号码。 状语要清晰得说明用户故事所处的情况，能够区分类似的用户故事。</p><h3 id="二、故事描述"><a href="#二、故事描述" class="headerlink" title="二、故事描述"></a><strong>二、故事描述</strong></h3><p>固定格式“作为……（用户角色），我想要……（完成活动），以便于……（实现价值）”的格式。故事描述一这种三段式表述，相比较于传统需求表述，体现了需求方和需求价值的重要性，也为保证了需求描述的可协商性。</p><h3 id="三、业务规则描述"><a href="#三、业务规则描述" class="headerlink" title="三、业务规则描述"></a><strong>三、业务规则描述</strong></h3><p>为了完成故事，有时需要制定故事的实现规则，涉及的名词定义等。规则描述由产品经理初步制定，在故事讨论后，进行修订确认。写作方式就是一条条穷举列出。注意这里不涉及原型页面和交互规则。</p><h3 id="四、测试规则描述"><a href="#四、测试规则描述" class="headerlink" title="四、测试规则描述"></a><strong>四、测试规则描述</strong></h3><p>为了避免用户故事误读，让抽象的需求变得具体和可测试，需要制定对应测试验收规则，测试规则可描述此用户故事被实现时需要满足的条件（如检查按钮是否存在，主体业务规则是否生效），不需要描述成很详细的测试用例</p><h3 id="五、原型方案"><a href="#五、原型方案" class="headerlink" title="五、原型方案"></a><strong>五、原型方案</strong></h3><p>方案文件一般为附件或原型链接。</p><br/><p>参考文章：<a href="http://www.woshipm.com/user-research/1725897.html">点击进入</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>产品学习篇</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>产品</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>产品学习篇：用户故事原则</title>
+    <link href="/2021/11/02/%E4%BA%A7%E5%93%81%E5%AD%A6%E4%B9%A0%E7%AF%87%EF%BC%9A%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B%E5%8E%9F%E5%88%99/"/>
+    <url>/2021/11/02/%E4%BA%A7%E5%93%81%E5%AD%A6%E4%B9%A0%E7%AF%87%EF%BC%9A%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B%E5%8E%9F%E5%88%99/</url>
+    
+    <content type="html"><![CDATA[<h1 id="用户故事的原则"><a href="#用户故事的原则" class="headerlink" title="用户故事的原则"></a><center>用户故事的原则</center></h1><h3 id="一、INVEST原则"><a href="#一、INVEST原则" class="headerlink" title="一、INVEST原则"></a><strong>一、INVEST原则</strong></h3><br/> <p class="note note-primary">INVEST = Independent, Negotiable, Valuable, Estimable, Small, Testable。</p><br/><p><strong>I</strong>ndependent   独立的</p><p><strong>N</strong>egotiable   可讨论的</p><p><strong>V</strong>aluable to Purchasers or Users   对客户或用户有价值的</p><p><strong>E</strong>stimable   可估计的</p><p><strong>S</strong>mall   小的</p><p><strong>T</strong>estable   可测试的</p><br/><p><strong>Ø Independent：独立性</strong><br>用户故事之间应该具有独立性，不应该依赖于其他的用户故事。如果用户故事存在依赖性那么就会导致用户故事之间存在着不同的优先级，只有被依赖的用户故事完成才能继续开发依赖的用户故事。用户故事之间的依赖使得制定计划、确定优先级、工作量估算都变得很困难。一般可以通过组合用户故事或者分割用户故事来减少用户故事间的相互依赖性。</p><p><strong>Ø Negotiable：可协商</strong><br>用户故事不是签订的商业合同contracts，它是由客户或者PO同开发小组的成员共同协商制定的，如果最开始像商业合同一样设定了太多的条条框框和限制就无法更好的沟通及协商，也就不可能划分出既让客户满意，也能让开发认同的好的用户故事。 </p><p><strong>Ø Valuable：有价值</strong><br>用户故事必须对于最终的用户是有价值的，因此应该站在用户的角度去编写，描述的是一个一个的feature，而非一个一个的task。</p><p><strong>Ø Estimable：可评估</strong><br>开发团队需要去估计一个用户故事以便确定优先级、工作量、安排计划。但是让开发者难以估计故事的问题来自：对于领域知识的缺乏（这种情况下需要更多的沟通），或者故事太大了（这时需要把故事切分成小些的）。</p><p><strong>Ø Small：短小</strong><br>故事应该尽量的短小，当然也不是说越小越好。短小的故事可以减少划分过程中估算的误差，最好的故事是能够在一个迭代周期之内完成的。用户故事越大，在安排计划，工作量估算等方面的风险就会越大。如果太大就应该考虑将其拆分为多个粒度更小的用户故事。</p><p><strong>Ø Testable：可测试</strong><br>个人认为这一点在所有的特性中对于用户故事的重要程度最高。</p><p>首先，如果一个用户故事无法进行测试，那么也就无法判断该故事是否完成。除此之外，对应的验收测试也最好是自动运行的，这样在任何时候都能触发该用户故事的检验。最后，必须在定义了验收测试通过的标准后才能认为故事划分完毕。</p><br/><h3 id="二、二八原则"><a href="#二、二八原则" class="headerlink" title="二、二八原则"></a><strong>二、二八原则</strong></h3><p>根据帕累托原则也就是二八原则，一个迭代80%的价值可能来自于其中20%的用户故事。假如有两种故事拆分方式，当第一种拆分方式将低价值部分拆分成独立的故事，而另一种拆分方式没有做到时，就意味着后一种方式把浪费隐藏到了每个小故事里。此时，应当选择前一种拆分方式，这样可以把低价值的故事直接作废或推迟实现。</p><p>二八原则的验证方法是：<strong>在拆分后的一系列故事中，高价值、中价值、低价值的故事要一目了然，要能很明显找到一个实现它可以得到高价值或能降低大部分风险的故事。</strong> </p> <br/><h3 id="三、故事适中原则"><a href="#三、故事适中原则" class="headerlink" title="三、故事适中原则"></a><strong>三、故事适中原则</strong></h3><p>故事太大不好。故事太大，里面内容庞杂，头绪太多，可能导致无处下手或在一个迭代内无法完成。“小”这一特性要求我们拆分大的故事。但拆分故事时依然要遵循INVEST原则。</p><p>故事太小也不好。比如有的敏捷团队太过细分故事：对于数据库建一个故事、对于UI建一个故事等，这样虽可以满足“小”这一特性，但它却不是“独立的”和“有价值的”。</p><p>故事应该要多小呢?建议每个迭代6~10个故事，当然故事拆分的颗粒度取决于项目团队的生产效率。对很多团队来讲，当一个用户故事庞大到8个甚至13个故事点的时候就需要进行拆分了。</p><p>建议每个迭代内的用户故事的故事点数差别不宜太大，拆分后得到的故事最好规模差不多大。把一个8点的故事拆分成4个2点的故事比拆分成5点和3点的故事更有用，因为PO能更自由地编排优先级。 </p><p>参考文章：<a href="https://www.jianshu.com/p/628d1e4de666">点击打开</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>产品学习篇</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>产品</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>产品学习篇：产品版本号管理指南</title>
-    <link href="/2021/10/28/%E4%BA%A7%E5%93%81%E7%89%88%E6%9C%AC%E5%8F%B7%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97/"/>
-    <url>/2021/10/28/%E4%BA%A7%E5%93%81%E7%89%88%E6%9C%AC%E5%8F%B7%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97/</url>
+    <link href="/2021/10/28/%E4%BA%A7%E5%93%81%E5%AD%A6%E4%B9%A0%E7%AF%87%EF%BC%9A%E4%BA%A7%E5%93%81%E7%89%88%E6%9C%AC%E5%8F%B7%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97/"/>
+    <url>/2021/10/28/%E4%BA%A7%E5%93%81%E5%AD%A6%E4%B9%A0%E7%AF%87%EF%BC%9A%E4%BA%A7%E5%93%81%E7%89%88%E6%9C%AC%E5%8F%B7%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97/</url>
     
     <content type="html"><![CDATA[<h1 id="产品版本号定义规则"><a href="#产品版本号定义规则" class="headerlink" title="产品版本号定义规则"></a><center>产品版本号定义规则</center></h1><h3 id="O产品版本号定义规则"><a href="#O产品版本号定义规则" class="headerlink" title="Ø产品版本号定义规则"></a><strong>Ø产品版本号定义规则</strong></h3><p>参照GNU风格的版本号管理策略：一般版本号为三级，如 “V1.0.0”  ，那么这里有三个数字分别代表什么意思呢？<br><br/><br/><br/></p>  <center><主版本号 . 子版本号 . 修正版本号></center><p><img src="https://s.pc.qq.com/tousu/img/20211028/9161364_1635414759.jpg"><br><br/></p><div class="note note-secondary">            <p>第一个数字是大版本号，一般是比较革命性的</p><p>第二个数字是需求版本，添加新功能。但未对整体带来冲击</p><p>第三个数字是小版本，对需求版本的问题修复或在设计时功能遗留等补充型版本</p>          </div><h3 id="O详解"><a href="#O详解" class="headerlink" title="Ø详解"></a><strong>Ø详解</strong></h3><p>版本号的格式为 X.Y.Z(又称 Major.Minor.Patch)，递增的规则为：<br><br/><br><img src="https://s.pc.qq.com/tousu/img/20211028/2653552_1635414760.jpg"><br><br/></p><div class="note note-secondary">            <p>X 表示主版本号，当 API 的兼容性变化时，X 需递增。</p><p>Y 表示次版本号，当增加功能时(不影响 API 的兼容性)，Y 需递增。</p><p>Z 表示修订号，当做 Bug 修复时(不影响 API 的兼容性)，Z 需递增。</p>          </div><p><br/><br/></p><h3 id="O-详细的规则如下"><a href="#O-详细的规则如下" class="headerlink" title="Ø 详细的规则如下"></a><strong>Ø 详细的规则如下</strong></h3><p>· X, Y, Z 必须为非负整数，且不得包含前导零，必须按数值递增，如 1.9.0 -&gt; 1.10.0 -&gt; 1.11.0</p><p>· 0.Y.Z 的版本号表明软件处于初始开发阶段，意味着 API 可能不稳定；1.0.0 表明版本已有稳定的 API。</p><p>· 当 API 的兼容性变化时，X 必须递增，Y 和 Z 同时设置为 0；当新增功能(不影响 API 的兼容性)或者 API 被标记为 Deprecated 时，Y 必须递增，同时 Z 设置为 0；当进行 bug fix 时，Z 必须递增。</p><p>· 先行版本号(Pre-release)意味该版本不稳定，可能存在兼容性问题，其格式为：X.Y.Z.[a-c][正整数]，如 1.0.0.a1，1.0.0.b99，1.0.0.c1000。</p><p>· 开发版本号常用于 CI-CD，格式为 X.Y.Z.dev[正整数]，如 1.0.1.dev4。</p><p>· 版本号的排序规则为依次比较主版本号、次版本号和修订号的数值，如 1.0.0 &lt; 1.0.1 &lt; 1.1.1 &lt; 2.0.0；对于先行版本号和开发版本号，有：1.0.0.a100 &lt; 1.0.0，2.1.0.dev3 &lt; 2.1.0；当存在字母时，以 ASCII 的排序来比较，如 1.0.0.a1 &lt; 1.0.0.b1。</p><p class="note note-warning"> 注意：版本一经发布，不得修改其内容，任何修改必须在新版本发布！</p><p><br/><br/></p><h3 id="O-版本修饰词"><a href="#O-版本修饰词" class="headerlink" title="Ø 版本修饰词"></a><strong>Ø 版本修饰词</strong></h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs sql">alpha：内部版本<br><br>beta：测试版<br><br>demo：演示版<br><br>enhance：增强版<br><br><span class="hljs-keyword">free</span>：自由版<br><br><span class="hljs-keyword">full</span> version：完整<span class="hljs-keyword">free</span>版，即正式版<br><br>lts：长期维护版本<br><br><span class="hljs-keyword">release</span>：发行版<br><br>rc：即将作为正式版发布<br><br>standard：标准版<br><br>ultimate：旗舰版<br><br>upgrade：升级版<br></code></pre></td></tr></table></figure>]]></content>
     
@@ -29,11 +79,11 @@
   
   
   <entry>
-    <title>个人信息</title>
-    <link href="/2021/10/27/%E6%AC%A2%E8%BF%8E%E8%AE%BF%E9%97%AE/"/>
-    <url>/2021/10/27/%E6%AC%A2%E8%BF%8E%E8%AE%BF%E9%97%AE/</url>
+    <title>来！交个朋友</title>
+    <link href="/2021/10/27/hello/"/>
+    <url>/2021/10/27/hello/</url>
     
-    <content type="html"><![CDATA[<br/><p>😍My博客地址：<a href="https://aluluvip.github.io/">点击进入</a></p><p>💎Github地址：<a href="https://github.com/aluluvip">点击进入</a></p><p>❤️Hexo文档：<a href="https://hexo.io/zh-cn/docs/">点击进入</a></p><p>😊Fulid文档：<a href="https://github.com/fluid-dev/hexo-theme-fluid">Github</a> <a href="https://hexo.fluid-dev.com/docs/start/">文档</a> <a href="https://hexo.fluid-dev.com/docs/guide/#%E5%85%B3%E4%BA%8E%E6%8C%87%E5%8D%97">配置指南</a></p><p>🙎‍♂️微博地址：<a href="https://weibo.com/u/2681023174">点击进入</a></p><p>📧邮箱地址：<a href="mailto:&#x31;&#x30;&#x30;&#52;&#x35;&#x34;&#x35;&#x34;&#x37;&#55;&#64;&#113;&#113;&#46;&#99;&#x6f;&#x6d;">&#x31;&#x30;&#x30;&#52;&#x35;&#x34;&#x35;&#x34;&#x37;&#55;&#64;&#113;&#113;&#46;&#99;&#x6f;&#x6d;</a></p><p>🧩壁纸网站：<a href="https://wallhaven.cc/">点击进入</a></p><br/><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">君子性非异也，善假于物也 ——《荀子·劝学》<br></code></pre></td></tr></table></figure><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>更新时间：2021/10/27</p><p class="note note-primary">标签</p>]]></content>
+    <content type="html"><![CDATA[<br/><p>😍My博客地址：<a href="https://aluluvip.github.io/">点击进入</a></p><p>💎Github地址：<a href="https://github.com/aluluvip">点击进入</a></p><p>❤️Hexo文档：<a href="https://hexo.io/zh-cn/docs/">点击进入</a></p><p>😊Fulid文档：<a href="https://github.com/fluid-dev/hexo-theme-fluid">Github</a> <a href="https://hexo.fluid-dev.com/docs/start/">文档</a> <a href="https://hexo.fluid-dev.com/docs/guide/#%E5%85%B3%E4%BA%8E%E6%8C%87%E5%8D%97">配置指南</a></p><p>🙎‍♂️微博地址：<a href="https://weibo.com/u/2681023174">点击进入</a></p><p>📧邮箱地址：<a href="mailto:&#x31;&#48;&#x30;&#52;&#53;&#x34;&#x35;&#x34;&#55;&#x37;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#x31;&#48;&#x30;&#52;&#53;&#x34;&#x35;&#x34;&#55;&#x37;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a></p><p>🧩壁纸网站：<a href="https://wallhaven.cc/">点击进入</a></p><br/><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">君子性非异也，善假于物也 ——《荀子·劝学》<br></code></pre></td></tr></table></figure><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>更新时间：2021/10/27</p><p class="note note-primary">标签</p>]]></content>
     
     
     <categories>
