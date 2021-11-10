@@ -18,8 +18,6 @@
 
 🧩壁纸网站：[点击进入](https://wallhaven.cc/)
 
-🍻图床网站：[SM.MS](https://sm.ms/) [聚合图床](https://www.superbed.cn/)
-
 <br/>
 
 
