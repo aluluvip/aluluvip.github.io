@@ -228,6 +228,33 @@
 
 
 
+  <!-- Comments -->
+  <article class="comments" id="comments" lazyload>
+    
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","appKey":"cjwJFQpntIttGigAWARy8Vjr","path":"window.location.pathname","placeholder":"请友善发言评论哦...","avatar":"identicon","meta":["nick"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://accauok7.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"el":"#vcomment"},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
 
               </div>
             </div>
