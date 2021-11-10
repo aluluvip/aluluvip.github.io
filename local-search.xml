@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>折腾篇：用Github+PicGo搭建免费图床</title>
+    <link href="/2021/11/10/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%94%A8Github-PicGo%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/"/>
+    <url>/2021/11/10/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%94%A8Github-PicGo%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</url>
+    
+    <content type="html"><![CDATA[<h1 id="用Github-PicGo搭建免费图床"><a href="#用Github-PicGo搭建免费图床" class="headerlink" title="用Github+PicGo搭建免费图床"></a><center>用Github+PicGo搭建免费图床</center></h1><p class="note note-success"> <b style="font-size:24px;color:#5CB85C">导语</b> <br/>Github的免费图床教程来了，永远相信美好的事情即将发生！</p><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言<br/></h3><p>个人图床的必要性观点我在<a href="https://blog.luluvip.cn/2021/11/09/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">《折腾篇：用阿里云OSS搭建图床》</a>的博文中已经论述过了，今天也给大家带来Github的搭建图床的教程，Github的强大能力足以支撑图床运行，再加上其单个仓库1GB的免费存储空间（官方建议，可以更大），足够个人用户使用，图床自用的话建议还是传压缩后的图片来生成外链，下边我也会推荐我在用的压缩图片网站。<br/></p><h3 id="搭建方法"><a href="#搭建方法" class="headerlink" title="搭建方法"></a>搭建方法<br/></h3><h4 id="一、搭建思路：PicGo-Github"><a href="#一、搭建思路：PicGo-Github" class="headerlink" title="一、搭建思路：PicGo+Github"></a><strong>一、搭建思路：PicGo+Github</strong><br/></h4><p>PicGo的详细介绍可以查看：<a href="https://molunerfinn.com/PicGo/">官方网站</a>，它支持基于electron-vue开发，支持<span class="label label-primary">macOS</span>，<span class="label label-primary">Windows</span>，<span class="label label-primary">Linux</span>多个桌面系统环境。图床原理就是上传图片到云服务器，并能通过互联网访问到图片的路径，比如我的博客中插入的图片，就存储在云仓库中，如果从仓库中删除，则博文中对应图片就无法正常查看了。<br/></p><p>基于此原理：</p><ul><li>我们需要有一个云仓库，也就是今天要使用的Github仓库</li><li>还需要有一个上传工具，也就是上边提到的工具PicGo</li><li>需要上传工具和云仓库能关联，则需要在工具中进行配置仓库信息</li></ul><p>如下，已知Github在PicGo中的图床关联配置需要这些参数，抓紧时间去获取吧！<br/></p><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20211110110420.png"></p><h4 id="二、Github操作方法"><a href="#二、Github操作方法" class="headerlink" title="二、Github操作方法"></a><strong>二、Github操作方法</strong><br/></h4><p><strong>1.</strong> 首先你得有一个GitHub账号。注册GitHub就不用我多言。<br/></p><p><strong>2.</strong> 新建一个仓库，记下你取的仓库名。<br/></p><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/create_new_repo.png" alt="新建仓库"></p><p><strong>3.</strong> 生成一个token用于PicGo操作你的仓库：</p><p>访问：<a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p><p>然后点击<code>Generate new token</code>。<br/></p><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/generate_new_token.png" alt="创建新Token"></p><p><strong>4.</strong> 把repo的勾打上即可。然后翻到页面最底部，点击<code>Generate token</code>的绿色按钮生成token<br/></p><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/20180508210435.png"></p><p><strong>5.</strong> 把生成的token复制一下存到其他地方以备以后要用<br/></p><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/copy_token.png" alt="复制Token"></p><p class="note note-warning"> <b style="font-size:20px;color:#E7C000">注意</b> <br/>这个token生成后只会显示一次！一定要把这个token复制一下存到其他地方以备以后要用！</p><h4 id="三、配置PicGo工具"><a href="#三、配置PicGo工具" class="headerlink" title="三、配置PicGo工具"></a><strong>三、配置PicGo工具</strong><br/></h4><p>仓库名的格式是<code>用户名/仓库</code>，比如我创建了一个叫做<code>Pic</code>的仓库，在PicGo里我要设定的仓库名就是<code>aluluvip/pic</code>。一般我们选择<code>main</code>分支即可。然后记得点击确定以生效，然后可以点击<code>设为默认图床</code>来确保上传的图床是GitHub。</p><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20211110110420.png" alt="图床配置"><br/></p><p>至此配置完毕，已经可以使用了。当你上传的时候，你会发现你的仓库里也会增加新的图片了：</p><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/success.png" alt="效果"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>折腾记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>图床</tag>
+      
+      <tag>折腾</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>折腾篇：用阿里云OSS搭建图床</title>
     <link href="/2021/11/09/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
     <url>/2021/11/09/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
@@ -47,9 +74,9 @@
     
     <tags>
       
-      <tag>产品</tag>
-      
       <tag>个人</tag>
+      
+      <tag>产品</tag>
       
     </tags>
     
@@ -137,7 +164,7 @@
     <link href="/2021/10/27/hello/"/>
     <url>/2021/10/27/hello/</url>
     
-    <content type="html"><![CDATA[<br/><p>😍My博客地址：<a href="https://aluluvip.github.io/">点击进入</a></p><p>💎Github地址：<a href="https://github.com/aluluvip">点击进入</a></p><p>❤️Hexo文档：<a href="https://hexo.io/zh-cn/docs/">点击进入</a></p><p>😊Fulid文档：<a href="https://github.com/fluid-dev/hexo-theme-fluid">Github</a> <a href="https://hexo.fluid-dev.com/docs/start/">文档</a> <a href="https://hexo.fluid-dev.com/docs/guide/#%E5%85%B3%E4%BA%8E%E6%8C%87%E5%8D%97">配置指南</a></p><p>🙎‍♂️微博地址：<a href="https://weibo.com/u/2681023174">点击进入</a></p><p>📧邮箱地址：<a href="mailto:&#x31;&#x30;&#x30;&#x34;&#53;&#52;&#53;&#52;&#55;&#x37;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x31;&#x30;&#x30;&#x34;&#53;&#52;&#53;&#52;&#55;&#x37;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></p><p>🧩壁纸网站：<a href="https://wallhaven.cc/">点击进入</a></p><br/><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">君子性非异也，善假于物也 ——《荀子·劝学》<br></code></pre></td></tr></table></figure><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>更新时间：2021/10/27</p>]]></content>
+    <content type="html"><![CDATA[<br/><p>😍My博客地址：<a href="https://aluluvip.github.io/">点击进入</a></p><p>💎Github地址：<a href="https://github.com/aluluvip">点击进入</a></p><p>❤️Hexo文档：<a href="https://hexo.io/zh-cn/docs/">点击进入</a></p><p>😊Fulid文档：<a href="https://github.com/fluid-dev/hexo-theme-fluid">Github</a> <a href="https://hexo.fluid-dev.com/docs/start/">文档</a> <a href="https://hexo.fluid-dev.com/docs/guide/#%E5%85%B3%E4%BA%8E%E6%8C%87%E5%8D%97">配置指南</a></p><p>🙎‍♂️微博地址：<a href="https://weibo.com/u/2681023174">点击进入</a></p><p>📧邮箱地址：<a href="mailto:&#49;&#48;&#48;&#x34;&#x35;&#x34;&#x35;&#52;&#x37;&#x37;&#64;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#49;&#48;&#48;&#x34;&#x35;&#x34;&#x35;&#52;&#x37;&#x37;&#64;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></p><p>🧩壁纸网站：<a href="https://wallhaven.cc/">点击进入</a></p><br/><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">君子性非异也，善假于物也 ——《荀子·劝学》<br></code></pre></td></tr></table></figure><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>更新时间：2021/10/27</p>]]></content>
     
     
     <categories>
