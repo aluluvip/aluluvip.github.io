@@ -13,21 +13,42 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
+  <meta name="description" content="学会后就删了sourcetree吧！">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="http://example.com/archives/2021/10/index.html">
+  <meta name="description" content="学会后就删了sourcetree吧！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="磁头笔记：使用Git命令提交代码">
+<meta property="og:url" content="http://example.com/2022/02/09/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0%EF%BC%9A%E4%BD%BF%E7%94%A8Git%E5%91%BD%E4%BB%A4%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81/index.html">
 <meta property="og:site_name" content="一只路路">
+<meta property="og:description" content="学会后就删了sourcetree吧！">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-09T08:19:15.000Z">
+<meta property="article:modified_time" content="2022-02-09T08:48:40.319Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="代码">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>归档 - 一只路路</title>
+  <title>磁头笔记：使用Git命令提交代码 - 一只路路</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -54,7 +75,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -138,14 +159,48 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://luluvippic.oss-cn-beijing.aliyuncs.com/img/2.png') no-repeat center center;
+         style="background: url('https://luluvippic.oss-cn-beijing.aliyuncs.com/img/20220209162152.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="磁头笔记：使用Git命令提交代码">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-09 16:19" pubdate>
+        2022年2月9日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      248 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      1 分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -158,46 +213,108 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 15 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021/10/28/%E4%BA%A7%E5%93%81%E5%AD%A6%E4%B9%A0%E7%AF%87%EF%BC%9A%E4%BA%A7%E5%93%81%E7%89%88%E6%9C%AC%E5%8F%B7%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">产品学习篇：产品版本号管理指南</span>
-      <time style="float: right;">10-28</time>
-    </a>
-  
-    
-    <a href="/2021/10/27/%E6%9D%A5%EF%BC%81%E4%BA%A4%E4%B8%AA%E6%9C%8B%E5%8F%8B%EF%BC%81/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">来！交个朋友</span>
-      <time style="float: right;">10-27</time>
-    </a>
-  
-</div>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">磁头笔记：使用Git命令提交代码</h1>
+            
+            <div class="markdown-body">
+              <h1 id="磁头笔记：使用Git命令提交代码"><a href="#磁头笔记：使用Git命令提交代码" class="headerlink" title="磁头笔记：使用Git命令提交代码"></a><center>磁头笔记：使用Git命令提交代码</center></h1><p class="note note-success"> 
+<b style="font-size:24px;color:#5CB85C">导语</b> <br/>
+Git还是非常方便的，常用命令要牢记！
+</p>
 
 
+</br>
 
+<h4 id="一、查看修改过的文件"><a href="#一、查看修改过的文件" class="headerlink" title="一、查看修改过的文件"></a>一、查看修改过的文件</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git status</span><br></code></pre></td></tr></table></figure>
 
+<h4 id="二、提交修改过的文件至缓存区"><a href="#二、提交修改过的文件至缓存区" class="headerlink" title="二、提交修改过的文件至缓存区"></a>二、提交修改过的文件至缓存区</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">git <span class="hljs-keyword">add</span> .    <span class="hljs-meta">#提交全部修改文件</span><br>git <span class="hljs-keyword">add</span> XXX  <span class="hljs-meta">#提交指定文件</span><br></code></pre></td></tr></table></figure>
 
-              </div>
+<h4 id="三、填写提交备注信息"><a href="#三、填写提交备注信息" class="headerlink" title="三、填写提交备注信息"></a>三、填写提交备注信息</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">git</span> commit -m <span class="hljs-string">&quot;提交备注信息&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="四、拉取远端代码合并"><a href="#四、拉取远端代码合并" class="headerlink" title="四、拉取远端代码合并"></a>四、拉取远端代码合并</h4><p>git push <code>远端仓库名</code> <code>远端仓库分支名</code></p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">例如 git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> main<br></code></pre></td></tr></table></figure>
+
+<h4 id="五、推送合并后的代码至远端仓库"><a href="#五、推送合并后的代码至远端仓库" class="headerlink" title="五、推送合并后的代码至远端仓库"></a>五、推送合并后的代码至远端仓库</h4><p>git pull <code>远端仓库名</code> <code>远端仓库分支名</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">例如 git pull origin <span class="hljs-selector-tag">main</span><br></code></pre></td></tr></table></figure>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%BB%A3%E7%A0%81/">代码</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/27/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9APicGo-VS%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+                        <span class="hidden-mobile">折腾篇：PicGo-VS插件安装使用教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -304,6 +421,19 @@
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
