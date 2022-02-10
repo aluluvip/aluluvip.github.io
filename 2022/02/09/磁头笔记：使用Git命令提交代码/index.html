@@ -24,7 +24,7 @@
 <meta property="og:description" content="学会后就删了sourcetree吧！">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-09T08:19:15.000Z">
-<meta property="article:modified_time" content="2022-02-09T08:48:40.319Z">
+<meta property="article:modified_time" content="2022-02-10T16:01:27.643Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="代码">
 <meta property="article:tag" content="Git">
@@ -185,7 +185,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      248 字
+      512 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      2 分钟
     </span>
   
 
@@ -226,7 +226,7 @@
             <h1 style="display: none">磁头笔记：使用Git命令提交代码</h1>
             
             <div class="markdown-body">
-              <h1 id="磁头笔记：使用Git命令提交代码"><a href="#磁头笔记：使用Git命令提交代码" class="headerlink" title="磁头笔记：使用Git命令提交代码"></a><center>磁头笔记：使用Git命令提交代码</center></h1><p class="note note-success"> 
+              <h1 id="磁头笔记：常用的Git命令整理"><a href="#磁头笔记：常用的Git命令整理" class="headerlink" title="磁头笔记：常用的Git命令整理"></a><center>磁头笔记：常用的Git命令整理</center></h1><p class="note note-success"> 
 <b style="font-size:24px;color:#5CB85C">导语</b> <br/>
 Git还是非常方便的，常用命令要牢记！
 </p>
@@ -234,7 +234,7 @@ Git还是非常方便的，常用命令要牢记！
 
 </br>
 
-<h4 id="一、查看修改过的文件"><a href="#一、查看修改过的文件" class="headerlink" title="一、查看修改过的文件"></a>一、查看修改过的文件</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git status</span><br></code></pre></td></tr></table></figure>
+<h2 id="使用Git来提交代码"><a href="#使用Git来提交代码" class="headerlink" title="使用Git来提交代码"></a>使用Git来提交代码</h2><h4 id="一、查看修改过的文件"><a href="#一、查看修改过的文件" class="headerlink" title="一、查看修改过的文件"></a>一、查看修改过的文件</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git status</span><br></code></pre></td></tr></table></figure>
 
 <h4 id="二、提交修改过的文件至缓存区"><a href="#二、提交修改过的文件至缓存区" class="headerlink" title="二、提交修改过的文件至缓存区"></a>二、提交修改过的文件至缓存区</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">git <span class="hljs-keyword">add</span> .    <span class="hljs-meta">#提交全部修改文件</span><br>git <span class="hljs-keyword">add</span> XXX  <span class="hljs-meta">#提交指定文件</span><br></code></pre></td></tr></table></figure>
 
@@ -245,6 +245,19 @@ Git还是非常方便的，常用命令要牢记！
 
 <h4 id="五、推送合并后的代码至远端仓库"><a href="#五、推送合并后的代码至远端仓库" class="headerlink" title="五、推送合并后的代码至远端仓库"></a>五、推送合并后的代码至远端仓库</h4><p>git pull <code>远端仓库名</code> <code>远端仓库分支名</code></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">例如 git pull origin <span class="hljs-selector-tag">main</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="使用Git管理代码分支"><a href="#使用Git管理代码分支" class="headerlink" title="使用Git管理代码分支"></a>使用Git管理代码分支</h2><h4 id="一、查看当前项目所有分支"><a href="#一、查看当前项目所有分支" class="headerlink" title="一、查看当前项目所有分支"></a>一、查看当前项目所有分支</h4><p>可使用<code>shift</code> + <code>i</code> 输入 <code>q</code> 退出查看</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git branch</span><br></code></pre></td></tr></table></figure>
+<h4 id="二、新增一个分支"><a href="#二、新增一个分支" class="headerlink" title="二、新增一个分支"></a>二、新增一个分支</h4><p>想要新建一个分支并同时切换到那个分支上，你可以运行一个带有 <code>-b</code> 参数的 <code>git checkout</code> 命令，如新建一个 <code>newbranch</code> 分支如下：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">git</span> checkout -<span class="hljs-keyword">b</span> newbranch<br></code></pre></td></tr></table></figure>
+<p>它是下面两条命令的简写：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs haxe">git branch <span class="hljs-keyword">new</span><span class="hljs-type">branch</span><br>git checkout <span class="hljs-keyword">new</span><span class="hljs-type">branch</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="三、删除一个分支"><a href="#三、删除一个分支" class="headerlink" title="三、删除一个分支"></a>三、删除一个分支</h4><p>需要切换到其他分支后执行：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git branch -D newbranch</span><br></code></pre></td></tr></table></figure>
+
+<p>参考官方中文Book：<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">查看</a></p>
+
             </div>
             <hr>
             <div>
