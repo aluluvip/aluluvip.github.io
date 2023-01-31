@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机音乐页面</title>
+    <style type="text/css">
+        body{
+            background:#E7EBF0 url(./images/bg-1.jpg)
+        }
+        .big{
+            text-align: center;
+            align-items: center;
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            background: #F1F3F4;
+            padding: 20px 20px 20px 20px;
+            border-radius: 6px;
+        }
+        #p1{
+            color: rgb(9, 133, 241);
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 4pt;
+        }
+        #p3{
+            color:#606060;
+            font-size: 14px;
+        }
+        .btn{
+            width: 200px;
+            height: 50px;
+            background-color: rgb(9, 133, 241);
+            border: 0px;
+            color: #fff;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="big">
+    <!--歌曲封面-->
+    <div><img src="./images/1.jpg" id="img" width="400px" height="400px"></div>
+
+    <!--歌曲名称-->
+    <p id="p1">歌曲名</p>
+
+    <!--歌手名称-->
+    <p id="p3">歌手</p>
+
+    <!-- 在线播放器，默认宽度300px;高度54px -->
+    <div class="lin1" style="height:auto;justify-content: center;margin:0px 0 30px 0">
+        <audio controls="controls" preload="auto" playsinline="" webkit-playsinline="" loop="" style="width: 400px;" >
+            <source src="" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!--刷新按钮：换一首-->
+    <button class="btn" onclick="location.replace(location)" style="">换 一 首</button>
+
+</div>
+
+
+<!--引用接口数据-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $(function() {
+        // 点击‘一键获取’按钮
+            let share = "";
+            $.ajax({
+                // sort 选择输出分类[热歌榜/新歌榜/飙升榜/抖音榜/电音榜]，为空输出热歌榜
+                // mid	网易云歌单ID
+                // format 选择输出格式[json/mp3]
+                url: 'https://api.uomg.com/api/rand.music?sort=%E7%83%AD%E6%AD%8C%E6%A6%9C&format=json',  // 接口请求地址
+                type: "GET", // 请求方式 ("POST" 或 "GET")， 默认为 "GET"
+                dataType: "json",  // 返回的数据类型
+                // 请求参数
+                data: {
+                },
+                // 请求成功后的回调函数
+                success: function(json){
+                    $("#p1").text(json.data.name);
+                    $("#img").attr("src",json.data.picurl);
+                    $("#p3").text(json.data.artistsname);
+                    $("#p4").text(json.data.url);
+                    $("audio").attr("src",json.data.url);
+                },
+                // 请求失败时调用此函数
+                error:function() {
+                    alert("连接失败！");
+                }
+            });
+        });
+</script>
+
+</body>
+</html>
