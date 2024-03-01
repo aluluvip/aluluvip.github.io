@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="R2s软路由固件整理">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="R2s软路由固件整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="折腾篇：R2S-Openwrt固件整理">
+<meta property="og:url" content="http://example.com/2021/11/13/2021/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9AR2S-Openwrt%E5%9B%BA%E4%BB%B6%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="一只路路">
+<meta property="og:description" content="R2s软路由固件整理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bigdongdong.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MOj4TndW1aJFvpWDOor%2F-MV_l8XtlbwCjJTte4RK%2F-MV_l_wpxSZSG5U_1RZy%2F%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210312173012.png?alt=media&token=b2a1dc8f-6d7e-4ef5-892c-fa449b51d5cf">
+<meta property="og:image" content="https://bigdongdong.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MOj4TndW1aJFvpWDOor%2F-MfWbSBE1U3bllq311JN%2F-MfWbWEFXn0Mh90Jou8P%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210726150039.png?alt=media&token=218f291e-03a3-4328-817c-14fd59c161d8">
+<meta property="article:published_time" content="2021-11-13T08:06:18.000Z">
+<meta property="article:modified_time" content="2024-03-01T09:08:25.237Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="R2S">
+<meta property="article:tag" content="软路由">
+<meta property="article:tag" content="固件">
+<meta property="article:tag" content="Openwrt">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bigdongdong.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MOj4TndW1aJFvpWDOor%2F-MV_l8XtlbwCjJTte4RK%2F-MV_l_wpxSZSG5U_1RZy%2F%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210312173012.png?alt=media&token=b2a1dc8f-6d7e-4ef5-892c-fa449b51d5cf">
+  
+  <title>折腾篇：R2S-Openwrt固件整理 - 一只路路</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="一只路路" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lulu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://blog.luluvip.cn/music/">
+                <i class="iconfont icon-music"></i>
+                音乐
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://luluvippic.oss-cn-beijing.aliyuncs.com/img/109379158.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="折腾篇：R2S-Openwrt固件整理">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-13 16:06" pubdate>
+        2021年11月13日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      204 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      1 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">折腾篇：R2S-Openwrt固件整理</h1>
+            
+            <div class="markdown-body">
+              <h1 id="R2S-Openwrt固件整理"><a href="#R2S-Openwrt固件整理" class="headerlink" title="R2S-Openwrt固件整理"></a><center>R2S-Openwrt固件整理</center></h1><p class="note note-success"> 
+<b style="font-size:24px;color:#5CB85C">导语</b> <br/>
+为方便小伙伴们查找R2S软路由的安装包，以下是我整理的部分Github大牛的固件编译地址，请取用。
+</p>
+
+</br>
+
+<h4 id="一、下载-烧录方法"><a href="#一、下载-烧录方法" class="headerlink" title="一、下载&#x2F;烧录方法"></a><strong>一、下载&#x2F;烧录方法</strong></h4><hr>
+<p><img src="https://bigdongdong.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MOj4TndW1aJFvpWDOor%2F-MV_l8XtlbwCjJTte4RK%2F-MV_l_wpxSZSG5U_1RZy%2F%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210312173012.png?alt=media&token=b2a1dc8f-6d7e-4ef5-892c-fa449b51d5cf" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://bigdongdong.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MOj4TndW1aJFvpWDOor%2F-MfWbSBE1U3bllq311JN%2F-MfWbWEFXn0Mh90Jou8P%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210726150039.png?alt=media&token=218f291e-03a3-4328-817c-14fd59c161d8" srcset="/img/loading.gif" lazyload></p>
+<hr>
+<h4 id="二、固件清单"><a href="#二、固件清单" class="headerlink" title="二、固件清单"></a><strong>二、固件清单</strong></h4><table width="100%" border="0.1">
+    <tr>
+        <td width="300px" nowarp><b>序号</b></td>
+        <td width="300px" nowarp><b>固件名称</b></td>
+        <td width="300px" nowarp><b>固件地址</b></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>小朋友</td>
+        <td><a target="_blank" rel="noopener" href="https://github.com/thomaswcy/R2S">点击进入</a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>骷髅头</td>
+        <td><a target="_blank" rel="noopener" href="https://github.com/DHDAXCW/NanoPi-R2S-2021">点击进入</a></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>soffchen</td>
+        <td><a target="_blank" rel="noopener" href="https://github.com/soffchen/NanoPi-R2S">点击进入</a></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>QiuSimons GC404</td>
+        <td><a target="_blank" rel="noopener" href="https://github.com/QiuSimons/R2S-OpenWrt">点击进入</a></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>klever 1988</td>
+        <td><a target="_blank" rel="noopener" href="https://github.com/klever1988/nanopi-openwrt">点击进入</a></td>
+    </tr>
+</table>
+
+<p>参考地址：<a target="_blank" rel="noopener" href="https://bigdongdong.gitbook.io/nanopi-r2s/r2srotherfirmware">点击进入</a></p>
+<hr>
+<h4 id="三、写盘工具"><a href="#三、写盘工具" class="headerlink" title="三、写盘工具"></a><strong>三、写盘工具</strong></h4><ul>
+<li>balena Etcher：<a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">点击进入</a></li>
+<li>SD卡格式化工具：<a target="_blank" rel="noopener" href="https://www.sdcard.org/">点击进入</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0/">折腾记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/R2S/">R2S</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/">软路由</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%9B%BA%E4%BB%B6/">固件</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Openwrt/">Openwrt</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/22/2021/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0%EF%BC%9AMac%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">磁头笔记：Mac系统常用快捷键大全</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/10/2021/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%94%A8Github-PicGo%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/">
+                        <span class="hidden-mobile">折腾篇：用Github+PicGo搭建免费图床</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <i class="iconfont icon-love"></i> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>&nbsp;&nbsp; <i class="iconfont icon-github-fill"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>&nbsp;&nbsp; <i class="iconfont icon-code"></i> <a href="https://blog.luluvip.cn" target="_blank" rel="nofollow noopener"><span>Lulu</span></a> &nbsp;&nbsp; <i class="iconfont icon-rss"></i> <a href="https://blog.luluvip.cn/atom.xml" target="_blank" rel="nofollow noopener"><span>Rss</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.staticfile.org/anchor-js/4.2.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
