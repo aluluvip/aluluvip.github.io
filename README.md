@@ -6,31 +6,33 @@
   <br>
 </h1>
 
-
-一只路路的博客，基于 Hexo+Github+[Typora](https://www.typora.io/)+[SourceTree](https://www.sourcetreeapp.com/)+Git 工具搭建，正在研究，稍后就来~
-
+<p align="center">
+<a href="https://forthebadge.com/"><img src="https://forthebadge.com/images/badges/made-with-markdown.svg" alt="forthebadge" height="30"></a>
+</p>
 <br/>
 
-😍My博客地址：[点击进入](https://aluluvip.github.io)
+<p align="center"><b>Lulu's Blog</b> 
+基于 markdown+Hexo+Github+Git 工具搭建~
+</p>
 
-💎Github地址：[点击进入](https://github.com/aluluvip)
+<p align="center">
+  <a href="https://blog.luluvip.cn">博客</a> |
+  <a href="https://github.com/aluluvip">Github</a> |
+  <a href="https://weibo.com/u/2681023174">微博</a> |
+  <a href="1004545477@qq.com">邮箱</a> |
+  <a href="https://hexo.io/zh-cn/docs/">Hexo</a> |
+  <a href="https://hexo.fluid-dev.com/docs/start/">Fulid</a> 
+</p>
 
-❤️Hexo文档：[点击进入](https://hexo.io/zh-cn/docs/)
-
-😊Fulid文档：[Github](https://github.com/fluid-dev/hexo-theme-fluid) [文档](https://hexo.fluid-dev.com/docs/start/) [配置指南](https://hexo.fluid-dev.com/docs/guide/#%E5%85%B3%E4%BA%8E%E6%8C%87%E5%8D%97)
-
-🙎‍♂️微博地址：[点击进入](https://weibo.com/u/2681023174)
-
-📧邮箱地址：1004545477@qq.com
-
-🧩壁纸网站：[点击进入](https://wallhaven.cc/)
-
+<br/>
+<br/>
+<br/>
 <br/>
 
 
-```
+<p align="center" style="font-size:12px;color:#999999;">
 君子生非异也，善假于物也 ——《荀子·劝学》
-```
-##  
+</p>
 
-更新时间：2024/04/17
+
+
