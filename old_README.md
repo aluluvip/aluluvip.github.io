@@ -1,12 +1,3 @@
-<h1 align="center">
-  <br>
-  <a href="https://blog.luluvip.cn"><img src="/img/logo.png" alt="luluvip" height="80"></a>
-  <br>
-  <b>Lulu's Blog</b>
-  <br>
-</h1>
-
-
 ## [一只路路的博客](https://aluluvip.github.io)
 
 一只路路的博客，基于 Hexo+Github+[Typora](https://www.typora.io/)+[SourceTree](https://www.sourcetreeapp.com/)+Git 工具搭建，正在研究，稍后就来~
