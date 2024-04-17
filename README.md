@@ -7,8 +7,6 @@
 </h1>
 
 
-## [一只路路的博客](https://aluluvip.github.io)
-
 一只路路的博客，基于 Hexo+Github+[Typora](https://www.typora.io/)+[SourceTree](https://www.sourcetreeapp.com/)+Git 工具搭建，正在研究，稍后就来~
 
 <br/>
@@ -31,8 +29,8 @@
 
 
 ```
-君子性非异也，善假于物也 ——《荀子·劝学》
+君子生非异也，善假于物也 ——《荀子·劝学》
 ```
 ##  
 
-更新时间：2021/10/27
+更新时间：2024/04/17
