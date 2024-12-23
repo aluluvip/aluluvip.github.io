@@ -1,8 +1,7 @@
 <h1 align="center">
   <br>
-  <a href="https://blog.luluvip.cn"><img src="/img/logo.png" alt="luluvip" height="80"></a>
   <br>
-  <b>Lulu's Blog</b>
+  <b style="color:#00008B">Lulu's Blog</b>
   <br>
 </h1>
 
