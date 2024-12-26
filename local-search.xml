@@ -4,7 +4,34 @@
   
   
   <entry>
-    <title>Debian创建桌面快捷方式</title>
+    <title>磁头笔记：VScode记住git仓库账号和密码</title>
+    <link href="/2024/12/26/2024/vscode%E8%AE%B0%E4%BD%8Fgit%E4%BB%93%E5%BA%93%E8%B4%A6%E5%8F%B7%E5%92%8C%E5%AF%86%E7%A0%81/"/>
+    <url>/2024/12/26/2024/vscode%E8%AE%B0%E4%BD%8Fgit%E4%BB%93%E5%BA%93%E8%B4%A6%E5%8F%B7%E5%92%8C%E5%AF%86%E7%A0%81/</url>
+    
+    <content type="html"><![CDATA[<h1 id="VScode记住git仓库账号和密码"><a href="#VScode记住git仓库账号和密码" class="headerlink" title="VScode记住git仓库账号和密码"></a><center>VScode记住git仓库账号和密码</center></h1><p>1、<strong>初始化</strong>（在git上操作）</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> <span class="hljs-string">&quot;用户名&quot;</span> <br>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> <span class="hljs-string">&quot;用户邮箱&quot;</span><br>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> credential<span class="hljs-variable">.helper</span> store<br></code></pre></td></tr></table></figure><p>2、<strong>关闭vscode重新进入</strong><br>只需要输入一次账号密码，就会记住密码</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>个人</tag>
+      
+      <tag>产品</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>磁头笔记：Debian创建桌面快捷方式</title>
     <link href="/2024/12/26/2024/debian-%E5%88%9B%E5%BB%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/"/>
     <url>/2024/12/26/2024/debian-%E5%88%9B%E5%BB%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/</url>
     
@@ -13,7 +40,7 @@
     
     <categories>
       
-      <category>分类</category>
+      <category>笔记</category>
       
     </categories>
     
@@ -31,7 +58,7 @@
   
   
   <entry>
-    <title>MSI安装2502、2503报错</title>
+    <title>磁头笔记：MSI安装2502、2503报错</title>
     <link href="/2024/12/23/2024/Windows-%E5%AE%89%E8%A3%85msi%E5%AE%89%E8%A3%85%E5%8C%85%E6%97%B6%E5%87%BA%E7%8E%B02502%E3%80%812503%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
     <url>/2024/12/23/2024/Windows-%E5%AE%89%E8%A3%85msi%E5%AE%89%E8%A3%85%E5%8C%85%E6%97%B6%E5%87%BA%E7%8E%B02502%E3%80%812503%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
     
@@ -40,7 +67,7 @@
     
     <categories>
       
-      <category>分类</category>
+      <category>笔记</category>
       
     </categories>
     
@@ -58,7 +85,7 @@
   
   
   <entry>
-    <title>linux挂载nas网络硬盘</title>
+    <title>磁头笔记：linux挂载nas网络硬盘</title>
     <link href="/2024/12/23/2024/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8C%82%E8%BD%BDNAS%E8%B7%AF%E5%BE%84/"/>
     <url>/2024/12/23/2024/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8C%82%E8%BD%BDNAS%E8%B7%AF%E5%BE%84/</url>
     
@@ -67,7 +94,7 @@
     
     <categories>
       
-      <category>分类</category>
+      <category>笔记</category>
       
     </categories>
     
@@ -85,7 +112,7 @@
   
   
   <entry>
-    <title>人格类型分类总结归纳</title>
+    <title>分享篇：人格类型分类总结归纳</title>
     <link href="/2024/09/09/2024/%E4%BA%BA%E6%A0%BC%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E6%80%BB%E7%BB%93%E5%BD%92%E7%BA%B3/"/>
     <url>/2024/09/09/2024/%E4%BA%BA%E6%A0%BC%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E6%80%BB%E7%BB%93%E5%BD%92%E7%BA%B3/</url>
     
@@ -110,7 +137,7 @@
   
   
   <entry>
-    <title>近期网站推荐</title>
+    <title>分享篇：近期网站推荐</title>
     <link href="/2024/06/11/2024/%E8%BF%91%E6%9C%9F%E6%94%B6%E8%97%8F%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/"/>
     <url>/2024/06/11/2024/%E8%BF%91%E6%9C%9F%E6%94%B6%E8%97%8F%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/</url>
     
@@ -187,7 +214,7 @@
   
   
   <entry>
-    <title>磁头笔记：电视直播大全</title>
+    <title>分享篇：电视直播大全</title>
     <link href="/2024/05/05/2024/%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD%E5%A4%A7%E5%85%A8/"/>
     <url>/2024/05/05/2024/%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD%E5%A4%A7%E5%85%A8/</url>
     
@@ -196,7 +223,7 @@
     
     <categories>
       
-      <category>笔记</category>
+      <category>有趣分享</category>
       
     </categories>
     
@@ -214,7 +241,7 @@
   
   
   <entry>
-    <title>磁头笔记：Torrent制作&amp;发布PT流程</title>
+    <title>折腾篇：Torrent制作&amp;发布PT流程</title>
     <link href="/2023/08/23/2023/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0%EF%BC%9AqBittorrent%E5%88%B6%E4%BD%9CTorrent&amp;%E5%8F%91%E5%B8%83PT%E6%B5%81%E7%A8%8B/"/>
     <url>/2023/08/23/2023/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0%EF%BC%9AqBittorrent%E5%88%B6%E4%BD%9CTorrent&amp;%E5%8F%91%E5%B8%83PT%E6%B5%81%E7%A8%8B/</url>
     
@@ -223,7 +250,7 @@
     
     <categories>
       
-      <category>笔记</category>
+      <category>折腾记</category>
       
     </categories>
     
@@ -327,7 +354,7 @@
     
     <categories>
       
-      <category>个人</category>
+      <category>产品学习篇</category>
       
     </categories>
     
@@ -430,16 +457,16 @@
   
   
   <entry>
-    <title>磁头笔记：免费壁纸网站大全</title>
-    <link href="/2021/12/13/2021/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%85%8D%E8%B4%B9%E5%A3%81%E7%BA%B8%E7%BD%91%E7%AB%99%E5%A4%A7%E5%85%A8/"/>
-    <url>/2021/12/13/2021/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%85%8D%E8%B4%B9%E5%A3%81%E7%BA%B8%E7%BD%91%E7%AB%99%E5%A4%A7%E5%85%A8/</url>
+    <title>分享篇：免费壁纸网站大全</title>
+    <link href="/2021/12/13/2021/%E5%88%86%E4%BA%AB%E7%AF%87%EF%BC%9A%E5%85%8D%E8%B4%B9%E5%A3%81%E7%BA%B8%E7%BD%91%E7%AB%99%E5%A4%A7%E5%85%A8/"/>
+    <url>/2021/12/13/2021/%E5%88%86%E4%BA%AB%E7%AF%87%EF%BC%9A%E5%85%8D%E8%B4%B9%E5%A3%81%E7%BA%B8%E7%BD%91%E7%AB%99%E5%A4%A7%E5%85%A8/</url>
     
     <content type="html"><![CDATA[<h1 id="免费壁纸网站大全"><a href="#免费壁纸网站大全" class="headerlink" title="免费壁纸网站大全"></a><center>免费壁纸网站大全</center></h1><blockquote><p>排名不分先后，排序根据国内到国外排序。</p></blockquote><h1 id="壁纸湖"><a href="#壁纸湖" class="headerlink" title="壁纸湖"></a>壁纸湖</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/0csMzMxh.png" alt="壁纸湖壁纸"></p><p><a href="http://bizihu.com/">http://bizihu.com</a></p><p>国人维护的壁纸网站，瀑布流无广告，无需登录下载，主要提供手机壁纸。</p><h1 id="3G-壁纸"><a href="#3G-壁纸" class="headerlink" title="3G 壁纸"></a>3G 壁纸</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/6f8a2832gy1gs76j8zs70j20yf0h31d6.jpg" alt="3G壁纸"></p><p><a href="https://www.3gbizhi.com/">https://www.3gbizhi.com</a></p><p>国人维护的壁纸网站，图片清晰度不错，有提供手机、电脑壁纸。</p><h1 id="美图集"><a href="#美图集" class="headerlink" title="美图集"></a>美图集</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/6f8a2832gy1gduw2za4mij20vt0d9q6o.jpg" alt="美图集"></p><p><a href="https://photo.ihansen.org/">https://photo.ihansen.org</a></p><p>国人维护的壁纸网站，图片大多来源 unsplash，图片可用于商业用途，国内访问速度不错。</p><h1 id="搜图神器"><a href="#搜图神器" class="headerlink" title="搜图神器"></a>搜图神器</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/0022DTb4gy1gtl3m37jtjj610h0jyavm02.jpg" alt="搜图神器"></p><p>一键搜索多家免版权图库，可以用作壁纸也可以用于商业，下载比较方便。</p><p><a href="https://www.logosc.cn/so/">https://www.logosc.cn/so/</a></p><h1 id="乌云壁纸"><a href="#乌云壁纸" class="headerlink" title="乌云壁纸"></a>乌云壁纸</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/SUu1w.jpg" alt="乌云壁纸"></p><p><a href="http://www.obzhi.com/">http://www.obzhi.com</a></p><p>国人维护的壁纸网站，分享来自世界各地高质量的桌面电脑壁纸</p><h1 id="极简壁纸"><a href="#极简壁纸" class="headerlink" title="极简壁纸"></a>极简壁纸</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/6f8a2832gy1gduw0eufppj21000i3wlj.jpg" alt="极简壁纸"></p><p><a href="https://bz.zzzmh.cn/">https://bz.zzzmh.cn</a></p><p>国人维护的壁纸网站，图片大多来源 wallhaven 和 unsplash，国内访问目前较慢。</p><h1 id="wallhere"><a href="#wallhere" class="headerlink" title="wallhere"></a>wallhere</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/0022DTb4gy1gtl3cd6ggrj617y0kp4qp02.jpg" alt="wallhere"></p><p><a href="https://wallhere.com/">https://wallhere.com</a></p><p>国外知名的壁纸网站，图片大多来源用户上传，质量高。拥有海量桌面、手机壁纸。</p><h1 id="Wallpaper-abyss"><a href="#Wallpaper-abyss" class="headerlink" title="Wallpaper abyss"></a>Wallpaper abyss</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/6f8a2832gy1gsu60dx5tij20ve0dpgtq.jpg" alt="Wallpaper abyss"></p><p><a href="https://wall.alphacoders.com/">https://wall.alphacoders.com</a></p><p>Wallpaperabyss 是国外知名的壁纸下载网站，分享的壁纸数量很多。</p><h1 id="Wallhaven"><a href="#Wallhaven" class="headerlink" title="Wallhaven"></a>Wallhaven</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/6f8a2832gy1gadl96bn7xj20zr0gw0zx.jpg" alt="免费壁纸网站大全"></p><p><a href="https://wallhaven.cc/">https://wallhaven.cc</a></p><p>国外知名的壁纸网站，图片大多来源用户上传，质量高。拥有海量桌面、手机壁纸。</p><h1 id="WallpaperCave"><a href="#WallpaperCave" class="headerlink" title="WallpaperCave"></a>WallpaperCave</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/6f8a2832gy1gadlpsjralj20st09jack.jpg" alt="WallpaperCave"></p><p>WallpaperCave 是国外知名的壁纸社区，分享的壁纸质量很高。</p><p><a href="https://wallpapercave.com/">https://wallpapercave.com</a></p><h1 id="unsplash"><a href="#unsplash" class="headerlink" title="unsplash"></a>unsplash</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/6f8a2832gy1gadlvk1h8kj21jk0s7q3a.jpg" alt="unsplash"></p><p><a href="https://unsplash.com/t/wallpapers">https://unsplash.com/t/wallpapers</a></p><p>知名的免费无版权图片网站，图片质量很高，经常被作为各种壁纸 app 来源。</p><h1 id="piqsels"><a href="#piqsels" class="headerlink" title="piqsels"></a>piqsels</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/0022DTb4gy1gtl3hc397mj60sb0hfnd102.jpg" alt="piqsels"></p><p><a href="https://www.piqsels.com/zh">https://www.piqsels.com/zh</a></p><p>免费无版权图片网站，图片数量很多，可用做壁纸也可以用作商业用途。</p><h1 id="wallroom"><a href="#wallroom" class="headerlink" title="wallroom"></a>wallroom</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/6f8a2832gy1gadldjxvbyj20p505zdg8.jpg" alt="wallroom"></p><p><a href="https://wallroom.io/">https://wallroom.io</a></p><p>wallroom 的壁纸均为该站站长人工收集，并非用户上传或从网络采集，所以质量较高，壁纸分辨率从 1920 到 8k 不等。</p><p>上方网站可以找到你所喜欢的壁纸，收藏海量网址不如收藏好用的网址。</p><h1 id="bing-每日壁纸"><a href="#bing-每日壁纸" class="headerlink" title="bing 每日壁纸"></a>bing 每日壁纸</h1><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/6f8a2832gy1ge2x7bxiy8j21030hnah6.jpg" alt="bing每日壁纸"></p><p><a href="https://bing.mcloc.cn/">https://bing.mcloc.cn</a></p><p><a href="https://www.todaybing.com/list/detail.html">https://www.todaybing.com/list/detail.html</a></p><p><a href="https://www.microsoft.com/zh-cn/bing/bing-wallpaper">https://www.microsoft.com/zh-cn/bing/bing-wallpaper</a></p><p><a href="https://www.bingimg.cn/list1">https://www.bingimg.cn/list1</a></p><p>主要是同步 bing 官方壁纸，图片加了 cdn 速度比较快，界面也简洁无广告。不错的 bing 壁纸站</p><br/><blockquote><p>转自 <a href="https://iao.su/">不死鸟-分享为王</a></p></blockquote>]]></content>
     
     
     <categories>
       
-      <category>笔记</category>
+      <category>有趣分享</category>
       
     </categories>
     
