@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Debian创建桌面快捷方式</title>
+    <link href="/2024/12/26/2024/debian-%E5%88%9B%E5%BB%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/"/>
+    <url>/2024/12/26/2024/debian-%E5%88%9B%E5%BB%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Debian-创建桌面快捷方式"><a href="#Debian-创建桌面快捷方式" class="headerlink" title="Debian 创建桌面快捷方式"></a><center>Debian 创建桌面快捷方式</center></h1><p>在Debian系统中，Gnome是一种流行的桌面环境。如果你想要在Gnome桌面环境下创建桌面快捷方式，可以按照以下步骤进行操作：</p><p>1、<strong>安装拓展插件：</strong> 首先，你需要安装一个名为<code>gnome-shell-extension-desktop-icons-ng</code>的扩展插件，它允许你在桌面上显示图标和创建快捷方式。</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">sudo apt update<br>sudo apt install gnome-<span class="hljs-built_in">shell</span>-<span class="hljs-built_in">extension</span>-desktop-icons-ng<br></code></pre></td></tr></table></figure><p>2、<strong>重启系统：</strong> 安装完成后，重启你的系统以使扩展生效。</p><p>3、<strong>打开扩展设置：</strong> 重启后，打开Gnome的扩展应用程序，找到并启用Desktop Icons NG扩展。然后，点击扩展的设置按钮，进行相关的配置。</p><p>4、<strong>创建桌面快捷方式：</strong> 你可以使用ln -s命令来创建一个指向目标文件夹的符号链接，作为桌面快捷方式。</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">ln -s [目标文件夹路径] [快捷方式路径]<br>例如：ln -s <span class="hljs-regexp">/home/</span>path<span class="hljs-regexp">/workspace     /</span>home<span class="hljs-regexp">/path/</span>桌面  <br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>分类</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>个人</tag>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>MSI安装2502、2503报错</title>
     <link href="/2024/12/23/2024/Windows-%E5%AE%89%E8%A3%85msi%E5%AE%89%E8%A3%85%E5%8C%85%E6%97%B6%E5%87%BA%E7%8E%B02502%E3%80%812503%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
     <url>/2024/12/23/2024/Windows-%E5%AE%89%E8%A3%85msi%E5%AE%89%E8%A3%85%E5%8C%85%E6%97%B6%E5%87%BA%E7%8E%B02502%E3%80%812503%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>

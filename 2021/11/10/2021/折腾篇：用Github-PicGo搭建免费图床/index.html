@@ -8,28 +8,28 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/image/favicon.png">
+  <link rel="icon" href="/image/favicon.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="Sagit.">
   <meta name="keywords" content="">
   
     <meta name="description" content="免费图床教程来了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="折腾篇：用Github+PicGo搭建免费图床">
-<meta property="og:url" content="http://example.com/2021/11/10/2021/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%94%A8Github-PicGo%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/index.html">
+<meta property="og:url" content="https://blog.luluvip.cn/2021/11/10/2021/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%94%A8Github-PicGo%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/index.html">
 <meta property="og:site_name" content="一只路路">
 <meta property="og:description" content="免费图床教程来了">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/微信截图_20211110114003.png">
 <meta property="article:published_time" content="2021-11-10T02:56:13.000Z">
 <meta property="article:modified_time" content="2024-12-23T04:25:56.724Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Sagit.">
 <meta property="article:tag" content="折腾">
 <meta property="article:tag" content="图床">
 <meta name="twitter:card" content="summary_large_image">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -310,7 +310,7 @@
 Github的免费图床教程来了，永远相信美好的事情即将发生！
 </p>
 
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言<br/></h3><p>个人图床的必要性观点我在<a target="_blank" rel="noopener" href="https://blog.luluvip.cn/2021/11/09/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">《折腾篇：用阿里云OSS搭建图床》</a>的博文中已经论述过了，今天也给大家带来Github的搭建图床的教程，Github的强大能力足以支撑图床运行，再加上其单个仓库1GB的免费存储空间（官方建议，可以更大），足够个人用户使用，图床自用的话建议还是传压缩后的图片来生成外链，下边我也会推荐我在用的压缩图片网站。<br/></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言<br/></h3><p>个人图床的必要性观点我在<a href="https://blog.luluvip.cn/2021/11/09/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">《折腾篇：用阿里云OSS搭建图床》</a>的博文中已经论述过了，今天也给大家带来Github的搭建图床的教程，Github的强大能力足以支撑图床运行，再加上其单个仓库1GB的免费存储空间（官方建议，可以更大），足够个人用户使用，图床自用的话建议还是传压缩后的图片来生成外链，下边我也会推荐我在用的压缩图片网站。<br/></p>
 <h3 id="搭建方法"><a href="#搭建方法" class="headerlink" title="搭建方法"></a>搭建方法<br/></h3><h4 id="一、搭建思路：PicGo-Github"><a href="#一、搭建思路：PicGo-Github" class="headerlink" title="一、搭建思路：PicGo+Github"></a><strong>一、搭建思路：PicGo+Github</strong><br/></h4><p>PicGo的详细介绍可以查看：<a target="_blank" rel="noopener" href="https://molunerfinn.com/PicGo/">官方网站</a>，它支持基于electron-vue开发，支持<span class="label label-primary">macOS</span>，<span class="label label-primary">Windows</span>，<span class="label label-primary">Linux</span>多个桌面系统环境。图床原理就是上传图片到云服务器，并能通过互联网访问到图片的路径，比如我的博客中插入的图片，就存储在云仓库中，如果从仓库中删除，则博文中对应图片就无法正常查看了。<br/></p>
 <p>基于此原理：</p>
 <ul>
@@ -393,13 +393,13 @@ Github的免费图床教程来了，永远相信美好的事情即将发生！
   <div class="license-box my-3">
     <div class="license-title">
       <div>折腾篇：用Github+PicGo搭建免费图床</div>
-      <div>http://example.com/2021/11/10/2021/折腾篇：用Github-PicGo搭建免费图床/</div>
+      <div>https://blog.luluvip.cn/2021/11/10/2021/折腾篇：用Github-PicGo搭建免费图床/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>John Doe</div>
+          <div>Sagit.</div>
         </div>
       
       
