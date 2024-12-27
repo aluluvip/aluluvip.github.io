@@ -6,7 +6,7 @@
   <link href="https://blog.luluvip.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.luluvip.cn/"/>
-  <updated>2024-12-27T05:05:07.837Z</updated>
+  <updated>2024-12-27T07:24:05.730Z</updated>
   <id>https://blog.luluvip.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>磁头笔记：IBus输入法卡顿解决办法</title>
+    <link href="https://blog.luluvip.cn/2024/12/27/2024/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0-ibus%E8%BE%93%E5%85%A5%E6%B3%95%E5%8D%A1%E9%A1%BF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>https://blog.luluvip.cn/2024/12/27/2024/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0-ibus%E8%BE%93%E5%85%A5%E6%B3%95%E5%8D%A1%E9%A1%BF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
+    <published>2024-12-27T07:17:01.000Z</published>
+    <updated>2024-12-27T07:24:05.730Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="IBus输入法卡顿解决办法"><a href="#IBus输入法卡顿解决办法" class="headerlink" title="IBus输入法卡顿解决办法"></a><center>IBus输入法卡顿解决办法</center></h1><h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><p>退出并重启ibus输入法：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><br>ibus <span class="hljs-keyword">exit</span>  <span class="hljs-comment">#执行退出</span><br>ibus-daemon -drx  <span class="hljs-comment">#执行启动</span><br></code></pre></td></tr></table></figure><h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><p>直接重启输入法（ 推荐此方法 ）</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">rm -rf ~<span class="hljs-regexp">/.cache/i</span>bus/libpinyin  <span class="hljs-comment">#清理缓存</span><br>ibus restart<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">IBus输入法卡顿解决办法</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://blog.luluvip.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Linux" scheme="https://blog.luluvip.cn/tags/Linux/"/>
+    
+    <category term="ibus" scheme="https://blog.luluvip.cn/tags/ibus/"/>
+    
+  </entry>
   
   <entry>
     <title>分享篇：必应壁纸下载器</title>
