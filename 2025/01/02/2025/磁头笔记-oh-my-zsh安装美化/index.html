@@ -19,24 +19,25 @@
   <meta name="author" content="Sagit.">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Hello everyone!✨">
+    <meta name="description" content="oh-my-zsh安装，基于zsh的shell美化工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="来！交个朋友">
-<meta property="og:url" content="https://blog.luluvip.cn/2021/10/27/2021/%E6%9D%A5%EF%BC%81%E4%BA%A4%E4%B8%AA%E6%9C%8B%E5%8F%8B%EF%BC%81/index.html">
+<meta property="og:title" content="磁头笔记：oh-my-zsh安装美化">
+<meta property="og:url" content="https://blog.luluvip.cn/2025/01/02/2025/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0-oh-my-zsh%E5%AE%89%E8%A3%85%E7%BE%8E%E5%8C%96/index.html">
 <meta property="og:site_name" content="一只路路">
-<meta property="og:description" content="Hello everyone!✨">
+<meta property="og:description" content="oh-my-zsh安装，基于zsh的shell美化工具">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/默认文件1636517052117.png">
-<meta property="article:published_time" content="2021-10-27T04:47:41.000Z">
-<meta property="article:modified_time" content="2024-12-23T05:58:58.877Z">
+<meta property="og:image" content="https://blog.luluvip.cn/img/bg/omz-changelog.png">
+<meta property="article:published_time" content="2025-01-02T03:12:44.000Z">
+<meta property="article:modified_time" content="2025-01-02T03:49:06.041Z">
 <meta property="article:author" content="Sagit.">
-<meta property="article:tag" content="个人">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Oh-My-Zsh">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/默认文件1636517052117.png">
+<meta name="twitter:image" content="https://blog.luluvip.cn/img/bg/omz-changelog.png">
   
   
   
-  <title>来！交个朋友 - 一只路路</title>
+  <title>磁头笔记：oh-my-zsh安装美化 - 一只路路</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,13 +223,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/bg/omz-changelog.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">来！交个朋友</span>
+            <span id="subtitle">磁头笔记：oh-my-zsh安装美化</span>
           
         </div>
 
@@ -239,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-10-27 12:47" pubdate>
-          2021年10月27日 下午
+        <time datetime="2025-01-02 11:12" pubdate>
+          2025年1月2日 上午
         </time>
       </span>
     
@@ -251,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          135 字
+          318 字
         
       </span>
     
@@ -262,7 +263,7 @@
         
         
         
-          2 分钟
+          3 分钟
         
       </span>
     
@@ -308,26 +309,46 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">来！交个朋友</h1>
+            <h1 id="seo-header">磁头笔记：oh-my-zsh安装美化</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="来！交个朋友！"><a href="#来！交个朋友！" class="headerlink" title="来！交个朋友！"></a><center>来！交个朋友！</center></h1><p>大家好！欢迎访问我的博客，我会在这里分享一些关于产品经理的学习文章，以及个人折腾建站、NAS、软路由等体验和教程，觉得不错的话也可以收藏本博客地址，或者通过下方联系方式找到我，完美！</p>
-<br/>
+                <h1 id="磁头笔记：oh-my-zsh安装美化"><a href="#磁头笔记：oh-my-zsh安装美化" class="headerlink" title="磁头笔记：oh-my-zsh安装美化"></a><center>磁头笔记：oh-my-zsh安装美化</center></h1><h4 id="一、前提：安装-Zsh"><a href="#一、前提：安装-Zsh" class="headerlink" title="一、前提：安装 Zsh"></a>一、前提：安装 Zsh</h4><p>以下命令在基于 Debian 或 Ubuntu 的系统中安装：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">sudo apt -y <span class="hljs-keyword">install</span> zsh<br></code></pre></td></tr></table></figure>
+<p>设置默认shell：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">which zsh<br>chsh -s <span class="hljs-regexp">/usr/</span>bin/zsh<br></code></pre></td></tr></table></figure>
 
+<h4 id="二、安装-Oh-My-Zsh"><a href="#二、安装-Oh-My-Zsh" class="headerlink" title="二、安装 Oh My Zsh"></a>二、安装 Oh My Zsh</h4><p>最常见的安装方法是通过 curl 命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sh -c <span class="hljs-string">&quot;<span class="hljs-subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span><br></code></pre></td></tr></table></figure>
+<p>也可以使用 wget 来安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sh -c <span class="hljs-string">&quot;<span class="hljs-subst">$(wget -O - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span><br></code></pre></td></tr></table></figure>
+<p>安装过程中，如果默认shell不是zsh，它会询问你是否要将 Zsh 设置为默认的 shell。如果同意，它会自动进行设置。</p>
+<h4 id="三、安装常用插件"><a href="#三、安装常用插件" class="headerlink" title="三、安装常用插件"></a>三、安装常用插件</h4><p>Zsh - Syntax Highlighting（语法高亮）</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/zsh-users/</span>zsh-syntax-highlighting.git <span class="hljs-variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span><span class="hljs-regexp">/plugins/</span>zsh-syntax-highlighting<br></code></pre></td></tr></table></figure>
+<p>Zsh - Autosuggestions（自动建议）</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/zsh-users/</span>zsh-autosuggestions <span class="hljs-variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span><span class="hljs-regexp">/plugins/</span>zsh-autosuggestions<br><br></code></pre></td></tr></table></figure>
+<p>添加到 <code>.zshrc</code> 文件中：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">sudo nano ~/.zshrc<br>plugins=(git zsh-syntax-highlighting zsh-<span class="hljs-built_in">auto</span>suggestions)<br></code></pre></td></tr></table></figure>
+
+<h4 id="四、配置主题"><a href="#四、配置主题" class="headerlink" title="四、配置主题"></a>四、配置主题</h4><p>克隆 Powerlevel10k 仓库，打开终端，输入以下命令：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone --depth=<span class="hljs-number">1</span> https:<span class="hljs-regexp">//gi</span>tee.com<span class="hljs-regexp">/romkatv/</span>powerlevel10k.git <span class="hljs-variable">$&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;</span><span class="hljs-regexp">/themes/</span>powerlevel10k<br></code></pre></td></tr></table></figure>
+
+<p>配置 Zsh 使用 Powerlevel10k 主题</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">sudo nano ~<span class="hljs-string">/.zshrc</span><br>ZSH_THEME=<span class="hljs-string">&quot;powerlevel10k/powerlevel10k&quot;</span><br></code></pre></td></tr></table></figure>
+<p>使配置生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.zshrc<br></code></pre></td></tr></table></figure>
+<p>重启终端以配置：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">p10k</span> configure<br></code></pre></td></tr></table></figure>
+
+<h4 id="五、安装字体（推荐字体）"><a href="#五、安装字体（推荐字体）" class="headerlink" title="五、安装字体（推荐字体）"></a>五、安装字体（推荐字体）</h4><p>使用 Nerd Fonts 字体，下载以下 4 个 ttf 文件，双击每个文件，然后单击 “Install”。</p>
 <ul>
-<li><p><svg t="1636522731977" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12541" width="20" height="20"><path d="M686.546 744.728H337.454c-31.976 0-58.18-26.16-58.18-58.182 0-31.978 26.204-58.182 58.18-58.182h349.092c31.976 0 58.18 26.204 58.18 58.18 0 32.024-26.204 58.184-58.18 58.184M337.454 279.272H512c31.976 0 58.18 26.16 58.18 58.182 0 31.978-26.204 58.182-58.18 58.182h-174.546c-31.976 0-58.18-26.204-58.18-58.18 0-32.024 26.204-58.184 58.18-58.184m579.818 116.364h-52.18c-31.974 0-59.996-27.042-62.182-58.18 0-166.03-133.866-290.91-301.056-290.91h-152.576c-167.1 0-302.64 134.562-302.732 300.59v329.82c0 166.028 135.632 300.452 302.732 300.452h325.818c167.238 0 302.36-134.424 302.36-300.45V463.872c0-33.186-26.766-68.236-60.184-68.236" fill="#FF1332" p-id="12542"></path></svg> My博客地址：<a target="_blank" rel="noopener" href="https://aluluvip.github.io/">点击进入</a></p>
-</li>
-<li><p><svg t="1636522601733" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7395" width="20" height="20"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9 23.5 23.2 38.1 55.4 38.1 91v112.5c0.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z" p-id="7396"></path></svg> Github地址：<a target="_blank" rel="noopener" href="https://github.com/aluluvip">点击进入</a></p>
-</li>
-<li><p><svg t="1636522486762" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3965" width="20" height="20"><path d="M851.4 590.193c-22.196-66.233-90.385-90.422-105.912-91.863-15.523-1.442-29.593-9.94-19.295-27.505 10.302-17.566 29.304-68.684-7.248-104.681-36.564-36.14-116.512-22.462-173.094 0.866-56.434 23.327-53.39 7.055-51.65-8.925 1.89-16.848 32.355-111.02-60.791-122.395C311.395 220.86 154.85 370.754 99.572 457.15 16 587.607 29.208 675.873 29.208 675.873h0.58c10.009 121.819 190.787 218.869 412.328 218.869 190.5 0 350.961-71.853 398.402-169.478 0 0 0.143-0.433 0.575-1.156 4.938-10.506 8.71-21.168 11.035-32.254 6.668-26.205 11.755-64.215-0.728-101.66z m-436.7 251.27c-157.71 0-285.674-84.095-285.674-187.768 0-103.671 127.82-187.76 285.674-187.76 157.705 0 285.673 84.089 285.673 187.76 0 103.815-127.968 187.768-285.673 187.768z" fill="#E71F19" p-id="3966"></path><path d="M803.096 425.327c2.896 1.298 5.945 1.869 8.994 1.869 8.993 0 17.7-5.328 21.323-14.112 5.95-13.964 8.993-28.793 8.993-44.205 0-62.488-51.208-113.321-114.181-113.321-15.379 0-30.32 3.022-44.396 8.926-11.755 4.896-17.263 18.432-12.335 30.24 4.933 11.662 18.572 17.134 30.465 12.238 8.419-3.46 17.268-5.33 26.41-5.33 37.431 0 67.752 30.241 67.752 67.247 0 9.068-1.735 17.857-5.369 26.202a22.832 22.832 0 0 0 12.335 30.236l0.01 0.01z" fill="#F5AA15" p-id="3967"></path><path d="M726.922 114.157c-25.969 0-51.65 3.744-76.315 10.942-18.423 5.472-28.868 24.622-23.5 42.91 5.509 18.29 24.804 28.657 43.237 23.329a201.888 201.888 0 0 1 56.578-8.064c109.253 0 198.189 88.271 198.189 196.696 0 19.436-2.905 38.729-8.419 57.16-5.508 18.289 4.79 37.588 23.212 43.053 3.342 1.014 6.817 1.442 10.159 1.442 14.943 0 28.725-9.648 33.37-24.48 7.547-24.906 11.462-50.826 11.462-77.175-0.143-146.588-120.278-265.813-267.973-265.813z" fill="#F5AA15" p-id="3968"></path><path d="M388.294 534.47c-84.151 0-152.34 59.178-152.34 132.334 0 73.141 68.189 132.328 152.34 132.328 84.148 0 152.337-59.182 152.337-132.328 0-73.15-68.19-132.334-152.337-132.334zM338.53 752.763c-29.454 0-53.39-23.755-53.39-52.987 0-29.228 23.941-52.989 53.39-52.989 29.453 0 53.39 23.76 53.39 52.989 0 29.227-23.937 52.987-53.39 52.987z m99.82-95.465c-6.382 11.086-19.296 15.696-28.726 10.219-9.43-5.323-11.75-18.717-5.37-29.803 6.386-11.09 19.297-15.7 28.725-10.224 9.43 5.472 11.755 18.864 5.37 29.808z" fill="#040000" p-id="3969"></path></svg> 微博地址：<a target="_blank" rel="noopener" href="https://weibo.com/u/2681023174">点击进入</a></p>
-</li>
-<li><p><svg t="1636522655843" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8801" width="20" height="20"><path d="M256 384c-12.8 57.6-6.4 115.2 6.4 166.4 12.8 44.8-6.4 89.6-44.8 115.2-57.6 32-128-12.8-134.4-70.4-57.6-300.8 211.2-576 518.4-518.4C422.4 96 288 217.6 256 384z" fill="#FFDC04" p-id="8802"></path><path d="M531.2 800c51.2-19.2 102.4-51.2 140.8-89.6 32-32 83.2-38.4 121.6-12.8 57.6 32 57.6 115.2 6.4 153.6-230.4 198.4-601.6 102.4-704-192 96 140.8 275.2 192 435.2 140.8z" fill="#E03A22" p-id="8803"></path><path d="M755.2 352c-44.8-38.4-96-64-147.2-76.8-44.8-12.8-76.8-51.2-76.8-96 0-64 70.4-108.8 128-83.2 288 102.4 390.4 467.2 185.6 704 76.8-153.6 32-339.2-89.6-448z" fill="#27AA3A" p-id="8804"></path><path d="M633.6 492.8c0-12.8 0-25.6-6.4-32 0-6.4 0-6.4-6.4-12.8 0-64-38.4-115.2-108.8-115.2S403.2 384 403.2 448c0 6.4-6.4 6.4-6.4 12.8-6.4 12.8-6.4 19.2-6.4 25.6v6.4c-12.8 6.4-25.6 25.6-32 44.8-12.8 32-12.8 64-6.4 64 6.4 6.4 19.2-6.4 32-19.2 0 19.2 12.8 38.4 25.6 51.2-12.8 0-25.6 12.8-25.6 25.6 0 19.2 25.6 32 64 32 32 0 57.6-12.8 64-25.6h6.4c6.4 12.8 32 25.6 64 25.6s64-12.8 64-32c0-12.8-12.8-19.2-25.6-25.6 12.8-12.8 25.6-25.6 32-44.8 12.8 19.2 25.6 25.6 32 19.2 12.8-6.4 6.4-32-6.4-64-19.2-32-32-44.8-44.8-51.2z" fill="#038BC5" p-id="8805"></path></svg> 邮箱地址：<a href="mailto:&#49;&#x30;&#x30;&#52;&#53;&#52;&#x35;&#x34;&#x37;&#x37;&#64;&#113;&#x71;&#46;&#99;&#111;&#x6d;">&#49;&#x30;&#x30;&#52;&#53;&#52;&#x35;&#x34;&#x37;&#x37;&#64;&#113;&#x71;&#46;&#99;&#111;&#x6d;</a><br/></p>
-</li>
-<li><p><svg t="1636521857559" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3140" width="20" height="20" vertical-align="middle"><path d="M1010.8 628c0-141.2-141.3-256.2-299.9-256.2-168 0-300.3 115.1-300.3 256.2 0 141.4 132.3 256.2 300.3 256.2 35.2 0 70.7-8.9 106-17.7l96.8 53-26.6-88.2c70.9-53.2 123.7-123.7 123.7-203.3zM618 588.8c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40c0 22-17.9 40-40 40z m194.3-0.3c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z" fill="#00C800" p-id="3141"></path><path d="M366.3 106.9c-194.1 0-353.1 132.3-353.1 300.3 0 97 52.9 176.6 141.3 238.4l-35.3 106.2 123.4-61.9c44.2 8.7 79.6 17.7 123.7 17.7 11.1 0 22.1-0.5 33-1.4-6.9-23.6-10.9-48.3-10.9-74 0-154.3 132.5-279.5 300.2-279.5 11.5 0 22.8 0.8 34 2.1C692 212.6 539.9 106.9 366.3 106.9zM247.7 349.2c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z m246.6 0c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z" fill="#00C800" p-id="3142"></path></svg> 个人微信：lxyoyxl</p>
-</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf">MesloLGS NF Regular.ttf</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf">MesloLGS NF Bold.ttf</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf">MesloLGS NF Italic.ttf</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf">MesloLGS NF 粗体Italic.ttf</a></li>
 </ul>
+<p>终端字体选择<code>MesloLGS NF</code>，enjoy it!</p>
 
                 
               </div>
@@ -346,7 +367,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E4%B8%AA%E4%BA%BA/" class="category-chain-item">个人</a>
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
   
   
 
@@ -361,7 +382,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E4%B8%AA%E4%BA%BA/" class="print-no-link">#个人</a>
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/Oh-My-Zsh/" class="print-no-link">#Oh-My-Zsh</a>
       
     </div>
   
@@ -373,8 +396,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>来！交个朋友</div>
-      <div>https://blog.luluvip.cn/2021/10/27/2021/来！交个朋友！/</div>
+      <div>磁头笔记：oh-my-zsh安装美化</div>
+      <div>https://blog.luluvip.cn/2025/01/02/2025/磁头笔记-oh-my-zsh安装美化/</div>
     </div>
     <div class="license-meta">
       
@@ -386,7 +409,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2021年10月27日</div>
+          <div>2025年1月2日</div>
         </div>
       
       
@@ -413,6 +436,23 @@
 
 
 
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/12/27/2024/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0-ibus%E8%BE%93%E5%85%A5%E6%B3%95%E5%8D%A1%E9%A1%BF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="磁头笔记：IBus输入法卡顿解决办法">
+                        <span class="hidden-mobile">磁头笔记：IBus输入法卡顿解决办法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
