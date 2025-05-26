@@ -11,7 +11,7 @@
 <br/>
 
 <p align="center"><b>Lulu's Blog</b> 
-基于 markdown+Hexo+Github+Git 工具搭建~
+基于 markdown+Hexo+Github+Git 工具搭建
 </p>
 
 <p align="center">
