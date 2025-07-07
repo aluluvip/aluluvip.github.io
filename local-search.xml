@@ -4,11 +4,38 @@
   
   
   <entry>
-    <title>磁头笔记:Mac启动台图标大小调整全攻略</title>
+    <title>磁头笔记：Mac启动台图标大小调整全攻略</title>
     <link href="/2025/07/07/2025/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0-Mac%E5%90%AF%E5%8A%A8%E5%8F%B0%E5%9B%BE%E6%A0%87%E5%A4%A7%E5%B0%8F%E8%B0%83%E6%95%B4%E5%85%A8%E6%94%BB%E7%95%A5/"/>
     <url>/2025/07/07/2025/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0-Mac%E5%90%AF%E5%8A%A8%E5%8F%B0%E5%9B%BE%E6%A0%87%E5%A4%A7%E5%B0%8F%E8%B0%83%E6%95%B4%E5%85%A8%E6%94%BB%E7%95%A5/</url>
     
     <content type="html"><![CDATA[<h1 id="Mac启动台图标大小调整全攻略"><a href="#Mac启动台图标大小调整全攻略" class="headerlink" title="Mac启动台图标大小调整全攻略"></a><center>Mac启动台图标大小调整全攻略</center></h1><p>想要调整Mac启动台图标的大小吗？按照以下步骤操作即可轻松实现！</p><h3 id="第一步：调整图标数量："><a href="#第一步：调整图标数量：" class="headerlink" title="第一步：调整图标数量："></a>第一步：调整图标数量：</h3><p>打开终端，复制并执行以下命令，然后按回车键：</p><ul><li>调整每列显示的图标数量，9表示每列显示9个图标，你可以根据自己的喜好设置其他数字。</li><li>调整行数，这里设置为6，你也可以选择8或其他数字，以达到最佳比例。<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">defaults <span class="hljs-keyword">write</span> com.apple.dock springboard-<span class="hljs-keyword">columns</span> -<span class="hljs-type">int</span> <span class="hljs-number">9</span><br>defaults <span class="hljs-keyword">write</span> com.apple.dock springboard-<span class="hljs-keyword">rows</span> -<span class="hljs-type">int</span> <span class="hljs-number">6</span><br></code></pre></td></tr></table></figure></li></ul><h3 id="第二步：重置Launchpad应用修改："><a href="#第二步：重置Launchpad应用修改：" class="headerlink" title="第二步：重置Launchpad应用修改："></a>第二步：重置Launchpad应用修改：</h3><p>复制并执行以下命令，然后按回车键：重置Launchpad，使其按照新的设置重新排列图标。重启Dock，以便更改生效。</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">defaults <span class="hljs-keyword">write</span> com.apple.dock ResetLaunchPad -<span class="hljs-type">bool</span> <span class="hljs-keyword">TRUE</span><br>killall Dock<br></code></pre></td></tr></table></figure><hr><h3 id="恢复默认设置："><a href="#恢复默认设置：" class="headerlink" title="恢复默认设置："></a>恢复默认设置：</h3><p>如果你想要恢复默认设置，可以按照以下步骤操作：<br>打开终端，复制并执行以下命令，然后按回车键：</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">defaults <span class="hljs-keyword">write</span> com.apple.dock springboard-<span class="hljs-keyword">rows</span> <span class="hljs-keyword">Default</span><br>defaults <span class="hljs-keyword">write</span> com.apple.dock springboard-<span class="hljs-keyword">columns</span> <span class="hljs-keyword">Default</span><br>defaults <span class="hljs-keyword">write</span> com.apple.dock ResetLaunchPad -<span class="hljs-type">bool</span> <span class="hljs-keyword">TRUE</span><br>killall Dock<br></code></pre></td></tr></table></figure><p>通过以上步骤，你可以轻松调整Mac启动台图标的大小和排列方式，让你的桌面更加整洁和个性化。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>折腾</tag>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>磁头笔记：Git远程仓库地址替换</title>
+    <link href="/2025/07/04/2025/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0-Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80%E6%9B%BF%E6%8D%A2/"/>
+    <url>/2025/07/04/2025/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0-Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80%E6%9B%BF%E6%8D%A2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="磁头笔记：Git远程仓库地址替换"><a href="#磁头笔记：Git远程仓库地址替换" class="headerlink" title="磁头笔记：Git远程仓库地址替换"></a><center>磁头笔记：Git远程仓库地址替换</center></h1><h4 id="1、先移除旧的远程仓库"><a href="#1、先移除旧的远程仓库" class="headerlink" title="1、先移除旧的远程仓库"></a>1、先移除旧的远程仓库</h4><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">git remote <span class="hljs-built_in">remove</span> <span class="hljs-built_in">origin</span><br></code></pre></td></tr></table></figure><h4 id="2、再添加新的远程仓库"><a href="#2、再添加新的远程仓库" class="headerlink" title="2、再添加新的远程仓库"></a>2、再添加新的远程仓库</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">git remote <span class="hljs-keyword">add</span> origin &lt;<span class="hljs-keyword">new</span>-repository-url&gt;<br></code></pre></td></tr></table></figure><h4 id="3、验证新的远程仓库地址是否正确"><a href="#3、验证新的远程仓库地址是否正确" class="headerlink" title="3、验证新的远程仓库地址是否正确"></a>3、验证新的远程仓库地址是否正确</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git remote -v</span><br></code></pre></td></tr></table></figure><h4 id="4、推送代码"><a href="#4、推送代码" class="headerlink" title="4、推送代码"></a>4、推送代码</h4><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">git <span class="hljs-keyword">branch </span>-M main  <span class="hljs-comment">#设置分支名称</span><br>git push -u <span class="hljs-keyword">origin </span>main  <span class="hljs-comment">#推送到对应分支</span><br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
