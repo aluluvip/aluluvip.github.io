@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>分享篇:ACME申请SSL证书</title>
+    <link href="/2025/11/21/2025/%E5%88%86%E4%BA%AB%E7%AF%87-ACME%E7%94%B3%E8%AF%B7SSL%E8%AF%81%E4%B9%A6/"/>
+    <url>/2025/11/21/2025/%E5%88%86%E4%BA%AB%E7%AF%87-ACME%E7%94%B3%E8%AF%B7SSL%E8%AF%81%E4%B9%A6/</url>
+    
+    <content type="html"><![CDATA[<h1 id="分享篇：acme证书续签阿里云域名教程"><a href="#分享篇：acme证书续签阿里云域名教程" class="headerlink" title="分享篇：acme证书续签阿里云域名教程"></a><center>分享篇：acme证书续签阿里云域名教程</center></h1><h4 id="1、安装ACME（以macos为例）"><a href="#1、安装ACME（以macos为例）" class="headerlink" title="1、安装ACME（以macos为例）"></a>1、安装ACME（以macos为例）</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">curl http<span class="hljs-variable">s:</span>//<span class="hljs-built_in">get</span>.acme.<span class="hljs-keyword">sh</span> | <span class="hljs-keyword">sh</span> -s email=youre_mail@xx.<span class="hljs-keyword">com</span><br></code></pre></td></tr></table></figure><h4 id="2、打开安装目录"><a href="#2、打开安装目录" class="headerlink" title="2、打开安装目录"></a>2、打开安装目录</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> ~<span class="hljs-string">/.acme.sh</span><br><span class="hljs-string">./acme.sh</span> <span class="hljs-params">--set-default-ca</span>  <span class="hljs-params">--server</span>  letsencrypt<br></code></pre></td></tr></table></figure><h4 id="3、在终端中配置环境变量-复制到终端中执行-："><a href="#3、在终端中配置环境变量-复制到终端中执行-：" class="headerlink" title="3、在终端中配置环境变量(复制到终端中执行)："></a>3、在终端中配置环境变量(复制到终端中执行)：</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">Ali_Key</span>=<span class="hljs-string">&quot;阿里云AccessKey&quot;</span><br><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">Ali_Secret</span>=<span class="hljs-string">&quot;阿里云AccessKeySecret&quot;</span><br></code></pre></td></tr></table></figure><h4 id="4、单域名证书"><a href="#4、单域名证书" class="headerlink" title="4、单域名证书"></a>4、单域名证书</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">./acme.sh</span> <span class="hljs-params">--issue</span> <span class="hljs-params">--dns</span> dns_ali -d yourdomain.com<br><br>强制更新<br><span class="hljs-string">./acme.sh</span> <span class="hljs-params">--issue</span> <span class="hljs-params">--dns</span> dns_ali -d yourdomain.com <span class="hljs-params">--force</span><br></code></pre></td></tr></table></figure><h4 id="5、安装证书到-Web-服务器"><a href="#5、安装证书到-Web-服务器" class="headerlink" title="5、安装证书到 Web 服务器"></a>5、安装证书到 Web 服务器</h4><p>证书默认存储在 <code>~/.acme.sh/yourdomain.com.ecc/</code></p><p>enjoy it!</p><p><a href="https://blog.csdn.net/qq_40622375/article/details/146523428">参考教程</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>有趣分享</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>个人</tag>
+      
+      <tag>产品</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>分享篇:Markdown+编辑器对比</title>
     <link href="/2025/08/27/2025/%E5%88%86%E4%BA%AB%E7%AF%87-Markdown-%E7%BC%96%E8%BE%91%E5%99%A8%E5%AF%B9%E6%AF%94/"/>
     <url>/2025/08/27/2025/%E5%88%86%E4%BA%AB%E7%AF%87-Markdown-%E7%BC%96%E8%BE%91%E5%99%A8%E5%AF%B9%E6%AF%94/</url>
