@@ -1,0 +1,780 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sagit.">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="PicGo的进阶使用方法，一个vscode全搞定！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="折腾篇：PicGo-VS插件安装使用教程">
+<meta property="og:url" content="https://blog.luluvip.cn/2021/12/27/2021/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9APicGo-VS%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="一只路路">
+<meta property="og:description" content="PicGo的进阶使用方法，一个vscode全搞定！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/20220219131613.png">
+<meta property="article:published_time" content="2021-12-27T09:44:09.000Z">
+<meta property="article:modified_time" content="2026-01-05T08:18:26.029Z">
+<meta property="article:author" content="Sagit.">
+<meta property="article:tag" content="折腾">
+<meta property="article:tag" content="PicGo">
+<meta property="article:tag" content="图床">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/20220219131613.png">
+  
+  
+  
+  <title>折腾篇：PicGo-VS插件安装使用教程 - 一只路路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="一只路路" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lulu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.luluvip.cn:64323/" target="_self">
+                <i class="iconfont icon-code"></i>
+                <span>速查表</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://luluvippic.oss-cn-beijing.aliyuncs.com/img/20211227095459.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">折腾篇：PicGo-VS插件安装使用教程</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-12-27 09:44" pubdate>
+          2021年12月27日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          980 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">折腾篇：PicGo-VS插件安装使用教程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Picgo-vs插件安装并配置阿里云oss"><a href="#Picgo-vs插件安装并配置阿里云oss" class="headerlink" title="Picgo-vs插件安装并配置阿里云oss"></a><center>Picgo-vs插件安装并配置阿里云oss</center></h1><h4 id="安装picgo-vs插件"><a href="#安装picgo-vs插件" class="headerlink" title="安装picgo-vs插件"></a>安装picgo-vs插件</h4><p>在VScode插件搜索中查找<code>picgo</code>,并完成插件安装<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/20211223112348.png" srcset="/img/loading.gif" lazyload alt="20211223112348"></p>
+<h4 id="设置插件参数"><a href="#设置插件参数" class="headerlink" title="设置插件参数"></a>设置插件参数</h4><blockquote>
+<p>关于如何获取图床参数配置，可参考<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/%EF%BC%8C%E5%AE%98%E6%96%B9%E6%8C%87%E5%8D%97">https://picgo.github.io/PicGo-Doc/，官方指南</a></p>
+</blockquote>
+<p>安装好后，点击插件介绍页面的设置图标，选择<code>拓展设置</code>。</p>
+<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/20211223112617.png" srcset="/img/loading.gif" lazyload alt="20211223112617"></p>
+<p>在打开的设置页面找到如下参数，选择默认图床，这里我选择阿里云<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/20211223113258.png" srcset="/img/loading.gif" lazyload alt="20211223113258"></p>
+<p>接着，找到阿里云的参数配置区域，按字段名填对应参数：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk">&#123;<br>  <span class="hljs-string">&quot;accessKeyId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-regexp">//i</span>d<br>  <span class="hljs-string">&quot;accessKeySecret&quot;</span>: <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-regexp">//</span>密钥<br>  <span class="hljs-string">&quot;bucket&quot;</span>: <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-regexp">//</span> 存储空间名<br>  <span class="hljs-string">&quot;area&quot;</span>: <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-regexp">//</span> 存储区域代号<br>  <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-regexp">//</span> 自定义存储路径<br>  <span class="hljs-string">&quot;customUrl&quot;</span>: <span class="hljs-string">&quot;&quot;</span> <span class="hljs-regexp">//</span> 可不填，自定义域名，注意要加http:<span class="hljs-regexp">//</span>或者https:<span class="hljs-regexp">//</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/20211223113448.png" srcset="/img/loading.gif" lazyload alt="20211223113448"></p>
+<p>配置好上述参数，重启一下VScode。</p>
+<h4 id="使用快捷键"><a href="#使用快捷键" class="headerlink" title="使用快捷键"></a>使用快捷键</h4><table>
+    <tr>
+        <td>操作系统</td>
+        <td>从粘贴板上传</td>
+        <td>从文件域上传</td>
+        <td>从输入框上传</td>
+    </tr>
+    <tr>
+        <td>Windows/Unix</td>
+        <td>Ctrl + Alt + U</td>
+        <td>Ctrl + Alt + E</td>
+        <td>Ctrl + Alt + O</td>
+    </tr>
+    <tr>
+        <td>OsX</td>
+        <td>Cmd + Opt + U</td>
+        <td>Cmd + Opt + E</td>
+        <td>Cmd + Opt + O</td>
+    </tr>
+</table>
+
+<p>完成！</p>
+<p>｜<br>｜<br>｜<br>｜</p>
+<p>等等，还没完。。。。。</p>
+<hr>
+<h1 id="Vscode-Plugin-for-PicGo-官方配置文档"><a href="#Vscode-Plugin-for-PicGo-官方配置文档" class="headerlink" title="(Vscode Plugin for PicGo)官方配置文档"></a>(Vscode Plugin for PicGo)官方配置文档</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/PicGo">PicGo</a> 的 vscode 插件</p>
+</blockquote>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><p>在 VSCode 里使用 picgo，实现快速上传图片到远端图床并直接将 URL 写进 Markdown 文件里，极大提升 Markdown 贴图效率与体验。支持 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a> 原生自带的 8 种图床。</p>
+<ul>
+<li>截图上传</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/vs-picgo-clipboard.gif" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>文件管理器选择上传</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/vs-picgo-explorer.gif" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>输入文件路径上传</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/vs-picgo-inputbox.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
+<li>0 配置：采用默认配置，默认配置中图床采用 SM.MS</li>
+<li>自定义配置：</li>
+</ul>
+<p>在 vscode 配置信息文件 <code>usersetting.json</code> 中加入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>  <span class="hljs-string">&quot;picgo&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;path to your configure file&quot;</span> <span class="hljs-comment">// 默认为空，则表示使用VSCode的setting.json</span><br>  &#125;,<br>  <span class="hljs-string">&quot;picBed&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;current&quot;</span>: <span class="hljs-string">&quot;smms&quot;</span> <span class="hljs-comment">// 默认使用 SM.MS 图床</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>如果你指定的<code>picgo</code>的<code>path</code>为空，那么将使用 VSCode 默认的<code>setting.json</code>作为配置文件。</strong></p>
+<p>配置文件内容(usersetting.json 文件中 picgo.path 路径指定的文件)里需要配置的项主要是<code>picBed</code>：<br>详细信息可参看 <a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Core-Doc/zh/guide/config.html#%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">PicGo-配置</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>  <span class="hljs-string">&quot;picBed&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;current&quot;</span>: <span class="hljs-string">&quot;smms&quot;</span>, <span class="hljs-comment">// 代表当前的默认上传图床为SM.MS</span><br>    <span class="hljs-string">&quot;weibo&quot;</span>:&#123;           <span class="hljs-comment">// 微博图床配置</span><br>      <span class="hljs-string">&quot;chooseCookie&quot;</span>: <span class="hljs-literal">true</span> | <span class="hljs-literal">false</span>,<br>      <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;password&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;quality&quot;</span>: <span class="hljs-string">&quot;thumbnail&quot;</span> | <span class="hljs-string">&quot;mw690&quot;</span> | <span class="hljs-string">&quot;large&quot;</span>,<br>      <span class="hljs-string">&quot;cookie&quot;</span>: <span class="hljs-string">&quot;&quot;</span><br>    &#125;,<br>    <span class="hljs-string">&quot;qiniu&quot;</span>: &#123;          <span class="hljs-comment">// 七牛图床配置</span><br>      <span class="hljs-string">&quot;accessKey&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;secretKey&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;bucket&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;area&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,      <span class="hljs-comment">//&quot;z0&quot; -&gt; 华东, &quot;z1&quot; -&gt; 华北, &quot;z2&quot; -&gt; 华南, &quot;na0&quot; -&gt; 北美, &quot;as0&quot; -&gt; 东南亚</span><br>			<span class="hljs-string">&quot;options&quot;</span>: <span class="hljs-string">&quot;&quot;</span> <span class="hljs-comment">//网址后缀</span><br>			<span class="hljs-string">&quot;path&quot;</span>:<span class="hljs-string">&quot;&quot;</span> <span class="hljs-comment">// 路径前缀</span><br>    &#125;,<br>    <span class="hljs-string">&quot;upyun&quot;</span>: &#123;          <span class="hljs-comment">// 又拍云图床配置</span><br>      <span class="hljs-string">&quot;bucket&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;operator&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;password&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;options&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;&quot;</span><br>    &#125;,<br>    <span class="hljs-string">&quot;tcyun&quot;</span>: &#123;         <span class="hljs-comment">// 腾讯云图床配置</span><br>      <span class="hljs-string">&quot;secretId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;secretKey&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;bucket&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;appId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;area&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;customUrl&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;v5&quot;</span> | <span class="hljs-string">&quot;v4&quot;</span><br>    &#125;,<br>    <span class="hljs-string">&quot;github&quot;</span>: &#123;       <span class="hljs-comment">// github图床配置</span><br>      <span class="hljs-string">&quot;repo&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;token&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;customUrl&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;branch&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;&quot;</span><br>    &#125;,<br>    <span class="hljs-string">&quot;aliyun&quot;</span>: &#123;       <span class="hljs-comment">// 阿里云图床配置</span><br>      <span class="hljs-string">&quot;accessKeyId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;accessKeySecret&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;bucket&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;area&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-string">&quot;customUrl&quot;</span>: <span class="hljs-string">&quot;&quot;</span><br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="键盘快捷键"><a href="#键盘快捷键" class="headerlink" title="键盘快捷键"></a>键盘快捷键</h4><ol>
+<li>剪贴板图片上传：<code>ctrlOrCmd+alt+u</code></li>
+<li>打开文件管理器上传：<code>ctrlOrCmd+alt+e</code></li>
+<li>打开输入框输入路径上传：<code>ctrlOrCmd+alt+o</code></li>
+</ol>
+<p>以上快捷键均可重新自定义。</p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
+<li>在插件商店中查找<strong>PicGo</strong>，并安装</li>
+<li>安装完成后，可在命令面板中输入<ul>
+<li>Upload image from inputBox [从输入框上传]</li>
+<li>Upload image from explorer [从文件管理器上传]</li>
+<li>Upload image from clipboard [从剪切板上传]</li>
+</ul>
+</li>
+<li>推荐：使用键盘快捷方式（可自行修改）</li>
+<li>选定文本再上传的话会使用选定的文本作为文件名</li>
+</ul>
+<h4 id="Contributers"><a href="#Contributers" class="headerlink" title="Contributers"></a>Contributers</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Spades-S">Spades-S</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn">Molunerfinn</a></li>
+</ul>
+<h4 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/PicGo/PicGo-Core">PicGo-Core</a></li>
+</ul>
+<p><strong>Enjoy!</strong></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0/" class="category-chain-item">折腾记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%8A%98%E8%85%BE/" class="print-no-link">#折腾</a>
+      
+        <a href="/tags/PicGo/" class="print-no-link">#PicGo</a>
+      
+        <a href="/tags/%E5%9B%BE%E5%BA%8A/" class="print-no-link">#图床</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>折腾篇：PicGo-VS插件安装使用教程</div>
+      <div>https://blog.luluvip.cn/2021/12/27/2021/折腾篇：PicGo-VS插件安装使用教程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sagit.</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年12月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/02/09/2022/%E7%A3%81%E5%A4%B4%E7%AC%94%E8%AE%B0%EF%BC%9A%E4%BD%BF%E7%94%A8Git%E5%91%BD%E4%BB%A4%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81/" title="磁头笔记：使用Git命令提交代码">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">磁头笔记：使用Git命令提交代码</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/16/2021/%E6%8A%98%E8%85%BE%E7%AF%87%EF%BC%9A%E7%BE%A4%E6%99%96%E4%B8%8A%E4%BD%BF%E7%94%A8Docker%E9%83%A8%E7%BD%B2kodbox/" title="折腾篇：群晖上使用Docker部署kodbox">
+                        <span class="hidden-mobile">折腾篇：群晖上使用Docker部署kodbox</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-love"></i> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>&nbsp;&nbsp; <i class="iconfont icon-github-fill"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>&nbsp;&nbsp; <i class="iconfont icon-code"></i> <a href="https://blog.luluvip.cn" target="_blank" rel="nofollow noopener"><span>Lulu</span></a> &nbsp;&nbsp; <i class="iconfont icon-rss"></i> <a href="https://blog.luluvip.cn/atom.xml" target="_blank" rel="nofollow noopener"><span>Rss</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
