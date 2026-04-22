@@ -4,9 +4,9 @@
   
   
   <entry>
-    <title>Hermes-Agent 常用指令</title>
-    <link href="/2026/04/22/Hermes-Agent-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
-    <url>/2026/04/22/Hermes-Agent-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
+    <title>磁头笔记：Hermes-Agent 常用指令</title>
+    <link href="/2026/04/22/2026/Hermes-Agent-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
+    <url>/2026/04/22/2026/Hermes-Agent-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
     
     <content type="html"><![CDATA[<h2 id="什么是-Hermes-Agent"><a href="#什么是-Hermes-Agent" class="headerlink" title="什么是 Hermes-Agent"></a>什么是 Hermes-Agent</h2><p>Hermes-Agent 是一款运行在终端的 AI 助手，可以帮你完成各种任务，从简单的文件操作到复杂的代码编写、网页交互、自动化任务等。</p><h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="1-文件操作"><a href="#1-文件操作" class="headerlink" title="1. 文件操作"></a>1. 文件操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 读取文件内容</span><br>read_file path/to/file.md<br><br><span class="hljs-comment"># 写入文件（覆盖）</span><br>write_file path/to/file.md <span class="hljs-string">&quot;文件内容&quot;</span><br><br><span class="hljs-comment"># 搜索文件内容</span><br>search_files pattern=<span class="hljs-string">&quot;关键词&quot;</span> target=<span class="hljs-string">&quot;content&quot;</span><br><br><span class="hljs-comment"># 查找文件</span><br>search_files pattern=<span class="hljs-string">&quot;*.py&quot;</span> target=<span class="hljs-string">&quot;files&quot;</span><br></code></pre></td></tr></table></figure><h3 id="2-终端命令"><a href="#2-终端命令" class="headerlink" title="2. 终端命令"></a>2. 终端命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 执行终端命令</span><br>terminal <span class="hljs-built_in">command</span>=<span class="hljs-string">&quot;ls -la&quot;</span><br><br><span class="hljs-comment"># 长时间运行的命令（后台）</span><br>terminal <span class="hljs-built_in">command</span>=<span class="hljs-string">&quot;npm run dev&quot;</span> background=<span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 查看后台进程状态</span><br>process action=<span class="hljs-string">&quot;list&quot;</span><br></code></pre></td></tr></table></figure><h3 id="3-网页交互"><a href="#3-网页交互" class="headerlink" title="3. 网页交互"></a>3. 网页交互</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 打开网页</span><br>browser_navigate url=<span class="hljs-string">&quot;https://example.com&quot;</span><br><br><span class="hljs-comment"># 获取页面快照</span><br>browser_snapshot<br><br><span class="hljs-comment"># 点击元素</span><br>browser_click ref=<span class="hljs-string">&quot;@e5&quot;</span><br><br><span class="hljs-comment"># 输入文本</span><br>browser_type ref=<span class="hljs-string">&quot;@e3&quot;</span> text=<span class="hljs-string">&quot;Hello World&quot;</span><br><br><span class="hljs-comment"># 页面截图分析</span><br>browser_vision question=<span class="hljs-string">&quot;页面上有什么内容&quot;</span><br></code></pre></td></tr></table></figure><h3 id="4-代码执行"><a href="#4-代码执行" class="headerlink" title="4. 代码执行"></a>4. 代码执行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 执行 Python 代码</span><br>execute_code code=<span class="hljs-string">&quot;print(&#x27;Hello&#x27;)&quot;</span><br></code></pre></td></tr></table></figure><h3 id="5-任务管理"><a href="#5-任务管理" class="headerlink" title="5. 任务管理"></a>5. 任务管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建任务列表</span><br>todo todos=[&#123;<span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>: <span class="hljs-string">&quot;任务 1&quot;</span>, <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;pending&quot;</span>&#125;]<br><br><span class="hljs-comment"># 查看任务</span><br>todo<br></code></pre></td></tr></table></figure><h3 id="6-记忆管理"><a href="#6-记忆管理" class="headerlink" title="6. 记忆管理"></a>6. 记忆管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 保存记忆</span><br>memory action=<span class="hljs-string">&quot;add&quot;</span> target=<span class="hljs-string">&quot;memory&quot;</span> content=<span class="hljs-string">&quot;重要信息&quot;</span><br><br><span class="hljs-comment"># 更新记忆</span><br>memory action=<span class="hljs-string">&quot;replace&quot;</span> target=<span class="hljs-string">&quot;memory&quot;</span> old_text=<span class="hljs-string">&quot;旧内容&quot;</span> content=<span class="hljs-string">&quot;新内容&quot;</span><br></code></pre></td></tr></table></figure><h3 id="7-技能管理"><a href="#7-技能管理" class="headerlink" title="7. 技能管理"></a>7. 技能管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看技能列表</span><br>skills_list<br><br><span class="hljs-comment"># 查看技能详情</span><br>skill_view name=<span class="hljs-string">&quot;skill-name&quot;</span><br><br><span class="hljs-comment"># 创建新技能</span><br>skill_manage action=<span class="hljs-string">&quot;create&quot;</span> name=<span class="hljs-string">&quot;my-skill&quot;</span> content=<span class="hljs-string">&quot;技能内容&quot;</span><br></code></pre></td></tr></table></figure><h3 id="8-会话搜索"><a href="#8-会话搜索" class="headerlink" title="8. 会话搜索"></a>8. 会话搜索</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 搜索历史会话</span><br>session_search query=<span class="hljs-string">&quot;关键词&quot;</span><br><br><span class="hljs-comment"># 查看最近会话</span><br>session_search<br></code></pre></td></tr></table></figure><h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><ol><li><strong>多步骤任务</strong>：使用 <code>todo</code> 创建任务列表，按步骤完成</li><li><strong>复杂操作</strong>：使用 <code>execute_code</code> 编写 Python 脚本处理批量任务</li><li><strong>网页自动化</strong>：结合 <code>browser_navigate</code> + <code>browser_click</code> + <code>browser_type</code> 完成表单填写</li><li><strong>持久化知识</strong>：使用 <code>memory</code> 保存重要配置和偏好设置</li><li><strong>复用经验</strong>：将常用工作流程保存为 <code>skill</code>，下次直接调用</li></ol><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul><li>文件路径支持绝对路径和相对路径</li><li>终端命令默认 180 秒超时，长任务需设置 <code>timeout</code> 参数</li><li>网页操作需要先 <code>browser_navigate</code> 再执行其他操作</li><li>敏感信息（如密码、token）不要保存在记忆中</li></ul><hr><blockquote><p>本文基于实际使用经验总结，更多功能请参考官方文档。</p></blockquote>]]></content>
     
@@ -20,11 +20,11 @@
     
     <tags>
       
+      <tag>产品</tag>
+      
       <tag>AI 工具</tag>
       
       <tag>效率工具</tag>
-      
-      <tag>产品</tag>
       
     </tags>
     
@@ -49,9 +49,9 @@
     
     <tags>
       
-      <tag>产品</tag>
-      
       <tag>个人</tag>
+      
+      <tag>产品</tag>
       
     </tags>
     
@@ -76,9 +76,9 @@
     
     <tags>
       
-      <tag>产品</tag>
-      
       <tag>个人</tag>
+      
+      <tag>产品</tag>
       
     </tags>
     
@@ -103,9 +103,9 @@
     
     <tags>
       
-      <tag>折腾</tag>
-      
       <tag>Linux</tag>
+      
+      <tag>折腾</tag>
       
     </tags>
     
@@ -130,9 +130,9 @@
     
     <tags>
       
-      <tag>折腾</tag>
-      
       <tag>Linux</tag>
+      
+      <tag>折腾</tag>
       
     </tags>
     
@@ -238,9 +238,9 @@
     
     <tags>
       
-      <tag>产品</tag>
-      
       <tag>个人</tag>
+      
+      <tag>产品</tag>
       
     </tags>
     
@@ -371,9 +371,9 @@
     
     <tags>
       
-      <tag>产品</tag>
-      
       <tag>个人</tag>
+      
+      <tag>产品</tag>
       
     </tags>
     
@@ -579,9 +579,9 @@
     
     <tags>
       
-      <tag>产品</tag>
-      
       <tag>个人</tag>
+      
+      <tag>产品</tag>
       
     </tags>
     
@@ -718,9 +718,9 @@
       
       <tag>MacOs</tag>
       
-      <tag>快捷键</tag>
-      
       <tag>Typora</tag>
+      
+      <tag>快捷键</tag>
       
     </tags>
     
@@ -857,9 +857,9 @@
     
     <tags>
       
-      <tag>产品</tag>
-      
       <tag>个人</tag>
+      
+      <tag>产品</tag>
       
     </tags>
     
