@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  <link rel="icon" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -434,7 +434,7 @@ Github的免费图床使用了一段时间了，后边我也会出详细教程�
 <p>这样的工具有吗？答案是肯定的，Github大牛给出了工具PicGo：</p>
 <p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
 <p>工具有了需要配置一下才能使用，找到 图床设置&gt;阿里云OSS，我们就明确了，我们需要哪些参数了！走起！</p>
-<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/33.png" srcset="/img/loading.gif" lazyload><br/></p>
+<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/33.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload><br/></p>
 <h4 id="二、注册阿里云，创建Bucket，获取“确认存储区域”、“设定存储空间名”参数"><a href="#二、注册阿里云，创建Bucket，获取“确认存储区域”、“设定存储空间名”参数" class="headerlink" title="二、注册阿里云，创建Bucket，获取“确认存储区域”、“设定存储空间名”参数"></a><strong>二、注册阿里云，创建Bucket，获取“确认存储区域”、“设定存储空间名”参数</strong><br/></h4><p>阿里云对象存储（oss）：<a target="_blank" rel="noopener" href="https://oss.console.aliyun.com/">点击直达</a></p>
 <p>提示没有开通的话，就先开通oss服务（开通并不花钱，使用资源才会花钱），接着创建Bucket，这块记得读写权限设置为<span class="label label-primary">公共读</span>。</p>
 <p class="note note-warning"> 
@@ -443,14 +443,14 @@ Github的免费图床使用了一段时间了，后边我也会出详细教程�
 </p>
 
 
-<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/11.png" srcset="/img/loading.gif" lazyload alt="Bucket路径"></p>
-<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/22.png" srcset="/img/loading.gif" lazyload alt="设置读写权限"></p>
+<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/11.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="Bucket路径"></p>
+<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/22.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="设置读写权限"></p>
 <p>创建成功后可以在Bucket列表中查看，创建的Bucket名称就是“设定存储空间名”参数值；点击对应Bucket名称，查看预览信息，下方红框里的就是“确认存储区域”代码</p>
-<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211109144754.png" srcset="/img/loading.gif" lazyload alt="获取存储区域参数"></p>
+<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211109144754.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="获取存储区域参数"></p>
 <h4 id="三、获取“设定Keyid”、”设定KeySecret”参数"><a href="#三、获取“设定Keyid”、”设定KeySecret”参数" class="headerlink" title="三、获取“设定Keyid”、”设定KeySecret”参数"></a><strong>三、获取“设定Keyid”、”设定KeySecret”参数</strong><br/></h4><p>这个其实就是阿里云的用户Accesskey，控制台 &gt; 鼠标移入个人头像 &gt; 下拉菜单选择 &gt; Accesskey管理，创建一个子账户，并且把oss的权限赋予这个账号就ok了，把Accesskey两个值粘贴下来（只有创建时能看见一次，可以下载csv文件备份）<br/></p>
-<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211109145645.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211109145645.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 <h4 id="四、配置PicGo"><a href="#四、配置PicGo" class="headerlink" title="四、配置PicGo"></a><strong>四、配置PicGo</strong><br/></h4><p>回到我们下载的PicGo的阿里云OSS配置页面，将上边四个参数粘贴进去，<strong>指定存储路径</strong>可填可不填，这个会在你的Bucket中创建文件夹，上传的图片都会存到这个文件夹下。点击确认按钮，大功告成！</p>
-<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/33.png" srcset="/img/loading.gif" lazyload><br/></p>
+<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/33.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload><br/></p>
 <h4 id="五、结论"><a href="#五、结论" class="headerlink" title="五、结论"></a><strong>五、结论</strong><br/></h4><p>快拖放一张图片试试吧！</p>
 
                 

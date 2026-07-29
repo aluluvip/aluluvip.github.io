@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  <link rel="icon" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -412,16 +412,16 @@
             
               <div class="markdown-body">
                 
-                <h1 id="折腾篇：群晖上使用Docker部署Kodbox"><a href="#折腾篇：群晖上使用Docker部署Kodbox" class="headerlink" title="折腾篇：群晖上使用Docker部署Kodbox"></a><center>折腾篇：群晖上使用Docker部署Kodbox</center></h1><h4 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h4><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620789609-0-1.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="二、安装Kodbox"><a href="#二、安装Kodbox" class="headerlink" title="二、安装Kodbox"></a>二、安装Kodbox</h4><p>打开Docker-注册表，搜索kodbox，选择kodcloud&#x2F;kodbox 最新版本<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620789685-0-2.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="三、安装mariadb、redis"><a href="#三、安装mariadb、redis" class="headerlink" title="三、安装mariadb、redis"></a>三、安装mariadb、redis</h4><p>以同样方式搜索mariadb、redis，分别下载<code>mariadb</code>:<code>10.5.5</code>、<code>redis</code>:<code>alpine3.12</code>，然后查看Docker - 映像，等待下载完成。<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620789738-0-3.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="四、运行容器"><a href="#四、运行容器" class="headerlink" title="四、运行容器"></a>四、运行容器</h4><h5 id="1、运行redis"><a href="#1、运行redis" class="headerlink" title="1、运行redis"></a>1、运行redis</h5><p>进入Docker-映像，双击redis，在高级设置中勾选启用自动重新启动；然后应用保存，继续下一步-应用-完成运行’;<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620789887-0-4.png" srcset="/img/loading.gif" lazyload></p>
+                <h1 id="折腾篇：群晖上使用Docker部署Kodbox"><a href="#折腾篇：群晖上使用Docker部署Kodbox" class="headerlink" title="折腾篇：群晖上使用Docker部署Kodbox"></a><center>折腾篇：群晖上使用Docker部署Kodbox</center></h1><h4 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h4><p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620789609-0-1.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
+<h4 id="二、安装Kodbox"><a href="#二、安装Kodbox" class="headerlink" title="二、安装Kodbox"></a>二、安装Kodbox</h4><p>打开Docker-注册表，搜索kodbox，选择kodcloud&#x2F;kodbox 最新版本<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620789685-0-2.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
+<h4 id="三、安装mariadb、redis"><a href="#三、安装mariadb、redis" class="headerlink" title="三、安装mariadb、redis"></a>三、安装mariadb、redis</h4><p>以同样方式搜索mariadb、redis，分别下载<code>mariadb</code>:<code>10.5.5</code>、<code>redis</code>:<code>alpine3.12</code>，然后查看Docker - 映像，等待下载完成。<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620789738-0-3.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
+<h4 id="四、运行容器"><a href="#四、运行容器" class="headerlink" title="四、运行容器"></a>四、运行容器</h4><h5 id="1、运行redis"><a href="#1、运行redis" class="headerlink" title="1、运行redis"></a>1、运行redis</h5><p>进入Docker-映像，双击redis，在高级设置中勾选启用自动重新启动；然后应用保存，继续下一步-应用-完成运行’;<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620789887-0-4.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 <h5 id="2、运行mariadb"><a href="#2、运行mariadb" class="headerlink" title="2、运行mariadb"></a>2、运行mariadb</h5><ul>
 <li><p>进入Docker-映像，双击mariadb</p>
 </li>
 <li><p>在高级设置中勾选启用自动重新启动；</p>
 </li>
-<li><p>在‘卷’中添加文件夹-选择一个用来存储数据库的位置（这里是先创建了<code>docker/db</code>目录，是空目录）；装载路径填写<code>/var/lib/mysql</code>，这个是固定的；<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790150-0-5.png" srcset="/img/loading.gif" lazyload></p>
+<li><p>在‘卷’中添加文件夹-选择一个用来存储数据库的位置（这里是先创建了<code>docker/db</code>目录，是空目录）；装载路径填写<code>/var/lib/mysql</code>，这个是固定的；<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790150-0-5.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 </li>
 <li><p>在高级设置-环境中，添加4个环境变量</p>
 </li>
@@ -429,35 +429,35 @@
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">MYSQL<span class="hljs-emphasis">_DATABASE   数据库</span><br><span class="hljs-emphasis">MYSQL_USER       用户名</span><br><span class="hljs-emphasis">MYSQL_PASSWORD   密码</span><br><span class="hljs-emphasis">MYSQL_ROOT_</span>PASSWORD<br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>值可以自定义，这里举例全部设为kod_box，建议修改；然后应用-下一步-再应用立即启动。<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790228-0-6.png" srcset="/img/loading.gif" lazyload></li>
+<li>值可以自定义，这里举例全部设为kod_box，建议修改；然后应用-下一步-再应用立即启动。<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790228-0-6.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></li>
 </ul>
 <h5 id="3、运行kodbox"><a href="#3、运行kodbox" class="headerlink" title="3、运行kodbox"></a>3、运行kodbox</h5><ul>
 <li><p>，进入Docker-映像，双击kodbox</p>
 </li>
 <li><p>在高级设置中勾选启用自动重新启动；</p>
 </li>
-<li><p>在‘卷’中添加文件夹-选择一个用来存放kodbox站点的位置（这里是先创建了<code>docker/kodbox</code>目录，是空目录）；装载路径填写<code>/var/www/html</code>，这个是固定的；<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790312-0-7.png" srcset="/img/loading.gif" lazyload></p>
+<li><p>在‘卷’中添加文件夹-选择一个用来存放kodbox站点的位置（这里是先创建了<code>docker/kodbox</code>目录，是空目录）；装载路径填写<code>/var/www/html</code>，这个是固定的；<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790312-0-7.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 </li>
-<li><p>如果已有数据目录（非空目录，这里举例<code>web/data</code>），想放到kodbox里面管理，也需要在此时配置，建议装载路径填<code>/mnt</code>;（数据卷是Docker和群晖主机共用的目录，可以有多个）<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790458-0-8.png" srcset="/img/loading.gif" lazyload></p>
+<li><p>如果已有数据目录（非空目录，这里举例<code>web/data</code>），想放到kodbox里面管理，也需要在此时配置，建议装载路径填<code>/mnt</code>;（数据卷是Docker和群晖主机共用的目录，可以有多个）<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790458-0-8.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 </li>
 <li><p>在‘端口设置‘中添加映射端口，本地端口（群晖）这里举例用88，容器端口是80固定的；（有个9000可以点’-’删掉）</p>
 </li>
 </ul>
-<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790500-0-9.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790500-0-9.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 <ul>
-<li><p>在‘链接’中分别添加刚才启动的2个容器<code>mariadb1</code>、<code>redis1</code>，起别名（这里举例）<code>db</code>和<code>redis</code>; 然后应用保存，继续下一步-应用-完成运行’<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790536-0-10.png" srcset="/img/loading.gif" lazyload></p>
+<li><p>在‘链接’中分别添加刚才启动的2个容器<code>mariadb1</code>、<code>redis1</code>，起别名（这里举例）<code>db</code>和<code>redis</code>; 然后应用保存，继续下一步-应用-完成运行’<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790536-0-10.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 </li>
-<li><p>在Docker-容器中查看，刚启动的三个容器都在运行中<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790615-0-11.png" srcset="/img/loading.gif" lazyload></p>
+<li><p>在Docker-容器中查看，刚启动的三个容器都在运行中<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790615-0-11.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 </li>
 </ul>
 <h4 id="五、网页配置kodbox"><a href="#五、网页配置kodbox" class="headerlink" title="五、网页配置kodbox"></a>五、网页配置kodbox</h4><ul>
 <li><p>打开网页，输入群晖地址后面加88端口，开始配置kodbox</p>
 </li>
-<li><p>环境检测正常，直接点下一步；<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790692-0-12.png" srcset="/img/loading.gif" lazyload></p>
+<li><p>环境检测正常，直接点下一步；<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790692-0-12.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 </li>
-<li><p>数据库配置，服务器栏填写运行容器时起的别名，用户名密码等填前面设置的环境变量；然后确定进入下一步<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790740-0-13.png" srcset="/img/loading.gif" lazyload></p>
+<li><p>数据库配置，服务器栏填写运行容器时起的别名，用户名密码等填前面设置的环境变量；然后确定进入下一步<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790740-0-13.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 </li>
-<li><p>设置好管理员的账号和密码，完成部署；<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790749-0-14.png" srcset="/img/loading.gif" lazyload></p>
+<li><p>设置好管理员的账号和密码，完成部署；<br><img src="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/1620790749-0-14.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload></p>
 </li>
 </ul>
 <h4 id="六、桌面移动端客户端应用下载"><a href="#六、桌面移动端客户端应用下载" class="headerlink" title="六、桌面移动端客户端应用下载"></a>六、桌面移动端客户端应用下载</h4><p><a target="_blank" rel="noopener" href="https://kodcloud.com/download/">https://kodcloud.com/download/</a></p>
