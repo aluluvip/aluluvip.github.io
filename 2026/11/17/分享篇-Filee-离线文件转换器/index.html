@@ -1,0 +1,998 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  <link rel="icon" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sagit.">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一个不上传的转换器：按住 Ctrl（macOS 是 Option）拖动文件，光标旁弹出格式圆环，丢上去就转完。270 种格式、批量并行、命令行、监视文件夹都有；但 macOS 还是 preview，视频转换和 PDF&#x2F;A 得自己补 FFmpeg 与 Ghostscript。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享篇：Filee —— 按住一个键把文件拖进圆环，270 种格式本地转完">
+<meta property="og:url" content="https://blog.luluvip.cn/2026/11/17/%E5%88%86%E4%BA%AB%E7%AF%87-Filee-%E7%A6%BB%E7%BA%BF%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E5%99%A8/index.html">
+<meta property="og:site_name" content="一只路路">
+<meta property="og:description" content="一个不上传的转换器：按住 Ctrl（macOS 是 Option）拖动文件，光标旁弹出格式圆环，丢上去就转完。270 种格式、批量并行、命令行、监视文件夹都有；但 macOS 还是 preview，视频转换和 PDF&#x2F;A 得自己补 FFmpeg 与 Ghostscript。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.luluvip.cn/img/filee/banner.jpg">
+<meta property="article:published_time" content="2026-11-17T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-11-19T03:37:13.144Z">
+<meta property="article:author" content="Sagit.">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="文件转换">
+<meta property="article:tag" content="开源软件">
+<meta property="article:tag" content="效率工具">
+<meta property="article:tag" content="macOS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.luluvip.cn/img/filee/banner.jpg">
+  
+  
+  
+  <title>分享篇：Filee —— 按住一个键把文件拖进圆环，270 种格式本地转完 - 一只路路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="一只路路" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lulu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/filee/banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.45)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">分享篇：Filee —— 按住一个键把文件拖进圆环，270 种格式本地转完</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-11-17 10:30" pubdate>
+          2026年11月17日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          36 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">分享篇：Filee —— 按住一个键把文件拖进圆环，270 种格式本地转完</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="分享篇：Filee-——-按住一个键把文件拖进圆环，270-种格式本地转完"><a href="#分享篇：Filee-——-按住一个键把文件拖进圆环，270-种格式本地转完" class="headerlink" title="分享篇：Filee —— 按住一个键把文件拖进圆环，270 种格式本地转完"></a><center>分享篇：Filee —— 按住一个键把文件拖进圆环，270 种格式本地转完</center></h1><blockquote>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/KnifeLemon/Filee">https://github.com/KnifeLemon/Filee</a> ｜ 许可：MIT ｜ Star：约 2.8 万（28,099） ｜ 最新版本：v2.5.0（2026-11-16）</p>
+</blockquote>
+<h2 id="一、它改的不是转换能力，是转换动作"><a href="#一、它改的不是转换能力，是转换动作" class="headerlink" title="一、它改的不是转换能力，是转换动作"></a>一、它改的不是转换能力，是转换动作</h2><p>文件转换这个需求老得不能再老。通常的路径是：打开在线转换站 → 上传 → 等 → 下载 → 挪到你想要的位置；或者装 Acrobat、格式工厂、LibreOffice，然后在菜单里翻三层。</p>
+<p>Filee 把它压成了一个手势：按住 Ctrl（macOS 是 Option），拖动文件，光标处弹出格式圆环，圆环上只有「这些文件能转到的格式」，把文件丢到某一格，进度环走完，结果落在原文件旁边。</p>
+<p>没有主窗口要切，没有上传进度条，没有「请选择输出目录」。</p>
+<p><img src="/img/filee/home.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="Filee 主页：拖放区与最近转换"></p>
+<p>三个判断：</p>
+<ul>
+<li>它省的是路径，不是能力。要转的东西还是得转，只是不用离开当前窗口。</li>
+<li>圆环只显示有意义的目标格式，这是设计上最关键的一点 —— 一个 PDF 拖上去，不会给你列出 MP3。</li>
+<li>结果默认存在源文件同目录，命名规则可配，源文件永不被覆盖。</li>
+</ul>
+<h2 id="二、装起来"><a href="#二、装起来" class="headerlink" title="二、装起来"></a>二、装起来</h2><table>
+<thead>
+<tr>
+<th>平台</th>
+<th>怎么装</th>
+<th>状态</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Windows 10 &#x2F; 11</td>
+<td>Setup.exe、Portable.zip、<code>winget install KnifeLemon.Filee</code>、Microsoft Store</td>
+<td>正式支持</td>
+<td>ARM 机器有原生 arm64 包，不走 x64 仿真</td>
+</tr>
+<tr>
+<td>macOS 13+</td>
+<td>打开 .dmg 拖进「应用程序」，或解压后跑 <code>./install.sh</code></td>
+<td>preview</td>
+<td>未公证，首次启动要去「隐私与安全性」点「仍要打开」</td>
+</tr>
+<tr>
+<td>Linux x64 &#x2F; ARM64</td>
+<td>解压 tar.gz 跑 <code>./install.sh</code>（不用 root，要 Python 3）</td>
+<td>正式支持</td>
+<td>拖动手势要 X11；Wayland 下只能用拖放区和右键菜单</td>
+</tr>
+</tbody></table>
+<p>安装包 140MB 上下（v2.5.0 的 win Setup 142MB、osx-arm64 dmg 145MB）。因为它把 ImageMagick、PDFium、rhwp、7-Zip 这些直接塞进去了 —— 这是离线工具的代价，换来的是装完不用再联网。</p>
+<h2 id="三、263-还是-270：格式数它自己都没对齐"><a href="#三、263-还是-270：格式数它自己都没对齐" class="headerlink" title="三、263 还是 270：格式数它自己都没对齐"></a>三、263 还是 270：格式数它自己都没对齐</h2><p>仓库简介写的是 263 种，README 写的是 270 种。翻 CHANGELOG 能对上：2.x 早期那一版确实写「263 in all」，2.5.0 又加了一批（VTF、Gerber、JSON Canvas、G-code、Wisenet .nov、酷狗 .krc、GIMP .xcf、Paint.NET .pdn、.osm、.ino&#x2F;.pde 等），所以 270 是当前口径，263 是没跟着改的旧数字。两个数都是官方写的，以 README 为准。</p>
+<p>真正值得看的是「哪些不用再装别的软件」：</p>
+<ul>
+<li>装好即用：图片（含相机 RAW、DICOM、HEIC、PSD&#x2F;PDN&#x2F;XCF 图层互转）、PDF（合并、拆分、压缩、页面重排）、Office 三件套互转、HWP&#x2F;HWPX、电子书、字幕、压缩包、字体、数据格式（JSON&#x2F;YAML&#x2F;TOML&#x2F;XML&#x2F;CSV）、CAD、3D 模型、地理矢量数据。</li>
+<li>要下引擎：老格式（DOC&#x2F;XLS&#x2F;PPT&#x2F;RTF）、冷门电子书、视频音频、PDF&#x2F;A、扫描件 OCR。</li>
+</ul>
+<p>这里有个技术细节值得单独说：DOCX&#x2F;XLSX&#x2F;XLS&#x2F;ODS&#x2F;PPTX → PDF，既不需要 Microsoft Office，也不需要 LibreOffice。它用自己的读取器把文档读进来，写成 HWPX，然后交给随包的 rhwp 渲染成 PDF。所以一台什么办公软件都没装的 Windows 也能把 Word 转成 PDF —— 这是它跟「必须先装 Office」那类工具最本质的区别。</p>
+<p>代价也很清楚：渲染结果取决于这个自研的排版器。rhwp 逐字符从左到右绘制，不做 OpenType 连写，阿拉伯文和希伯来文会不连写、顺序也会错，印度语系的元音符号会散成独立字形。Filee 的处理方式是先扫一遍源文件的文本部分，发现这类文字就临时改走 LibreOffice —— 也就是说「不用装 Office」这条路线，在非拉丁语系文档上会主动让位。中文、日文、韩文不受这个限制。</p>
+<table>
+<thead>
+<tr>
+<th>可选引擎</th>
+<th>下载体积 &#x2F; 占盘</th>
+<th>负责什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LibreOffice + Java</td>
+<td>约 420MB &#x2F; 1.3GB</td>
+<td>老格式 DOC、XLS、PPT、RTF 与冷门只读格式</td>
+</tr>
+<tr>
+<td>calibre</td>
+<td>约 216MB &#x2F; 660MB</td>
+<td>LIT、LRF、CHM、PDB 等冷门电子书，EPUB → MOBI&#x2F;AZW3</td>
+</tr>
+<tr>
+<td>FFmpeg</td>
+<td>约 100MB &#x2F; 272MB</td>
+<td>全部视频音频转换、GIF、M4R 铃声、Live Photo</td>
+</tr>
+<tr>
+<td>Tesseract</td>
+<td>约 50MB &#x2F; 160MB</td>
+<td>扫描件 OCR，每种语言再单独下 0.4–10MB</td>
+</tr>
+<tr>
+<td>Pandoc</td>
+<td>约 42MB &#x2F; 240MB</td>
+<td>Markdown、LaTeX、Org、reStructuredText 等标记语言互转</td>
+</tr>
+<tr>
+<td>Ghostscript</td>
+<td>约 20MB &#x2F; 31MB</td>
+<td>EPS&#x2F;PS、PDF&#x2F;A、CMYK 页面渲染</td>
+</tr>
+<tr>
+<td>ExifTool</td>
+<td>约 11MB &#x2F; 30MB</td>
+<td>读写照片、PDF、视频的元数据</td>
+</tr>
+</tbody></table>
+<p>引擎只在需要时下，SHA-256 校验完才解包；也能先在能上网的机器上 <code>filee engines download</code> 存成一个文件夹，拷到离线机器再装。</p>
+<h2 id="四、「拖一下」之外，几个真用得上的"><a href="#四、「拖一下」之外，几个真用得上的" class="headerlink" title="四、「拖一下」之外，几个真用得上的"></a>四、「拖一下」之外，几个真用得上的</h2><p>圆环有背面。打开时按 Tab 或滚轮翻过来，背面是不常用的格式和工具。</p>
+<p>每种文件类型一个工具栏，可以拖放排列。图片一套 6 个正面、8 个背面；PDF、文档、电子表格、演示文稿各有各的一套。质量、尺寸、DPI、页面、输出目录、命名这些预设都能单独存，也能从预设库里装别人分享的（2.5.0 新增，全部 CC0）。</p>
+<p><img src="/img/filee/toolbar.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="环形工具栏编辑器：按文件类型排列圆环与预设"></p>
+<p><img src="/img/filee/presets.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="预设库：每个预设的转换规则都能细调"></p>
+<p>多文件并行，自动找多步路线。比如 HWP → DOCX，它会自己规划 HWP → HWPX → DOCX，最多三跳。</p>
+<p>监视文件夹。放进来的文件自动转，适合固定的收件流程。</p>
+<p>命令行。和应用共用同一套引擎与预设，这个对脚本化很关键：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">filee convert *.png --to webp --quality 80 -o converted<br>filee watch D:\Inbox --to pdf --move-originals<br></code></pre></td></tr></table></figure>
+
+<p>从浏览器直接拖。Chrome、Edge、Firefox、Safari 里的图片、文件链接、下载项都能这么拖，Filee 先存到下载文件夹再转；链接下载不带你的浏览器登录态。</p>
+<p>2.5.0 的两个动作值得记一下：一是「转换后把原文件移到回收站」（默认关闭，只进回收站，绝不永久删除，回收站拒收就保留原文件并说明原因）；二是修了三份安全通告（安装程序可被其他程序借用管理员权限、构造的文档和压缩包能撑爆内存或磁盘）。这版是 required 级更新，用旧版的直接升。</p>
+<p>Filee Connect 是局域网内的手机传送带：桌面端点开出一个二维码，手机浏览器扫码就能递文件过来（16 字节一次性配对码 + 30 秒刷新的 6 位 PIN），数据不出局域网、不经过云端。</p>
+<h2 id="五、macOS-上要提前知道的三件事"><a href="#五、macOS-上要提前知道的三件事" class="headerlink" title="五、macOS 上要提前知道的三件事"></a>五、macOS 上要提前知道的三件事</h2><p>macOS 是 preview，差别不在「能跑」和「跑得好」，而在「要动手」和「不用动手」。</p>
+<ol>
+<li>未公证。首次启动会被 Gatekeeper 拦下，去「系统设置 → 隐私与安全性 → 仍要打开」。这一步不做，程序永远打不开。</li>
+<li>权限。Option + 拖动这个全局手势需要「辅助功能」权限；Finder 里的「用 Filee 转换」服务还需要在「自动化」里授权给 Finder。这两个不给，圆环根本弹不出来。</li>
+<li>引擎缺位。macOS 上 FFmpeg、Ghostscript、Tesseract 没有随包下载，Filee 会去系统里找已有的安装 —— 也就是视频音频转换、PDF&#x2F;A、扫描件 OCR 得自己 <code>brew install ffmpeg ghostscript tesseract</code>。好消息是 OCR 在 Mac 上可以走 Apple Vision，不装 Tesseract 也能识字，只是语言覆盖没 Tesseract 全。</li>
+</ol>
+<p>补一条容易误判的：终端开了「安全键盘输入」（Secure Input）时，全局按键会被系统整个吞掉，圆环可能弹不出来。这不是 Filee 的 bug，macOS 就是这么设计的。</p>
+<h2 id="六、适合谁-不适合谁"><a href="#六、适合谁-不适合谁" class="headerlink" title="六、适合谁 &#x2F; 不适合谁"></a>六、适合谁 &#x2F; 不适合谁</h2><table>
+<thead>
+<tr>
+<th>适合</th>
+<th>不适合</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>经常在 Windows 和 macOS 之间倒腾格式，一天转好几次的人</td>
+<td>一年转两次，在线站点更省事，不值得装 140MB</td>
+</tr>
+<tr>
+<td>机器上不想装 Office，但需要 docx&#x2F;xlsx&#x2F;pptx 转 PDF</td>
+<td>要求 100% 还原原排版的出版级转换</td>
+</tr>
+<tr>
+<td>HWP&#x2F;HWPX 用户，或者要读 OFD 电子发票、公文的人</td>
+<td>大批量扫描件 OCR（得先装 Tesseract，识别质量也就中等）</td>
+</tr>
+<tr>
+<td>要批量处理图片、合并拆分 PDF、统一缩放</td>
+<td>需要云端队列、多设备同步、团队协作</td>
+</tr>
+<tr>
+<td>真的不想把文件传到别人服务器上的人</td>
+<td>想拿它当服务端转换 API（MIT 允许改，但没有 server 模式）</td>
+</tr>
+</tbody></table>
+<h2 id="七、短板也直说"><a href="#七、短板也直说" class="headerlink" title="七、短板也直说"></a>七、短板也直说</h2><ul>
+<li>三平台成熟度不均。Windows 是一等公民（代码签名、微软商店、winget、ARM64 原生包），macOS 是 preview，Linux 只有 X11 下能拖。Mac 上看到的丝滑，是「官方说它能跑」的水平。</li>
+<li>文档配图停在 2.3.0。官方 README 的截图左下角还写着版本 2.3.0，跟 2.5.0 的实际界面有出入。</li>
+<li>数字自己没对齐。263 &#x2F; 270 混用；建库是 2026 年 9 月 29 日，七周涨到 2.8 万星、30 个 release 累计下载 111 万次，文档明显跟不上功能速度。</li>
+<li>界面是工具型，不是消费级。设置页二十来个导航项，圆环编辑器要拖放配置，第一次用有学习成本。</li>
+<li>体积不轻。142MB 的安装包对「就转个格式」来说很重，换来的是完全离线。</li>
+</ul>
+<h2 id="八、结论"><a href="#八、结论" class="headerlink" title="八、结论"></a>八、结论</h2><p>如果你经常需要「把这个文件变成那个格式」，而且讨厌上传，Filee 目前是最省事的选择之一 —— 因为它把转换从「打开一个软件」降级成了「按住一个键」。</p>
+<p>Windows 可以放心装；macOS 要先接受 preview 的定位（手动放行、给两个权限、自己补 FFmpeg）；Linux 桌面只在 X11 下体验完整。</p>
+<p>配图来自项目仓库 docs&#x2F;media 目录（README 简体中文版引用的 banner-zh-CN.jpg、page-home-zh-CN.png、page-toolbar-zh-CN.png、page-presets-zh-CN.png），随项目以 MIT 许可发布。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9C%89%E8%B6%A3%E5%88%86%E4%BA%AB/" class="category-chain-item">有趣分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+      
+        <a href="/tags/%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2/" class="print-no-link">#文件转换</a>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" class="print-no-link">#开源软件</a>
+      
+        <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" class="print-no-link">#效率工具</a>
+      
+        <a href="/tags/macOS/" class="print-no-link">#macOS</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>分享篇：Filee —— 按住一个键把文件拖进圆环，270 种格式本地转完</div>
+      <div>https://blog.luluvip.cn/2026/11/17/分享篇-Filee-离线文件转换器/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sagit.</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年11月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/11/18/%E6%8A%98%E8%85%BE%E7%AF%87-Window-Sweaters-%E7%BB%99%E7%AA%97%E5%8F%A3%E7%BB%87%E6%AF%9B%E8%A1%A3/" title="折腾篇：Window Sweaters —— 给每个窗口织一件毛衣">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">折腾篇：Window Sweaters —— 给每个窗口织一件毛衣</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/11/16/%E6%8A%98%E8%85%BE%E7%AF%87-VsTV-%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD%E6%92%AD%E6%94%BE%E5%99%A8/" title="折腾篇：VsTV —— 10MB 的电视直播播放器，组播、回看、AI 字幕都有">
+                        <span class="hidden-mobile">折腾篇：VsTV —— 10MB 的电视直播播放器，组播、回看、AI 字幕都有</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-love"></i> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>&nbsp;&nbsp; <i class="iconfont icon-github-fill"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>&nbsp;&nbsp; <i class="iconfont icon-code"></i> <a href="https://blog.luluvip.cn" target="_blank" rel="nofollow noopener"><span>Lulu</span></a> &nbsp;&nbsp; <i class="iconfont icon-rss"></i> <a href="https://blog.luluvip.cn/atom.xml" target="_blank" rel="nofollow noopener"><span>Rss</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

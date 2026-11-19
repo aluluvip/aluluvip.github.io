@@ -1,0 +1,964 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  <link rel="icon" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sagit.">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一个菜单栏小工具，给每个窗口套上真正有针脚的编织边框，颜色从对应 App 的图标里采。37 套手工配色、六档边框宽度、四档针脚大小，能按 App 单独开关。代价是它靠 SkyLight 私有 API 干活，未公证、要辅助功能权限、拖拽缩放时边框会先躲起来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="折腾篇：Window Sweaters —— 给每个窗口织一件毛衣">
+<meta property="og:url" content="https://blog.luluvip.cn/2026/11/18/%E6%8A%98%E8%85%BE%E7%AF%87-Window-Sweaters-%E7%BB%99%E7%AA%97%E5%8F%A3%E7%BB%87%E6%AF%9B%E8%A1%A3/index.html">
+<meta property="og:site_name" content="一只路路">
+<meta property="og:description" content="一个菜单栏小工具，给每个窗口套上真正有针脚的编织边框，颜色从对应 App 的图标里采。37 套手工配色、六档边框宽度、四档针脚大小，能按 App 单独开关。代价是它靠 SkyLight 私有 API 干活，未公证、要辅助功能权限、拖拽缩放时边框会先躲起来。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.luluvip.cn/img/window-sweaters/banner.jpg">
+<meta property="article:published_time" content="2026-11-18T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-11-19T03:37:13.148Z">
+<meta property="article:author" content="Sagit.">
+<meta property="article:tag" content="开源软件">
+<meta property="article:tag" content="macOS">
+<meta property="article:tag" content="桌面美化">
+<meta property="article:tag" content="菜单栏工具">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.luluvip.cn/img/window-sweaters/banner.jpg">
+  
+  
+  
+  <title>折腾篇：Window Sweaters —— 给每个窗口织一件毛衣 - 一只路路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="一只路路" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lulu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/window-sweaters/banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.45)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">折腾篇：Window Sweaters —— 给每个窗口织一件毛衣</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-11-18 10:30" pubdate>
+          2026年11月18日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          44 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">折腾篇：Window Sweaters —— 给每个窗口织一件毛衣</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="折腾篇：Window-Sweaters-——-给每个窗口织一件毛衣"><a href="#折腾篇：Window-Sweaters-——-给每个窗口织一件毛衣" class="headerlink" title="折腾篇：Window Sweaters —— 给每个窗口织一件毛衣"></a><center>折腾篇：Window Sweaters —— 给每个窗口织一件毛衣</center></h1><blockquote>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/saragordic/window-sweaters">saragordic&#x2F;window-sweaters</a> ｜ 许可：GPL-3.0 ｜ Star：1,509 ｜ 最新版本：v1.5.0（2026-09-18）｜ 平台：macOS 13+，Universal（Apple Silicon + Intel）</p>
+</blockquote>
+<p>这是个纯审美需求的东西，不解决任何效率问题。但它是那种「装上之后才发现自己一直想要」的小玩意儿：每个窗口外面多了一圈看得见针脚的毛线边框，绿的格纹、蓝的锯齿、赭色的星点，颜色全都从对应 App 的图标里取的。</p>
+<p>作者是 Sara Gordic，2026 年 9 月 15 日开源，一个月出头攒到 1500 star。底层不是从零写的，它基于 Felix Kratz 的 <a target="_blank" rel="noopener" href="https://github.com/FelixKratz/JankyBorders">JankyBorders</a> 改造，所以「给窗口画边框」这件事本身已经很成熟，Window Sweaters 干的是把一根纯色线条换成一张会编织的贴图。</p>
+<h2 id="一、它到底做了什么"><a href="#一、它到底做了什么" class="headerlink" title="一、它到底做了什么"></a>一、它到底做了什么</h2><p>窗口边框在 macOS 上本来没有，JankyBorders 一类的工具靠往 WindowServer 里塞一层无边框窗口来模拟。Window Sweaters 把这层窗口的内容换成了编织图案：每一针有明暗、有立体感，转角处图案要接得上，窗口失焦时还能变成暗色或灰色。</p>
+<p><img src="/img/window-sweaters/styles.jpg" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="By App 与 Zigzag 两种模式的对比：左边每个 App 各有花色，右边统一成奶油色锯齿"></p>
+<p>上图是官方渲染器输出的对比图，左边 By App、右边 Zigzag，同一批 App 在同一尺寸下的效果。字体、间距、圆角都是真实渲染的，不是效果图。</p>
+<p>它有几个不做的事：不改系统外观、不注入 App、不接管窗口管理（没有平铺、没有快捷键分屏），也不会动你的壁纸和 Dock。它只是在窗口外面多画一层，然后跟着窗口移动、缩放、切换前台。</p>
+<h2 id="二、安装：两条命令，加两个「同意」"><a href="#二、安装：两条命令，加两个「同意」" class="headerlink" title="二、安装：两条命令，加两个「同意」"></a>二、安装：两条命令，加两个「同意」</h2><p>Homebrew 是最省事的路径：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">brew trust saragordic/tap<br>brew install --cask saragordic/tap/window-sweaters<br></code></pre></td></tr></table></figure>
+
+<p><code>brew trust</code> 这步不能省，cask 来自第三方 tap，新版 Homebrew 默认不信任未信任的 tap。装完从「应用程序」里打开。</p>
+<p>也可以去 Releases 下 <code>WindowSweaters-1.5.0.zip</code> 解压拖进 Applications。README 里还有第三种更省事的说法：把仓库地址丢给编码 agent，让它替你装。</p>
+<p>两个拦路的地方，都是 macOS 的常规流程，不是项目的问题：</p>
+<ol>
+<li><strong>未公证</strong>。作者明说这个 App 还没过 Apple 公证。第一次打开会被拦，要去「系统设置 → 隐私与安全性」，在下面找到那条拦截提示点「仍要打开」。之后不再问。</li>
+<li><strong>辅助功能权限</strong>。要在「系统设置 → 隐私与安全性 → 辅助功能」里勾上 Window Sweaters，它才能知道当前哪个窗口在前台——因为「非活动窗口」的暗色&#x2F;灰色处理依赖这个信号。</li>
+</ol>
+<p>顺带说一个容易被忽略的点：这个 App 的 Bundle ID 是 <code>local.knitborders.app</code>，数据目录叫 <code>~/Library/Application Support/Knit Borders</code>。名字里那个 Knit Borders 是它的原名，作者为了不破坏老用户的配置故意没改。所以你在系统设置里看到的名字、在 Finder 里看到的目录名，都跟「Window Sweaters」对不上，这不代表装错了。</p>
+<h2 id="三、能调什么：六档宽度、四档针脚"><a href="#三、能调什么：六档宽度、四档针脚" class="headerlink" title="三、能调什么：六档宽度、四档针脚"></a>三、能调什么：六档宽度、四档针脚</h2><p>点菜单栏那团毛线球，出来的是一层嵌套菜单，比想象中细。</p>
+<table>
+<thead>
+<tr>
+<th>菜单项</th>
+<th>可选值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Border Width</td>
+<td>Slim 6 &#x2F; Narrow 8 &#x2F; Medium 12 &#x2F; Regular 14 &#x2F; Wide 18 &#x2F; Extra Wide 28（pt）</td>
+<td>默认 12 pt，选中非预设值时会单列一条 Custom</td>
+</tr>
+<tr>
+<td>Stitch Size</td>
+<td>Chunky 3 &#x2F; Medium 6 &#x2F; Fine 10 &#x2F; Very Fine 14（行）</td>
+<td>说「针脚大小」，实际是边框里能塞下几行针；行数越少针越粗</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>By App &#x2F; Stockinette &#x2F; Rib &#x2F; Zigzag &#x2F; Picnic Checks &#x2F; Ribbon Stripes &#x2F; Little Bows &#x2F; Tiny Stars &#x2F; Candy Stripes &#x2F; Custom Patterns</td>
+<td>By App 是每个 App 用自己的花色，其余是全局统一图案</td>
+</tr>
+<tr>
+<td>Inactive Windows</td>
+<td>Full Colour &#x2F; Dimmed &#x2F; Grey</td>
+<td>后台窗口保留原色、压暗，或只有当前窗口带颜色</td>
+</tr>
+<tr>
+<td>Apps</td>
+<td>逐个勾选 + Turn On &#x2F; Turn Off for All Apps</td>
+<td>按 App 单独开关</td>
+</tr>
+</tbody></table>
+<p>有个细节挺聪明：换了带图案的 Pattern（比如 Tiny Stars），如果当前针数不够显示完整图案，程序会自动把针数抬到最低要求，而不是把图案压扁。所以调宽窄和调图案是联动的，不是两个独立旋钮。</p>
+<p>图案本身不是程序画的，是一张张字符矩阵煮出来的（源码里 <code>chart.c</code> 用字符网格定义每个图案，比如 <code>atelier-claude</code> 的奶油色星星）。想自己画也行：往 <code>~/Library/Application Support/Knit Borders/charts/</code> 里丢 PNG，就能替换内置图案。</p>
+<h2 id="四、37-套配色的来源：一半手工，一半取样"><a href="#四、37-套配色的来源：一半手工，一半取样" class="headerlink" title="四、37 套配色的来源：一半手工，一半取样"></a>四、37 套配色的来源：一半手工，一半取样</h2><p>这是这个项目最花心思的地方。37 个常用 App 有手工挑的配色和图案，剩下的 App 走自动取色。</p>
+<p><img src="/img/window-sweaters/collection.jpg" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="Finder、Teams、Claude、Codex、Spotify、Notion、WhatsApp、Figma 八套花色"></p>
+<p>官方给了 37 套的对照表，从 Finder 的蓝色格纹、Claude 的杏色星星、Spotify 的格纹凸起、到 Calendar 的番茄红弧形袖口。有几套是共用图案的：Spotify 和 Notion 都用格纹，Teams &#x2F; Cursor &#x2F; Codex &#x2F; ChatGPT 都用锯齿，Codex 和 ChatGPT 甚至故意同色。</p>
+<p>两种模式的区别值得说清楚：</p>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>By App</th>
+<th>Zigzag</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>配色来源</td>
+<td>37 个 App 用人工挑的色，其余从图标取色</td>
+<td>所有 App（含这 37 个）都从图标取色</td>
+</tr>
+<tr>
+<td>图案</td>
+<td>每个 App 各有各的图案，固定的</td>
+<td>统一奶油色锯齿，浅色 App 改用自身颜色的深色版</td>
+</tr>
+<tr>
+<td>适合</td>
+<td>想要一个「有性格的桌面」，每个窗口可辨认</td>
+<td>想要统一感，颜色还是跟着 App 走</td>
+</tr>
+</tbody></table>
+<p>自动取色不是简单的平均值。源码里有个门槛：图标颜色的「强度」（最亮通道减最暗通道）低于 0.10 就当灰处理，且至少要 1.7% 的像素带颜色才认，所以黑白 logo 会退回按名字哈希的固定色，而小面积高饱和的点缀（比如某个图标角落的一抹红）仍然算数。图案形状是 App 名字的稳定哈希 —— 同一个 App 每次启动花色一致，不会随机跳。</p>
+<p>换一批不那么「标准奶白」的 App 就能看出手工配色的分寸：Chrome 的五色格纹压成象牙底色，Grok Bot 用炭灰加燕麦色做框，Ghostty 只有安静的米色条纹。这类细节决定了它不像一个套模板生成器。</p>
+<p><img src="/img/window-sweaters/collection-2.jpg" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="Chrome、Paper、ChatGPT、Grok Bot、Discord、Granola、Ghostty 的花色"></p>
+<p>缓存上限 64 个进程，采样在后台串行队列里做，不占主线程。这些参数都写在 CONTRIBUTING 里，属于可核对的实现细节，不是营销词。</p>
+<h2 id="五、只给几个-App-穿毛衣"><a href="#五、只给几个-App-穿毛衣" class="headerlink" title="五、只给几个 App 穿毛衣"></a>五、只给几个 App 穿毛衣</h2><p>默认全开。想留几个 App 干净，进 Apps 菜单取消勾选，那个 App 的窗口立刻脱下毛衣，其他窗口不受影响，重启后依然保持。反过来也行：先「Turn Off for All Apps」，再挑几个喜欢的勾上，之后新开的 App 默认不带。</p>
+<p>这套开关是按 bundle identifier 记的，不是按可执行文件路径，所以同一个 App 从不同位置启动不会漏。另外它还认命令行脚本：如果你有 <code>~/.config/window-sweaters/sweatersrc</code> 或 <code>~/.sweatersrc</code>，启动时会执行，里面可以用 <code>blacklist=</code> &#x2F; <code>whitelist=</code> 这套 JankyBorders 的老语法。两套开关是分开存的，互不覆盖。</p>
+<p>想改单个 App 的颜色，编辑 <code>apps.conf</code>，一行一个：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">Claude = #D58561 atelier-claude<br></code></pre></td></tr></table></figure>
+
+<p>左边是 App 名字前缀（忽略大小写，最长匹配优先），中间是主色，右边是图案名。改完重启 App 生效。</p>
+<h2 id="六、它是怎么做到的，以及这意味着什么"><a href="#六、它是怎么做到的，以及这意味着什么" class="headerlink" title="六、它是怎么做到的，以及这意味着什么"></a>六、它是怎么做到的，以及这意味着什么</h2><p>翻一眼 <code>Makefile</code> 就明白了：链接的是 <code>/System/Library/PrivateFrameworks/</code> 下的 <strong>SkyLight</strong>，源码里大量 <code>SLS*</code> 调用 —— <code>SLSTransactionCreate</code>、<code>SLSTransactionMoveWindowWithGroup</code>、<code>SLSSetWindowShape</code>、<code>SLSTransactionSetWindowSubLevel</code>。也就是说边框窗口的位置、层级、形状都是直接跟 WindowServer 谈的，绕过了公开的 AppKit 路径。</p>
+<p>这带来两个直接后果：</p>
+<p>一是性能好。窗口拖动时边框能跟着走，不用等 Accessibility 轮询窗口坐标再摆位置。作者还做了事务合并（一次 transaction 里同时改位置、层级、子层级、order），减少撕裂。</p>
+<p>二是<strong>脆弱</strong>。私有 API 不承诺兼容，macOS 大版本更新可能改签名或改行为。README 里作者自己写了「It uses private macOS window APIs, so system updates may affect how it works.」这句话不是免责套话，是这个方案的固有成本。</p>
+<p>另外它需要辅助功能权限，是因为「哪个窗口是当前窗口」这件事公开 API 拿不到（只能靠 AX 观察焦点变化），而 Inactive Windows 的三档效果全依赖这个判断。它不是拿这个权限去读你的窗口内容 —— 源码里没有任何抓取窗口内容的路径，边框是独立一层。</p>
+<h2 id="七、已知的坑"><a href="#七、已知的坑" class="headerlink" title="七、已知的坑"></a>七、已知的坑</h2><p><strong>拖拽缩放窗口时，边框会消失。</strong> 这是作者写在 README 里的已知问题（”Borders hide while you resize a window and return when you’re done”）。松手就回来，但如果你的日常操作里大量靠拖边缩放，这个闪烁感会一直在。这是刻意的取舍：缩放过程中窗口尺寸每帧都变，重画边框的成本和撕裂风险都不划算。</p>
+<p><strong>未公证 + 私有 API，等于每次系统升级都是一次小赌。</strong> 现在能跑不代表明年能跑。作者只在 Apple Silicon + macOS 26 上做过完整实测，Intel Mac 和更老的 macOS 13&#x2F;14 属于「编得出来、没充分测过」。Universal 二进制是有的（<code>-arch arm64 -arch x86_64</code>，<code>minos 13.0</code>），但能不能稳是另一回事。</p>
+<p><strong>多显示器场景需要有心理准备。</strong> CONTRIBUTING 里把「显示器切换」列进了必测项，说明这里历史上出过问题。双屏来回拖窗口如果边框错位，去 issue 里报 macOS 版本、机型和显示器排列方式，作者明确要这三个信息。</p>
+<p><strong>没有公开的性能&#x2F;耗电数据。</strong> 仓库里有个 <code>make bench</code> 可以跑渲染基准，但作者没在 README 里给数字。对一台常年插电的 Mac 无所谓，对靠电池干一天活的人，这种常驻绘制的工具值得自己观察一下活动监视器。这一点我只能说「没有数据」，不能替他编一个。</p>
+<p><strong>卸干净要三步。</strong> Homebrew 装的话 <code>brew uninstall --zap --cask window-sweaters</code>（<code>--zap</code> 会连配色一起删，想留着就省掉这个参数）。手动装的要自己删 <code>~/Library/Application Support/Knit Borders</code> 和 <code>~/Library/Preferences/local.knitborders.app.plist</code>。<strong>辅助功能权限是 macOS 单独记的</strong>，删完 App 还得回系统设置里把那条记录减号删掉，不然会留一个指向不存在 App 的条目。</p>
+<h2 id="八、适合谁，不适合谁"><a href="#八、适合谁，不适合谁" class="headerlink" title="八、适合谁，不适合谁"></a>八、适合谁，不适合谁</h2><p>适合：</p>
+<ul>
+<li>每天开十几个窗口、靠窗口边界快速定位的人 —— 编织边框比一条 1px 细线好认太多，尤其深色壁纸下。</li>
+<li>喜欢折腾桌面但不想动系统完整性的人 —— 它不改 SIP、不注入、不装 kext，退出即恢复原样。</li>
+<li>有审美强迫症的：37 套手工配色的完成度不低，转角接缝、袖口弧度都处理过。</li>
+</ul>
+<p>不适合：</p>
+<ul>
+<li>追求「系统原样」的人。这东西的存在感很强，边框最宽能到 28pt。</li>
+<li>靠电池跑一整天、对常驻进程敏感的人。没有公开的耗电数据，风险自担。</li>
+<li>生产环境求稳的人。私有 API + 未公证，系统一升级就可能白屏或者直接崩。</li>
+<li>需要窗口管理功能的人。它不管窗口，只管好看。</li>
+</ul>
+<p>一句话判断：这是那种「用一个下午折腾配置、然后每天开心一次」的工具，不是生产力软件。1.5.0 这个版本完成度已经够日常用，但别指望它在每次 macOS 大版本更新后都毫发无伤 —— 真出问题，去 issue 里带上 macOS 版本、机型和显示器配置，比在评论区抱怨有用。</p>
+<hr>
+<p>图片来源：全部取自仓库 <code>docs/</code> 目录（<code>hero.jpg</code>、<code>docs/collection/styles-comparison.png</code>、<code>docs/collection/collection-1.png</code>），均为项目自带的真实渲染输出，遵循 GPL-3.0 分发。头图由 <code>hero.jpg</code> 居中裁成 1536×668。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0/" class="category-chain-item">折腾记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" class="print-no-link">#开源软件</a>
+      
+        <a href="/tags/macOS/" class="print-no-link">#macOS</a>
+      
+        <a href="/tags/%E6%A1%8C%E9%9D%A2%E7%BE%8E%E5%8C%96/" class="print-no-link">#桌面美化</a>
+      
+        <a href="/tags/%E8%8F%9C%E5%8D%95%E6%A0%8F%E5%B7%A5%E5%85%B7/" class="print-no-link">#菜单栏工具</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>折腾篇：Window Sweaters —— 给每个窗口织一件毛衣</div>
+      <div>https://blog.luluvip.cn/2026/11/18/折腾篇-Window-Sweaters-给窗口织毛衣/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sagit.</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年11月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/11/19/%E6%8A%98%E8%85%BE%E7%AF%87-Aerial-%E7%BB%99%E5%9B%BD%E4%BA%A7%E7%94%B5%E8%A7%86%E6%8D%A2%E4%B8%80%E5%9D%97%E5%B9%B2%E5%87%80%E6%A1%8C%E9%9D%A2/" title="折腾篇：Aerial —— 给国产电视换一块没有推荐流的桌面">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">折腾篇：Aerial —— 给国产电视换一块没有推荐流的桌面</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/11/17/%E5%88%86%E4%BA%AB%E7%AF%87-Filee-%E7%A6%BB%E7%BA%BF%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E5%99%A8/" title="分享篇：Filee —— 按住一个键把文件拖进圆环，270 种格式本地转完">
+                        <span class="hidden-mobile">分享篇：Filee —— 按住一个键把文件拖进圆环，270 种格式本地转完</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-love"></i> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>&nbsp;&nbsp; <i class="iconfont icon-github-fill"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>&nbsp;&nbsp; <i class="iconfont icon-code"></i> <a href="https://blog.luluvip.cn" target="_blank" rel="nofollow noopener"><span>Lulu</span></a> &nbsp;&nbsp; <i class="iconfont icon-rss"></i> <a href="https://blog.luluvip.cn/atom.xml" target="_blank" rel="nofollow noopener"><span>Rss</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
