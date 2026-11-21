@@ -1,0 +1,936 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  <link rel="icon" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sagit.">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="CleanYourTV 的核心不是又做了一套电视桌面，而是通过局域网 ADB 按机型清单停用预装广告和遥测服务，用一个能回滚的脚本完成清理。无需 root、不刷机、不卸载；换成 Android TV 或 Google TV 才适用，Tizen、webOS、VIDAA 直接绕开。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="折腾篇：CleanYourTV —— 用 Wi-Fi 上的 adb 给电视去广告，不动系统、不卸载、可恢复">
+<meta property="og:url" content="https://blog.luluvip.cn/2026/11/21/%E6%8A%98%E8%85%BE%E7%AF%87-CleanYourTV-%E7%94%A8ADB%E7%BB%99%E7%94%B5%E8%A7%86%E5%8E%BB%E5%B9%BF%E5%91%8A/index.html">
+<meta property="og:site_name" content="一只路路">
+<meta property="og:description" content="CleanYourTV 的核心不是又做了一套电视桌面，而是通过局域网 ADB 按机型清单停用预装广告和遥测服务，用一个能回滚的脚本完成清理。无需 root、不刷机、不卸载；换成 Android TV 或 Google TV 才适用，Tizen、webOS、VIDAA 直接绕开。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.luluvip.cn/img/cleanyourtv/banner.jpg">
+<meta property="article:published_time" content="2026-11-21T09:30:00.000Z">
+<meta property="article:modified_time" content="2026-11-21T09:31:09.644Z">
+<meta property="article:author" content="Sagit.">
+<meta property="article:tag" content="开源软件">
+<meta property="article:tag" content="Android TV">
+<meta property="article:tag" content="Google TV">
+<meta property="article:tag" content="ADB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.luluvip.cn/img/cleanyourtv/banner.jpg">
+  
+  
+  
+  <title>折腾篇：CleanYourTV —— 用 Wi-Fi 上的 adb 给电视去广告，不动系统、不卸载、可恢复 - 一只路路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="一只路路" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lulu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/cleanyourtv/banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.45)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">折腾篇：CleanYourTV —— 用 Wi-Fi 上的 adb 给电视去广告，不动系统、不卸载、可恢复</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-11-21 17:30" pubdate>
+          2026年11月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          29 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">折腾篇：CleanYourTV —— 用 Wi-Fi 上的 adb 给电视去广告，不动系统、不卸载、可恢复</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="折腾篇：CleanYourTV-——-用-Wi-Fi-上的-adb-给电视去广告，不动系统、不卸载、可恢复"><a href="#折腾篇：CleanYourTV-——-用-Wi-Fi-上的-adb-给电视去广告，不动系统、不卸载、可恢复" class="headerlink" title="折腾篇：CleanYourTV —— 用 Wi-Fi 上的 adb 给电视去广告，不动系统、不卸载、可恢复"></a><center>折腾篇：CleanYourTV —— 用 Wi-Fi 上的 adb 给电视去广告，不动系统、不卸载、可恢复</center></h1><blockquote>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Gathin23/cleanyourtv">https://github.com/Gathin23/cleanyourtv</a> ｜ 许可：MIT ｜ Star：约 6 万（59,904，2026-11-21 查询） ｜ 最新版本：v3.6.0（2026-11-20 发布）</p>
+</blockquote>
+<p><strong>先说判断：如果你家电视是 Android TV 或 Google TV，能开开发者选项、愿意保留停用清单和恢复记录，这件事值得做；如果电视跑的是 Tizen、webOS、Roku、VIDAA，或者你连 ADB 调试都不想开，就别折腾。</strong> CleanYourTV 真正有价值的部分不是那个 Apple TV 风格的桌面，而是它把「停用预装应用」这件原本要逐台摸索的事，变成了按机型复用的清单、备份与恢复链路。</p>
+<p><img src="/img/cleanyourtv/stock-home.jpg" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="原厂 Google TV 首页的赞助位、Discover 推荐和预装入口"></p>
+<p>上面这张就是它想解决的东西：开机先看到广告位的首页，推荐内容一直挤在视线里，厂商塞进来的应用一个也删不掉。CleanYourTV 的做法不是把电视刷成别的系统，而是用 Android 本身就提供的调试通道，把这些包在用户层面停掉。</p>
+<h2 id="一、它改的是什么：停用，而不是卸载"><a href="#一、它改的是什么：停用，而不是卸载" class="headerlink" title="一、它改的是什么：停用，而不是卸载"></a>一、它改的是什么：停用，而不是卸载</h2><p>把项目拆开看，整个流程只有三步，且每一步都有对应的脚本：</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>做的事</th>
+<th>关键约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>备份</td>
+<td>保存已装应用列表、相关设置和清单内应用的原始状态</td>
+<td>恢复记录写在电脑的 <code>~/.cleanyourtv/</code>，按电视和清单分别保存</td>
+</tr>
+<tr>
+<td>停用</td>
+<td>按机型清单对厂商遥测、广告服务、内容推荐和预装包执行 <code>pm disable-user</code></td>
+<td>只停用、不卸载，效果等同于「设置 → 应用 → 停用」</td>
+</tr>
+<tr>
+<td>换 HOME</td>
+<td>编译一个原生桌面并安装为默认 HOME</td>
+<td>安装脚本先确认新桌面能启动再切换，切不回去会尝试回滚</td>
+</tr>
+</tbody></table>
+<p><code>pm disable-user</code> 是 Android 原生能力，所以这套方案不需要 root、不刷机、不接 USB 线，也不用碰固件。官方中文 README 把这条链路写得很直白：备份、按需停用、安装简洁桌面。你真正需要承担的，是「停错了某个系统依赖」的风险，而不是变砖风险——这也是项目反复强调用小批量清单、且必须留恢复路径的原因。</p>
+<h2 id="二、为什么一条网线就能做到：Wi-Fi-ADB-加机型清单"><a href="#二、为什么一条网线就能做到：Wi-Fi-ADB-加机型清单" class="headerlink" title="二、为什么一条网线就能做到：Wi-Fi ADB 加机型清单"></a>二、为什么一条网线就能做到：Wi-Fi ADB 加机型清单</h2><p>电视开启 USB 调试后，Android TV 和手机一样会暴露调试桥；CleanYourTV 走的是网络 ADB，电脑和电视在同一局域网即可。仓库自带的 <code>tools/tv.py</code> 是一个纯 Python ADB 客户端，支持执行 shell 命令、批处理、推送拉取和截图；遇到只提供配对式「无线调试」的 Chromecast with Google TV 等设备，也可以把 <code>TV_ADB_BINARY</code> 指向系统 <code>adb</code>，通过已配对的连接工作。</p>
+<p>手动流程大致长这样，<code>192.168.1.50</code> 只是示例地址，小米路径也只是示例清单，不能搬到别的机型上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> TV_HOST=192.168.1.50<br>tools/venv/bin/python -I tools/tv.py --probe<br>tools/venv/bin/python -I tools/tv.py <span class="hljs-string">&#x27;pm list packages&#x27;</span><br>tools/disable.sh examples/xiaomi-mi-tv-4a/debloat.txt<br>launcher/build-and-install.sh<br></code></pre></td></tr></table></figure>
+
+<p>真正省事的是 <code>examples/</code> 里按机型积累的清单。不同品牌、地区、固件的垃圾包完全不一样，所以项目没有提供一份「万能禁用列表」；新机型的做法是先让助手探测电视实际装了什么，确认你在用哪些应用，再生成清单。v3.6.0 的发布说明给出的覆盖范围是当前 <strong>504 个电视型号、138 个品牌、33 套主题、39 个插件</strong>；README 里按数量排前几的品牌是 TCL 89、Sony 53、Xiaomi 46、Philips 25、Skyworth 18、Hisense 17。清单覆盖多，只代表有人验证过，不代表你的固件版本一定一样。</p>
+<h2 id="三、后悔药长什么样：记录、恢复、固件更新后复查"><a href="#三、后悔药长什么样：记录、恢复、固件更新后复查" class="headerlink" title="三、后悔药长什么样：记录、恢复、固件更新后复查"></a>三、后悔药长什么样：记录、恢复、固件更新后复查</h2><p>这是我认为最该先看的部分。去预装最怕的不是清不干净，是清完之后不知道怎么回去。</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>做法</th>
+<th>边界</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>撤销停用</td>
+<td><code>TV_HOST=... tools/restore.sh examples/&lt;你的机型&gt;/debloat.txt</code>，Google TV 通常再带一个原始桌面包名</td>
+<td>记录优先恢复操作前的 HOME 归属；已由你手动停用的包保持停用</td>
+</tr>
+<tr>
+<td>固件更新后</td>
+<td><code>tools/venv/bin/python -I tools/check.py examples/&lt;你的机型&gt;/debloat.txt</code>，需要时加 <code>--fix</code></td>
+<td>更新会把清单里的包装回来，也可能重新拿走 HOME</td>
+</tr>
+<tr>
+<td>没有恢复记录</td>
+<td>脚本会提示，并回退为启用清单内应用、把动画缩放恢复为 1.0</td>
+<td>这不等于精确还原操作前状态</td>
+</tr>
+</tbody></table>
+<p><code>tools/disable.sh</code> 在动手前记录清单内各应用的状态、当时的默认 HOME 和三项动画缩放设置。若用官方提示词流程，助手会先保存一份完整快照；手动跑停用脚本只保存回滚这份清单所需的状态，所以别指望它能恢复清单之外的改动。恢复脚本也不会卸载 CleanYourTV 桌面，要彻底删掉得去电视的「设置 → 应用」。</p>
+<h2 id="四、先对机型：哪些电视能上，哪些直接绕开"><a href="#四、先对机型：哪些电视能上，哪些直接绕开" class="headerlink" title="四、先对机型：哪些电视能上，哪些直接绕开"></a>四、先对机型：哪些电视能上，哪些直接绕开</h2><table>
+<thead>
+<tr>
+<th>设备</th>
+<th>能做到什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Android TV &#x2F; Google TV</td>
+<td>停用清单与新桌面都可用，项目的主要目标平台；桌面要求 Android 8.0（API 26）以上</td>
+</tr>
+<tr>
+<td>Fire TV</td>
+<td>只能做停用部分，Fire OS 不允许第三方桌面接管 HOME；2015 Fire TV Box 上连停用也失败</td>
+</tr>
+<tr>
+<td>部分中国大陆版 TCL</td>
+<td>清单存在，但这些机器拒绝安装任何第三方桌面，不能只按品牌判断</td>
+</tr>
+<tr>
+<td>Samsung Tizen &#x2F; LG webOS &#x2F; Roku &#x2F; Vizio &#x2F; Hisense VIDAA</td>
+<td>不支持，没有 ADB；官方建议改用遥控器关闭跟踪功能</td>
+</tr>
+</tbody></table>
+<p>不想在命令行里操作的，可以用社区基于这些清单做的手机或桌面端 App，项目官网列了入口；它们是独立项目，不是官方出品。要注意，社区 App 和仓库本体是两条路，出问题要分清楚去哪里反馈。</p>
+<h2 id="五、已知的坑"><a href="#五、已知的坑" class="headerlink" title="五、已知的坑"></a>五、已知的坑</h2><ul>
+<li><strong>ADB 端口是明文的。</strong> 传统 TCP ADB 默认监听 5555，部分固件甚至不强制授权。做完后务必在开发者选项里关掉 USB 调试、网络&#x2F;ADB 调试和无线调试，撤销授权，并用 <code>python3 tools/adb-closed.py &lt;电视 IP&gt;</code> 确认端口已关。不要把 5555 端口映射到公网。</li>
+<li><strong>HOME 切换顺序不能反。</strong> 必须先装好新桌面并确认能启动，再停用原厂桌面。Shell 安装脚本按这个顺序执行；官方中文 README 特别注明，PowerShell 版本目前是先请求切换 HOME、再检查新桌面，风险更高，Windows 用户要留好恢复路径。</li>
+<li><strong>Google TV 的设置向导会抢 HOME。</strong> <code>com.google.android.tungsten.setupwraith</code> 在原厂桌面被停用后可能接管 HOME 并导致系统反复重启；但它在某些机器上同时持有 Wi-Fi 配置，直接停用会把网络一起删掉。先按故障排查文档确认，别照抄命令。</li>
+<li><strong>恢复记录不是全量备份。</strong> 它只覆盖清单内的包和 HOME 等少数状态。自己在系统里改过的其他开关，恢复脚本管不着。</li>
+<li><strong>没有现成 APK。</strong> 官方路线是拿 Python 3、JDK 17–22 与 Android SDK Platform 34 &#x2F; Build Tools 34 自己编译；嫌麻烦就用社区 App，或者只按官网指引关掉电视里的跟踪开关。</li>
+<li><strong>固件更新会推翻清理结果。</strong> 清单里的包会被重新启用，HOME 也可能回到原厂桌面。装完之后隔一段时间跑一次 <code>check.py</code>，别以为一劳永逸。</li>
+</ul>
+<h2 id="六、适合谁-不适合谁"><a href="#六、适合谁-不适合谁" class="headerlink" title="六、适合谁 &#x2F; 不适合谁"></a>六、适合谁 &#x2F; 不适合谁</h2><p><strong>适合谁</strong>：手里是 Android TV 或 Google TV、能进开发者选项、愿意花十几分钟确认清单内容的人；尤其适合家里电视广告位多、预装应用删不掉、又不想刷机失去保修的家庭用户。能接受「先备份、再小批量停用、出问题就恢复」这套纪律的人，才会真正用得舒服。</p>
+<p><strong>不适合谁</strong>：只想要一个好看的桌面、对 ADB 和命令行零容忍的人；用 Tizen、webOS、VIDAA 等无 ADB 电视的人；以及以为「停用一次就永久干净」、不愿在固件更新后复查的人。它也不是给客厅里其他人随便按的系统——调试权限开着不关，比广告位本身更麻烦。</p>
+<p>一句话总结：把 CleanYourTV 当成一套可回滚的电视瘦身脚本，而不是一个桌面产品，判断就会清楚很多。广告位被拿掉是结果，真正值钱的是那条「备份 → 停用 → 恢复」的链路。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0/" class="category-chain-item">折腾记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" class="print-no-link">#开源软件</a>
+      
+        <a href="/tags/Android-TV/" class="print-no-link">#Android TV</a>
+      
+        <a href="/tags/Google-TV/" class="print-no-link">#Google TV</a>
+      
+        <a href="/tags/ADB/" class="print-no-link">#ADB</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>折腾篇：CleanYourTV —— 用 Wi-Fi 上的 adb 给电视去广告，不动系统、不卸载、可恢复</div>
+      <div>https://blog.luluvip.cn/2026/11/21/折腾篇-CleanYourTV-用ADB给电视去广告/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sagit.</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年11月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/11/20/%E6%8A%98%E8%85%BE%E7%AF%87-openGym-%E8%87%AA%E6%89%98%E7%AE%A1%E5%81%A5%E8%BA%AB%E8%AE%B0%E5%BD%95/" title="折腾篇：openGym —— 一个 docker compose up 起来的健身记录，数据全留在自己硬盘">
+                        <span class="hidden-mobile">折腾篇：openGym —— 一个 docker compose up 起来的健身记录，数据全留在自己硬盘</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-love"></i> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>&nbsp;&nbsp; <i class="iconfont icon-github-fill"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>&nbsp;&nbsp; <i class="iconfont icon-code"></i> <a href="https://blog.luluvip.cn" target="_blank" rel="nofollow noopener"><span>Lulu</span></a> &nbsp;&nbsp; <i class="iconfont icon-rss"></i> <a href="https://blog.luluvip.cn/atom.xml" target="_blank" rel="nofollow noopener"><span>Rss</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
