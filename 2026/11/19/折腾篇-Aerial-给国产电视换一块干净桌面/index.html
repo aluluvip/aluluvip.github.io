@@ -1,0 +1,1029 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  <link rel="icon" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sagit.">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="参照 tvOS 做的 Android TV 桌面：玻璃底板上托着五个 App、大时钟、航拍屏保，没有推荐流。不用 root、不卸载任何系统 App，靠一个无障碍服务把原桌面顶回去。代价是要开 ADB、适配看机型，海信改工厂菜单还有把电视搞重置的风险。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="折腾篇：Aerial —— 给国产电视换一块没有推荐流的桌面">
+<meta property="og:url" content="https://blog.luluvip.cn/2026/11/19/%E6%8A%98%E8%85%BE%E7%AF%87-Aerial-%E7%BB%99%E5%9B%BD%E4%BA%A7%E7%94%B5%E8%A7%86%E6%8D%A2%E4%B8%80%E5%9D%97%E5%B9%B2%E5%87%80%E6%A1%8C%E9%9D%A2/index.html">
+<meta property="og:site_name" content="一只路路">
+<meta property="og:description" content="参照 tvOS 做的 Android TV 桌面：玻璃底板上托着五个 App、大时钟、航拍屏保，没有推荐流。不用 root、不卸载任何系统 App，靠一个无障碍服务把原桌面顶回去。代价是要开 ADB、适配看机型，海信改工厂菜单还有把电视搞重置的风险。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.luluvip.cn/img/aerial/banner.jpg">
+<meta property="article:published_time" content="2026-11-19T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-11-27T08:01:21.878Z">
+<meta property="article:author" content="Sagit.">
+<meta property="article:tag" content="开源软件">
+<meta property="article:tag" content="Android TV">
+<meta property="article:tag" content="电视桌面">
+<meta property="article:tag" content="Kotlin">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.luluvip.cn/img/aerial/banner.jpg">
+  
+  
+  
+  <title>折腾篇：Aerial —— 给国产电视换一块没有推荐流的桌面 - 一只路路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="一只路路" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lulu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/aerial/banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.45)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">折腾篇：Aerial —— 给国产电视换一块没有推荐流的桌面</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-11-19 10:30" pubdate>
+          2026年11月19日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          47 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">折腾篇：Aerial —— 给国产电视换一块没有推荐流的桌面</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="折腾篇：Aerial-——-给国产电视换一块没有推荐流的桌面"><a href="#折腾篇：Aerial-——-给国产电视换一块没有推荐流的桌面" class="headerlink" title="折腾篇：Aerial —— 给国产电视换一块没有推荐流的桌面"></a><center>折腾篇：Aerial —— 给国产电视换一块没有推荐流的桌面</center></h1><blockquote>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/pengchujin/aerial-tv">pengchujin&#x2F;aerial-tv</a> ｜ 许可：MIT ｜ Star：12,463 ｜ 最新版本：v2.1（2026-11-18）｜ 平台：Android TV 5.0+，4.x 老电视另有 Lite</p>
+</blockquote>
+<p>国产电视开机先看十几秒广告，桌面上一半屏幕是会员剧集和限免角标，想找一个自己装的 App 得往下翻两层。Aerial 干的事很直接：把这块桌面整个换掉，换成 Apple TV 那个样子——一块玻璃底板托着五个 App，左边一个大时钟，背景是壁纸，闲置时放航拍。</p>
+<p>它是 2026 年 10 月 20 日开的源，一个月攒到 1.25 万 star、1089 个 fork、388 个 open issue。这个速度不是因为技术多新，而是因为这个需求被忍了太久。</p>
+<p>先把边界说清楚，免得误会：Aerial 只换桌面，不卸载任何东西。原桌面还在 App 列表里，会员、小爱同学、账号、有线电视一样能用；开机广告是固件播的，它去不掉。想要「把预装清干净」是另一件事，这里不做。</p>
+<h2 id="一、它长什么样"><a href="#一、它长什么样" class="headerlink" title="一、它长什么样"></a>一、它长什么样</h2><p><img src="/img/aerial/grid.jpg" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="往下滚动后的应用网格，中间是「系统应用」文件夹"></p>
+<p>首页分两层。停在最上面时，壁纸是清晰的，大时钟在左上，屏幕下方垫一块玻璃底板，托着最常用的五个 App——这是 tvOS 26 之后的做法。往下按一下，底板往上浮、放大一点、淡出，整屏换成同一种乳白的磨砂玻璃，后面是全部 App 的网格，五列、16:9 的磁贴。</p>
+<p>这块底板不是贴一张图。它取的是「模糊版壁纸里面板身后那一块」，所以底板里看到的正是它遮挡的那片背景；滚动时底板跟着第一排走，在前 55% 的行程里淡出、最多放大 14dp，看起来像从壁纸上浮起来再化开。</p>
+<p>磁贴统一成了一个风格：App 主色的斜向渐变，加一个白色的 logo，颜色从图标边缘取。小米视频那种上白下红的、底色说不清的，就走同色系的石墨渐变。多色 logo（阿里云盘气泡里的星星、Geekbench 眼镜上的柱子）变白会糊成一团，代码里按色相分组，两组以上且每组超过 8% 就保留原样。系统 App（设置、相册、天气、投屏）没有可用的横幅，Aerial 自己画了一套，用 Material Symbols 的实心图标加渐变底。</p>
+<p>圆角用的是 Apple 那种连续圆角，Figma 平滑度 60%。这个细节在电视上不是纯审美：路径直接交给 GPU 裁，在小米 MFTR0 上一帧的 GPU 时间从 11 ms 跳到 57 ms，所以现在是按尺寸在 CPU 上烘焙成位图，GPU 只负责贴图。</p>
+<h2 id="二、长按-OK-键之后"><a href="#二、长按-OK-键之后" class="headerlink" title="二、长按 OK 键之后"></a>二、长按 OK 键之后</h2><p><img src="/img/aerial/folder.jpg" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="打开的系统应用文件夹"></p>
+<p>国产电视桌面通常只让你「添加」和「删除」，Aerial 的长按菜单是完整的：移动、放进文件夹、隐藏、卸载，以及「开机时打开」——开机和待机醒来直接进这个 App 或这个信号源。</p>
+<p>文件夹是真的文件夹，能改名，打开后是 tvOS 那种半透明面板。HDMI 也能固定到主屏，并且可以指定接的是什么：Apple TV、PlayStation、Switch、Xbox、电脑，换成对应图标，名字在手机上改。</p>
+<p>手机整理是它比原生 tvOS 多出来的一件事。扫电视上的二维码，手机上打开一个和电视布局一样的网格页：按住拖动排序，点一下改名、换图标、放进文件夹、隐藏，也能把信号源加到主屏幕。遥控器上按十下的活，手机上拖两下就完了。</p>
+<p>图标库也在这个页面里。官网提供了一批 16:9 的磁贴图，一个 App 可能有好几张，手机页点开 App 能看到每张图和它的来源（le5inioo 画的一套、App 自己的 tvOS 版图标、Aerial 自绘），挑一张就行。</p>
+<h2 id="三、屏保和壁纸，被当成正事在做"><a href="#三、屏保和壁纸，被当成正事在做" class="headerlink" title="三、屏保和壁纸，被当成正事在做"></a>三、屏保和壁纸，被当成正事在做</h2><p><img src="/img/aerial/screensaver.jpg" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="航拍屏保，左下角是中文地名"></p>
+<p>屏保是 114 段 Apple 航拍影片，电视支持的话播 4K 或 4K 杜比视界。目录在 <code>assets/aerials.json</code> 里，每条带中英文地名和一个时间点说明，所以屏保左下角会出现「俯瞰洛杉矶附近的圣莫尼卡海滩」这样的中文标注，而不是一句英文。不想看航拍，可以换成照片（带 Ken Burns 缓慢推拉）、时钟，或者从手机传上去的本地视频。</p>
+<p>壁纸有四个来源：必应每日精选、14 张内置的 Mac 风格渐变（山丘、沙丘、海、波浪、光晕，按电视实际分辨率现画，不是位图拉伸）、手机扫码传的照片和视频，以及「跟随 App」——用当前聚焦 App 的主色。</p>
+<p>有一个细节很像 tvOS：停在主屏幕 10 秒，航拍影片会在磁贴后面开始播；按任意键就停在当前那一帧，当静态壁纸用。</p>
+<h2 id="四、控制中心和那些能调的"><a href="#四、控制中心和那些能调的" class="headerlink" title="四、控制中心和那些能调的"></a>四、控制中心和那些能调的</h2><p><img src="/img/aerial/control-center.jpg" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="控制中心：信号源、网络、设置、音量、亮度、个性化"></p>
+<p>焦点在第一排时按上键，右上角滑出控制中心：信号源、网络、设置三个按钮，音量、亮度两条滑块，下面是「个性化」。截图里底部那行小字「桌面守护已开启」和版本号，是判断接管有没有生效最直接的地方。</p>
+<p>个性化里能改的比想象中细：每排 4、5 或 6 个 App；单排还是双排；时钟大小和位置；App 名称是只显示选中的还是全部显示；焦点样式（默认是高对比度白框）；按键声音；效果分自动、完整、流畅三档。</p>
+<p>焦点样式值得单说。磁贴聚焦时放大 1.15 倍，默认再在磁贴外 5dp 处画一圈 3dp 的白边。这个白框不是审美选择，是因为国产电视配的都是方向键遥控器，没有 Siri 遥控器那种跟着手指的倾斜，只靠放大和阴影，用户在满屏彩色磁贴里找不到焦点在哪。</p>
+<p>代码里还有一套「儿童与长辈模式」：要设家长密码，儿童可以限时、把别的 App 拉回来；长辈模式磁贴更大、一直显示名称、焦点固定白框。这部分 README 没重点写，看架构文档才知道。</p>
+<h2 id="五、它凭什么不用-root-就接管主页键"><a href="#五、它凭什么不用-root-就接管主页键" class="headerlink" title="五、它凭什么不用 root 就接管主页键"></a>五、它凭什么不用 root 就接管主页键</h2><p>Android 的正规做法是把自己声明成 HOME，系统弹「使用哪个应用」，选它、选「始终」。原生 Android TV 就是这样，但国产固件大多不弹这个框，按主页键直接回自家桌面，待机时还会顺手清掉第三方 App。</p>
+<p>Aerial 用三层兜底：</p>
+<ol>
+<li><strong>无障碍「桌面守护」</strong>。它只判断哪个窗口在前台，原桌面一出现就把 Aerial 切回来，不读屏幕内容。老小米（Android 6）的桌面不报告窗口变化，守护改看系统的用量统计；有些酷开、创维固件不按标准方式启动桌面，守护认得它们自己的桌面。</li>
+<li><strong>通知监听复活</strong>。被系统强杀后，靠通知监听服务的重绑定把进程拉起来，再重开守护，同样不读通知内容。10 分钟内复活 3 次以上，就不再看前台去抢 HOME——乐视那种按主页键强杀第三方桌面的固件，硬抢只会变成两个桌面来回跳。</li>
+<li><strong>同步适配器兜底</strong>。系统连通知监听都不给的低内存 Android 9（小米 MFTP0），挂一个同步适配器，强停后约 30–60 秒由同步框架拉起来。</li>
+</ol>
+<p>所以它分三个包。前两个代码完全一样，只差 AndroidManifest 里有没有 HOME 声明：</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>用在什么电视上</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>standard</td>
+<td>能装桌面类 APK 的电视：小米、原生 Android TV 等</td>
+</tr>
+<tr>
+<td>guard</td>
+<td>拒绝安装第三方桌面的固件，比如 TCL 的 LauncherStrategy</td>
+</tr>
+<tr>
+<td>lite</td>
+<td>Android 4.0–4.4，第一版测试版，没有桌面守护</td>
+</tr>
+</tbody></table>
+<p>装 standard 被拒（提示「不允许安装桌面类 App」）就换 guard。这不是两个功能不同的版本，只是绕开固件检查的两种壳。</p>
+<h2 id="六、装：跑几条-adb-命令"><a href="#六、装：跑几条-adb-命令" class="headerlink" title="六、装：跑几条 adb 命令"></a>六、装：跑几条 adb 命令</h2><p>电脑和电视连同一个网络，先在电视上开 ADB。小米是在「关于」里连按产品型号进开发者模式，再去「账号与安全」打开 ADB 调试；TCL 是「本机信息」里按遥控器上下左右；索尼和原生 Android TV 是连按「内部版本号」七次。分品牌的详细说明在 <code>docs/devices/adb-by-brand.md</code>，README 里也有一张表。</p>
+<p>然后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">adb connect 192.168.1.20:5555<br>adb install -r aerial-standard.apk<br>adb shell pm grant app.orchard.tv \<br>  android.permission.WRITE_SECURE_SETTINGS<br>adb shell cmd notification allow_listener \<br>  app.orchard.tv/app.orchard.tv.guard.RevivalListener<br>adb shell appops <span class="hljs-built_in">set</span> app.orchard.tv SYSTEM_ALERT_WINDOW allow<br>adb shell am start -n app.orchard.tv/.MainActivity<br>adb shell cmd package compile -m speed -f app.orchard.tv<br></code></pre></td></tr></table></figure>
+
+<p>最后一条不是必须的，但它决定手感：Aerial 显示出来、过 5 秒再跑，要几十秒，跑完才真正编译成机器码。不跑的话，要等到下次从控制中心升级时才编译，中间一直按解释执行跑。</p>
+<p>嫌麻烦可以用一行命令：<code>curl -fsSL https://aerial.qust.me/install.sh | KEEP_ADB=1 TV=192.168.1.20 bash</code>。<code>KEEP_ADB=1</code> 是给小米用的，小米待机后会关掉 ADB，加上它 Aerial 会自己重新打开，方便以后升级。</p>
+<p>还原也是这条脚本，<code>bash -s restore</code>，加 <code>--uninstall</code> 会顺手卸载。所以「试一下不喜欢」的成本很低，这是它比很多「深度定制」方案可靠的地方。</p>
+<h2 id="七、为一个-65-ms-的帧耗时，改了一整个月"><a href="#七、为一个-65-ms-的帧耗时，改了一整个月" class="headerlink" title="七、为一个 65 ms 的帧耗时，改了一整个月"></a>七、为一个 65 ms 的帧耗时，改了一整个月</h2><p>电视的 GPU 很弱，瓶颈是全屏填充率，跟手机上「加个模糊美化一下」完全不是一回事。作者在架构文档里留了一整节性能账，数字都是具体机型上测的：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>改之前</th>
+<th>改之后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>首页帧耗时中位数（小米 MFTR0）</td>
+<td>65 ms</td>
+<td>18 ms</td>
+</tr>
+<tr>
+<td>航拍壁纸上的两层压暗渐变（每帧）</td>
+<td>81 ms</td>
+<td>31 ms（开机烘焙成 128×72 小图）</td>
+</tr>
+<tr>
+<td>个性化面板左右移动</td>
+<td>53 ms</td>
+<td>25 ms</td>
+</tr>
+<tr>
+<td>冷启动读磁贴（TCL MT5879）</td>
+<td>530 ms</td>
+<td>165 ms</td>
+</tr>
+<tr>
+<td>冷启动到首页出来（TCL MT5879）</td>
+<td>688–790 ms</td>
+<td>360–600 ms</td>
+</tr>
+<tr>
+<td>磁贴出现（Baseline Profile 编译前后）</td>
+<td>0.8 s</td>
+<td>0.4 s</td>
+</tr>
+</tbody></table>
+<p>手段没什么魔法，都是「别每帧重算」：壁纸和压暗层在 CPU 上预先合成，窗口背景设成空；面板的玻璃录进一个离屏图层，只在移动或换图时重画；冷启动只先读前 13 个磁贴，其余先画纯色占位，首页出来后再在后台补。</p>
+<p>这也解释了为什么它低端电视上会自动切「流畅」模式：固件报低内存、内存小于 1.8 GB、Android 6 及以下、或者只有两个核，就关掉高光、视差、阴影，面板改纯色。</p>
+<h2 id="八、机型表：59-个能，23-个凑合，10-个不行"><a href="#八、机型表：59-个能，23-个凑合，10-个不行" class="headerlink" title="八、机型表：59 个能，23 个凑合，10 个不行"></a>八、机型表：59 个能，23 个凑合，10 个不行</h2><p>README 里那张支持表有 92 条记录，30 来个品牌条目，59 条标 ✅、23 条标 ⚠️、10 条标 ❌。抽几条有代表性的：</p>
+<table>
+<thead>
+<tr>
+<th>机型</th>
+<th>系统</th>
+<th>情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>小米 MiTV-MFTR0（Redmi X65 2026）</td>
+<td>Android 14</td>
+<td>✅ 日常使用</td>
+</tr>
+<tr>
+<td>小米电视 4 &#x2F; 4A &#x2F; 4X、小米盒子 4</td>
+<td>Android 6</td>
+<td>✅ 1.43 起，按主页键后几秒才回来</td>
+</tr>
+<tr>
+<td>TCL MT5879 国行、98T8H</td>
+<td>Android 11</td>
+<td>✅ 日常使用</td>
+</tr>
+<tr>
+<td>TCL Q9L Pro</td>
+<td>Android 14</td>
+<td>⚠️ 只能 USB 线连 ADB，还要在电视管家里允许自启</td>
+</tr>
+<tr>
+<td>索尼 A80J 国行、BRAVIA VH1</td>
+<td>Android 10 &#x2F; 12</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>创维 75A7D、K3 Pro</td>
+<td>Android 11</td>
+<td>✅ 开机先出酷开桌面 3–6 秒</td>
+</tr>
+<tr>
+<td>海信 VIDAA 各型号</td>
+<td>Android 5–14</td>
+<td>⚠️ 主页键能接管，开机多数先进聚好看</td>
+</tr>
+<tr>
+<td>极米 RS20 Pro Max</td>
+<td>Android 14</td>
+<td>✅ 主页键、待机唤醒、重启都回 Aerial</td>
+</tr>
+<tr>
+<td>当贝盒子 Max1</td>
+<td>Android 11</td>
+<td>⚠️ 固件按主页键强停第三方 App，约 10 秒才回</td>
+</tr>
+<tr>
+<td>雷鸟 75S78A Plus</td>
+<td>Android 14</td>
+<td>❌ 固件每分钟清掉无障碍，接管不了主页键</td>
+</tr>
+</tbody></table>
+<p>表里那些「开机先出原桌面 3–6 秒」「约 10 秒才回」，都不是 Aerial 慢，是固件在按自己的规矩启动。这一栏的意义就在这儿：买之前先查自己的型号，比装完再折腾省事。</p>
+<p>不支持的也写明白了：LG webOS、三星 Tizen、华为鸿蒙智慧屏，以及 Android 4.0 以前的系统。</p>
+<h2 id="九、已知的坑"><a href="#九、已知的坑" class="headerlink" title="九、已知的坑"></a>九、已知的坑</h2><p><strong>U 盘装完 APK 只算装了一半。</strong> 直接拷 APK 进电视安装，Aerial 能打开，但按主页键、开机、待机后还是原桌面。要把那几条 adb 命令跑完（或者从它弹的「设为主屏幕」提示进电视设置，打开桌面守护和通知使用权），才算接管。</p>
+<p><strong>海信开 ADB 有真实风险。</strong> 要在工厂菜单里把「选项」里的 To Fac 从 U 改成 M，再重启。作者自己写了警告：工厂菜单按错有风险，反复改 To Fac 可能让 USB 失灵、要重置电视，只改一次。这一条是整篇里最需要看清楚的地方。</p>
+<p><strong>开机广告去不掉。</strong> 固件在系统启动时播的，换桌面管不到那一层。桌面上的推荐流没了，开机那十几秒还在。</p>
+<p><strong>388 个 open issue 是真实的工作量。</strong> 国产电视固件各家一套，适配全靠用户贴机型、贴诊断报告，作者再一条条修。你遇到的怪问题，多半别人也遇到了，先搜 issue。</p>
+<p><strong>4.x 老电视只有 Lite，而且是测试版。</strong> 第一版 1.0，只在 Android 4.0.4 &#x2F; 4.4.4 虚拟机和几台新电视上测过，没在真实 4.x 电视上跑过。没有桌面守护、没有航拍壁纸、没有信号源磁贴。</p>
+<p><strong>4K 界面默认不开。</strong> 大多数电视给 App 的界面就是 1080p，画成 4K 只是多四倍绘制量。TCL 75Q10L 上实测开着每帧 51 ms，多耗半个核，所以现在默认关着，要开得手动加参数。</p>
+<h2 id="十、适合谁，不适合谁"><a href="#十、适合谁，不适合谁" class="headerlink" title="十、适合谁，不适合谁"></a>十、适合谁，不适合谁</h2><p>适合：</p>
+<ul>
+<li>手里是小米、TCL、索尼这类能开 ADB 的 Android TV，且系统版本在 5.0 以上。</li>
+<li>受不了推荐流和会员角标，要一个「打开就是我的 App」的桌面。</li>
+<li>愿意花二十分钟跑几条命令，也接受「出问题要自己去 issue 里找同型号」。</li>
+<li>家里不止一台电视、想统一成一套操作逻辑的人。</li>
+</ul>
+<p>不适合：</p>
+<ul>
+<li>鸿蒙智慧屏、LG webOS、三星 Tizen，装不了。</li>
+<li>完全不想碰命令行，也找不到一台电脑的。手机上的 ADB 工具有人成功过，但作者没有逐一实测。</li>
+<li>期待「一键去广告、去预装、卸载系统应用」的——Aerial 一条都不做，它连原桌面都不删。</li>
+<li>只有 2 GB 内存的老机器，又想要丝滑动效。它会自动退到流畅模式，但还是会卡。</li>
+</ul>
+<p>一句话：这是目前把「国产电视桌面」这件事想得最细的开源项目，从玻璃底板里那块壁纸到 65 ms 的帧耗时都抠过。但它替代的是桌面，不是你电视里那些删不掉的东西——那部分得另找工具。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0/" class="category-chain-item">折腾记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" class="print-no-link">#开源软件</a>
+      
+        <a href="/tags/Android-TV/" class="print-no-link">#Android TV</a>
+      
+        <a href="/tags/%E7%94%B5%E8%A7%86%E6%A1%8C%E9%9D%A2/" class="print-no-link">#电视桌面</a>
+      
+        <a href="/tags/Kotlin/" class="print-no-link">#Kotlin</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>折腾篇：Aerial —— 给国产电视换一块没有推荐流的桌面</div>
+      <div>https://blog.luluvip.cn/2026/11/19/折腾篇-Aerial-给国产电视换一块干净桌面/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sagit.</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年11月19日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/11/19/%E5%88%86%E4%BA%AB%E7%AF%87-Impeccable-%E7%BB%99%E7%BC%96%E7%A0%81Agent%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%AF%8D%E6%B1%87%E8%A1%A8/" title="分享篇：Impeccable —— 给编码 Agent 一套设计词汇，把「AI 味」拦在提交之前">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">分享篇：Impeccable —— 给编码 Agent 一套设计词汇，把「AI 味」拦在提交之前</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/11/18/%E6%8A%98%E8%85%BE%E7%AF%87-Window-Sweaters-%E7%BB%99%E7%AA%97%E5%8F%A3%E7%BB%87%E6%AF%9B%E8%A1%A3/" title="折腾篇：Window Sweaters —— 给每个窗口织一件毛衣">
+                        <span class="hidden-mobile">折腾篇：Window Sweaters —— 给每个窗口织一件毛衣</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-love"></i> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>&nbsp;&nbsp; <i class="iconfont icon-github-fill"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>&nbsp;&nbsp; <i class="iconfont icon-code"></i> <a href="https://blog.luluvip.cn" target="_blank" rel="nofollow noopener"><span>Lulu</span></a> &nbsp;&nbsp; <i class="iconfont icon-rss"></i> <a href="https://blog.luluvip.cn/atom.xml" target="_blank" rel="nofollow noopener"><span>Rss</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

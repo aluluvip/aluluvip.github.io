@@ -1,0 +1,984 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  <link rel="icon" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sagit.">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="PicLite 把图片与 GIF 压缩、智能择优、格式转换、批量重命名和封面制作收进一个本地工作台，桌面端还有复制即压缩的悬浮窗与 MCP 接口。适合在意隐私、经常批量处理图片的人；只偶尔压一张图的人用在线版就够。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享篇：PicLite 图轻 —— 把压缩、GIF 和封面都留在本地的工作台">
+<meta property="og:url" content="https://blog.luluvip.cn/2026/11/22/%E5%88%86%E4%BA%AB%E7%AF%87-PicLite-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%B7%A5%E4%BD%9C%E5%8F%B0/index.html">
+<meta property="og:site_name" content="一只路路">
+<meta property="og:description" content="PicLite 把图片与 GIF 压缩、智能择优、格式转换、批量重命名和封面制作收进一个本地工作台，桌面端还有复制即压缩的悬浮窗与 MCP 接口。适合在意隐私、经常批量处理图片的人；只偶尔压一张图的人用在线版就够。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.luluvip.cn/img/piclite/banner.jpg">
+<meta property="article:published_time" content="2026-11-22T02:11:48.000Z">
+<meta property="article:modified_time" content="2026-11-27T08:01:21.878Z">
+<meta property="article:author" content="Sagit.">
+<meta property="article:tag" content="开源软件">
+<meta property="article:tag" content="图片压缩">
+<meta property="article:tag" content="本地优先">
+<meta property="article:tag" content="GIF">
+<meta property="article:tag" content="MCP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.luluvip.cn/img/piclite/banner.jpg">
+  
+  
+  
+  <title>分享篇：PicLite 图轻 —— 把压缩、GIF 和封面都留在本地的工作台 - 一只路路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="一只路路" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lulu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/piclite/banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.45)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">分享篇：PicLite 图轻 —— 把压缩、GIF 和封面都留在本地的工作台</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-11-22 10:11" pubdate>
+          2026年11月22日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">分享篇：PicLite 图轻 —— 把压缩、GIF 和封面都留在本地的工作台</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="分享篇：PicLite-图轻-——-把压缩、GIF-和封面都留在本地的工作台"><a href="#分享篇：PicLite-图轻-——-把压缩、GIF-和封面都留在本地的工作台" class="headerlink" title="分享篇：PicLite 图轻 —— 把压缩、GIF 和封面都留在本地的工作台"></a><center>分享篇：PicLite 图轻 —— 把压缩、GIF 和封面都留在本地的工作台</center></h1><blockquote>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/amiaoapp/PicLite">https://github.com/amiaoapp/PicLite</a> ｜ 许可：GPL-3.0（README 标注 GPL-3.0-or-later）｜ Star：1,142（GitHub API，2026-11-22 查询）｜ 最新版本：v2.2.0（2026-11-19 发布）</p>
+</blockquote>
+<p><strong>先说判断：如果你经常批量处理截图、商品图或 GIF，而且希望图片压完不离开本机，PicLite 桌面版值得装；如果只是偶尔压一张图发朋友圈，在线版够用，不必为悬浮窗和文件夹监测多装一个客户端。</strong> 它的取舍也很清楚：真正的自动化能力只在原生桌面端，网页与 Docker 版没有剪贴板监听、全局快捷键和悬浮窗；SVG 不会把位图描摹成矢量，网页端也不处理 GIF &#x2F; WebP 动画的跨格式转换。README 明确写着它描述的是当前源码，已发布安装包与在线演示以各自版本为准，下面的功能描述同样按这个口径看。</p>
+<p><img src="/img/piclite/banner.jpg" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="PicLite 压缩工作台：拖动对比线检查细节，右侧实时显示编码后的体积"></p>
+<h2 id="一、它做的是一条完整的本地图片流水线"><a href="#一、它做的是一条完整的本地图片流水线" class="headerlink" title="一、它做的是一条完整的本地图片流水线"></a>一、它做的是一条完整的本地图片流水线</h2><p>PicLite 的起点不是「上传图片到某个网站」，而是把图片处理收进一个本地工作台：拖入图片或文件夹，选压缩方案，拖对比线看细节，再导出。质量、尺寸、目标大小变化后，右侧会显示实际编码得到的体积，而不是预估。</p>
+<p>几个我认为有实际价值的能力：</p>
+<ul>
+<li><strong>智能择优</strong>：同时测量 JPEG、WebP、PNG 等候选结果，挑更小的有效文件；透明图片会跳过 JPEG，不会出现透明底被压成黑底的事故。</li>
+<li><strong>动图与水印</strong>：GIF 加水印后仍保留动画；批量压缩、等比缩放、文字或图片水印、目标文件大小都在同一套流程里。</li>
+<li><strong>格式与矢量</strong>：输出覆盖 AVIF、TIFF、ICO、QOI、TGA、PPM、PAM 等；SVG 保持矢量精简，也可明确转成 PNG &#x2F; WebP &#x2F; JPEG 等位图，缩放只改画布尺寸、不牺牲路径精度。</li>
+<li><strong>周边工具</strong>：格式转换、尺寸调整与扩图、按父目录规则的批量重命名、本地图库，把原本要在几个网站之间来回切换的活儿放在一处。</li>
+</ul>
+<p>需要留意的是格式支持的边界：网页与 Docker 的转换工具新增格式依赖本地 Worker 和 ImageMagick WASM，首次用到相关格式时要加载约 15.5 MB（gzip 约 5.5 MB）的资源，这个数字来自仓库 <code>docs/IMAGE-FORMATS.md</code>。它不上传图片，但首次打开会慢一点。</p>
+<h2 id="二、悬浮窗：把「复制图片」变成压缩入口"><a href="#二、悬浮窗：把「复制图片」变成压缩入口" class="headerlink" title="二、悬浮窗：把「复制图片」变成压缩入口"></a>二、悬浮窗：把「复制图片」变成压缩入口</h2><p>桌面端真正拉开差距的是悬浮窗。开启剪贴板优化后，复制一张图片就会自动压缩并弹出结果；也可以把本地图片拖进小窗，或点击空窗里的加号选文件。主界面右上角、菜单栏或托盘都能唤出它，关掉主窗口后原生进程仍继续工作。</p>
+<p><img src="/img/piclite/floating-result.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="悬浮窗显示压缩结果与格式切换"></p>
+<p>结果展示很直接：图片铺满显示区，中间给出处理前后体积、节省比例和尺寸，底部一键切换 Auto、JPEG、WebP、PNG。README 配图给出的示例是 2.34 MB 压缩到 143 KB、节省 94%（另一张照片示例为 1.07 MB 到 306 KB、节省 72%）；这是截图里的示例，不是对所有图片的承诺，实际结果取决于原图内容与参数。</p>
+<p><img src="/img/piclite/floating-actions.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="悬浮窗悬停后的六个快捷操作按钮"></p>
+<p>鼠标移入才出现快捷操作，默认六个按钮是继续缩小、撤销、调整质量、复制、上传图床和保存副本，可以在「设置 → 悬浮按钮」里换功能、调顺序。多张图可以堆叠浏览，用滚轮或页码切换；左下角打开独立裁切编辑器，右下角按已保存的封面预设直接出图。窗口本身能移动、缩放、调圆角、折叠成小图标，也支持自动隐藏与鼠标穿透。</p>
+<p>这里要分清楚：剪贴板监听、全局快捷键、目录监测和悬浮窗都属于桌面版。浏览器里的在线演示做不了这些，别把演示版的功能范围当成完整版。</p>
+<h2 id="三、桌面、网页、Docker-与-MCP-怎么选"><a href="#三、桌面、网页、Docker-与-MCP-怎么选" class="headerlink" title="三、桌面、网页、Docker 与 MCP 怎么选"></a>三、桌面、网页、Docker 与 MCP 怎么选</h2><p><img src="/img/piclite/workspace.jpg" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="PicLite 新版界面的浅色外观"></p>
+<p>仓库 README 给出的能力对比如下，照录并压缩了表述：</p>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>桌面端</th>
+<th>浏览器 &#x2F; Docker</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>图片批量压缩、对比、尺寸与水印</td>
+<td>支持</td>
+<td>支持，在浏览器本机处理</td>
+</tr>
+<tr>
+<td>经典 &#x2F; 新版界面切换</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>格式转换、尺寸调整与扩图</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>父目录规则批量命名、文件夹监测</td>
+<td>支持</td>
+<td>用桌面端</td>
+</tr>
+<tr>
+<td>持续剪贴板监听、全局快捷键、目录监测、悬浮窗</td>
+<td>支持</td>
+<td>用桌面端</td>
+</tr>
+<tr>
+<td>写入原目录或覆盖源文件</td>
+<td>支持</td>
+<td>需浏览器文件授权并手动确认</td>
+</tr>
+<tr>
+<td>MCP 本地文件操作</td>
+<td>内置 stdio 服务</td>
+<td>可选独立远程容器</td>
+</tr>
+</tbody></table>
+<p>网页和 Docker 版的图片处理发生在访问者浏览器里，容器不需要挂载图片目录；图库也存在当前浏览器的 IndexedDB，不会在多台设备间同步。自托管只要一条命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -d --name piclite \<br>  -p 3456:3456 --restart unless-stopped \<br>  ghcr.io/amiaoapp/piclite:latest<br></code></pre></td></tr></table></figure>
+
+<p>MCP 是我会重点关注的部分。桌面程序内置 stdio 服务，用 <code>piclite --mcp</code> 启动，不需要 API Key，但服务不会自动启动。智能体可以调用这些工具（出处：仓库 <code>docs/MCP.md</code>）：</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>作用</th>
+<th>边界</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>piclite_compress</td>
+<td>按路径批量压缩、缩放、指定格式与目标体积</td>
+<td>默认另存，不覆盖源文件</td>
+</tr>
+<tr>
+<td>piclite_convert</td>
+<td>明确转换格式，输出更大也不退回原格式</td>
+<td>位图不能转成矢量 SVG</td>
+</tr>
+<tr>
+<td>piclite_inspect</td>
+<td>返回尺寸、字节数、格式、帧数与动画状态</td>
+<td>用于验证动图是否还在</td>
+</tr>
+<tr>
+<td>piclite_create_cover</td>
+<td>从本机图片生成透明 3:2 PNG 封面</td>
+<td>可用预设控制留白、圆角、边框和阴影</td>
+</tr>
+</tbody></table>
+<p>远程 MCP 是独立容器，默认只发布到服务器的 127.0.0.1:3210，配 Bearer Token；给公网 Agent 用之前要自己套 HTTPS 反向代理。文档给出的单文件 &#x2F; 单批次上限分别是 32 MiB、64 MiB 和 20 张，路径被限制在挂载目录内。</p>
+<h2 id="四、已知的坑与不适合谁"><a href="#四、已知的坑与不适合谁" class="headerlink" title="四、已知的坑与不适合谁"></a>四、已知的坑与不适合谁</h2><p>这一节比功能列表更值得先看：</p>
+<ul>
+<li><strong>macOS 首次启动</strong>：当前构建是 ad-hoc 签名，系统会有提示，需要手动放行；不是公证版。</li>
+<li><strong>网页端动画限制</strong>：跨格式转换暂不处理 GIF &#x2F; WebP 动画，会提示改用桌面版，避免静默丢帧；新增格式首次加载还要等 WASM。</li>
+<li><strong>图库不等于云同步</strong>：清理浏览器站点数据会移除 IndexedDB 里的记录，要留存的结果得先导出。</li>
+<li><strong>插件是可信代码</strong>：可以导入 HTML &#x2F; JavaScript 工作台插件，但来源必须先审，别把来路不明的文件拖进去。</li>
+<li><strong>MCP 接入有前提</strong>：服务不自动启动，远程容器默认只监听本机；云端 Agent 想用需要自行做认证与 HTTPS 暴露。</li>
+<li><strong>版本口径</strong>：README 说它描述当前源码，安装包和在线演示可能落后于源码。写文章时查到的 v2.2.0 主要是 Windows 悬浮窗的回归修复，压缩策略本身没变。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>需要离线批量压图、保留 GIF 动画、做封面</td>
+<td>适合，桌面版是完整形态</td>
+</tr>
+<tr>
+<td>想让智能体在本地处理图片且图片不上云</td>
+<td>适合，stdio MCP 开箱可用</td>
+</tr>
+<tr>
+<td>只偶尔压一张图，或不想装原生客户端</td>
+<td>不适合，用在线版即可</td>
+</tr>
+<tr>
+<td>需要多人共享图库、跨设备同步记录</td>
+<td>不适合，图库只在当前浏览器</td>
+</tr>
+<tr>
+<td>指望把 PNG 转成真正的矢量 SVG</td>
+<td>不适合，项目明确不做位图描摹</td>
+</tr>
+</tbody></table>
+<h2 id="五、结论"><a href="#五、结论" class="headerlink" title="五、结论"></a>五、结论</h2><p>PicLite 的定位很清楚：一个本地优先的图片处理工作台，用智能择优和悬浮窗把压缩这件事嵌进日常操作，再顺手给出批量命名、封面制作和 MCP 接口。它的优势不在某个压缩率数字，而在整条链路都不必把图片交出去。接受它只在桌面端完整、macOS 需要手动放行、插件要自己审这几条边界，它就是值得留下的工具；如果只在乎「压一张图」，在线版已经够了。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9C%89%E8%B6%A3%E5%88%86%E4%BA%AB/" class="category-chain-item">有趣分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" class="print-no-link">#开源软件</a>
+      
+        <a href="/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" class="print-no-link">#图片压缩</a>
+      
+        <a href="/tags/%E6%9C%AC%E5%9C%B0%E4%BC%98%E5%85%88/" class="print-no-link">#本地优先</a>
+      
+        <a href="/tags/GIF/" class="print-no-link">#GIF</a>
+      
+        <a href="/tags/MCP/" class="print-no-link">#MCP</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>分享篇：PicLite 图轻 —— 把压缩、GIF 和封面都留在本地的工作台</div>
+      <div>https://blog.luluvip.cn/2026/11/22/分享篇-PicLite-本地图片压缩工作台/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sagit.</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年11月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/11/23/%E5%88%86%E4%BA%AB%E7%AF%87-Tendedero-%E6%8A%8A%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8C%82%E5%88%B0%E5%B1%8F%E5%B9%95%E9%A1%B6%E6%B2%BF/" title="分享篇：Tendedero —— 把截图和剪贴板挂到屏幕顶沿">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">分享篇：Tendedero —— 把截图和剪贴板挂到屏幕顶沿</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/11/21/%E6%8A%98%E8%85%BE%E7%AF%87-CleanYourTV-%E7%94%A8ADB%E7%BB%99%E7%94%B5%E8%A7%86%E5%8E%BB%E5%B9%BF%E5%91%8A/" title="折腾篇：CleanYourTV —— 用 Wi-Fi 上的 adb 给电视去广告，不动系统、不卸载、可恢复">
+                        <span class="hidden-mobile">折腾篇：CleanYourTV —— 用 Wi-Fi 上的 adb 给电视去广告，不动系统、不卸载、可恢复</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-love"></i> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>&nbsp;&nbsp; <i class="iconfont icon-github-fill"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>&nbsp;&nbsp; <i class="iconfont icon-code"></i> <a href="https://blog.luluvip.cn" target="_blank" rel="nofollow noopener"><span>Lulu</span></a> &nbsp;&nbsp; <i class="iconfont icon-rss"></i> <a href="https://blog.luluvip.cn/atom.xml" target="_blank" rel="nofollow noopener"><span>Rss</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

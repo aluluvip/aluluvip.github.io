@@ -1,0 +1,1006 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  <link rel="icon" href="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sagit.">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="hop 是一个不到 800 KB 的 Windows 单文件工具：它在内置硬盘划出一块 FAT32 安装分区并写入一次性 UEFI 启动项，把原本必须找 U 盘刻录的 Linux 安装流程收进一次重启里。自带一键释放卡死空间、离线缩容和完整回滚；但项目仍处于 0.3.x 早期阶段，动分区前务必先备份重要数据与 BitLocker 恢复密钥。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="折腾篇：hop —— 不用 U 盘，在 Windows 旁边直接装 Linux">
+<meta property="og:url" content="https://blog.luluvip.cn/2026/11/27/%E6%8A%98%E8%85%BE%E7%AF%87-hop-%E4%B8%8D%E7%94%A8U%E7%9B%98%E5%9C%A8Windows%E6%97%81%E8%BE%B9%E8%A3%85Linux/index.html">
+<meta property="og:site_name" content="一只路路">
+<meta property="og:description" content="hop 是一个不到 800 KB 的 Windows 单文件工具：它在内置硬盘划出一块 FAT32 安装分区并写入一次性 UEFI 启动项，把原本必须找 U 盘刻录的 Linux 安装流程收进一次重启里。自带一键释放卡死空间、离线缩容和完整回滚；但项目仍处于 0.3.x 早期阶段，动分区前务必先备份重要数据与 BitLocker 恢复密钥。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.luluvip.cn/img/hop/banner.png">
+<meta property="article:published_time" content="2026-11-27T08:18:00.000Z">
+<meta property="article:modified_time" content="2026-11-27T08:17:11.767Z">
+<meta property="article:author" content="Sagit.">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="开源软件">
+<meta property="article:tag" content="双系统">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.luluvip.cn/img/hop/banner.png">
+  
+  
+  
+  <title>折腾篇：hop —— 不用 U 盘，在 Windows 旁边直接装 Linux - 一只路路</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.luluvip.cn","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"ACcAuOk7c4fsMbzfMdo1Hcor-gzGzoHsz","app_key":"cjwJFQpntIttGigAWARy8Vjr","server_url":"https://accauok7.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="一只路路" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lulu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/hop/banner.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.45)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">折腾篇：hop —— 不用 U 盘，在 Windows 旁边直接装 Linux</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-11-27 16:18" pubdate>
+          2026年11月27日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          43 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">折腾篇：hop —— 不用 U 盘，在 Windows 旁边直接装 Linux</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="折腾篇：hop-——-不用-U-盘，在-Windows-旁边直接装-Linux"><a href="#折腾篇：hop-——-不用-U-盘，在-Windows-旁边直接装-Linux" class="headerlink" title="折腾篇：hop —— 不用 U 盘，在 Windows 旁边直接装 Linux"></a><center>折腾篇：hop —— 不用 U 盘，在 Windows 旁边直接装 Linux</center></h1><blockquote>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Arjun-Ingole/hop">https://github.com/Arjun-Ingole/hop</a> ｜ 许可：MIT ｜ Star：1,937（GitHub API，2026-11-27 查询）｜ 最新版本：v0.3.4（2026-11-15 发布）｜ 平台：Windows 10（1803+）&#x2F; Windows 11（UEFI + GPT）</p>
+</blockquote>
+<p><strong>先说判断：如果你想在现有 Windows 电脑上装一个真机 Linux 双系统，手边又懒得翻 U 盘、写镜像、折腾压缩卷报错，hop 是目前完成度很高的一条近路。它不是虚拟机，也不是 WSL，而是用不到 800 KB 的单文件把「下镜像 → 腾空间 → 写启动项 → 装完清理」整条链路包了起来；但如果你打算把 Linux 装到外接硬盘盒、机器还是老式 Legacy BIOS &#x2F; MBR，或者不想承担早期版本（v0.3.x）操作真机分区的风险，直接拿 U 盘配 Ventoy &#x2F; Rufus 更稳妥。</strong></p>
+<p><img src="/img/hop/banner.png" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="hop 主界面：选好发行版、拖动滑块分配空间，点击 Install 前不会改动磁盘"></p>
+<p>图片来源：项目官方仓库 <code>docs/</code> 目录，下同。</p>
+<h2 id="一、原理很朴素：把启动-U-盘搬到内置硬盘上"><a href="#一、原理很朴素：把启动-U-盘搬到内置硬盘上" class="headerlink" title="一、原理很朴素：把启动 U 盘搬到内置硬盘上"></a>一、原理很朴素：把启动 U 盘搬到内置硬盘上</h2><p>大多数人装 Linux 双系统，卡住的往往不是装系统本身，而是前面那一串杂活：找空 U 盘、校验 ISO、用工具写盘、去 Windows 磁盘管理压缩卷结果缩不动、重启进 BIOS 调启动顺序。</p>
+<p>hop 抓住了一个很简单的事实：<strong>UEFI 启动 U 盘本质上就是一块拷着 ISO 文件的 FAT32 分区，加上固件里的一个启动项。</strong> 与其非要插一块外置 U 盘，不如直接在电脑内置硬盘上临时划出一块同样结构的 FAT32 分区：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">安装前   [ EFI ][ MSR ][ C: Windows                           ][ Recovery ]<br>安装中   [ EFI ][ MSR ][ C: Windows     ][ Installer ][ Linux ][ Recovery ]<br></code></pre></td></tr></table></figure>
+
+<p>把 <code>Installer</code>（卷标 <code>HOPINSTALL</code>，约 8 GB）紧贴着放在 <code>C:</code> 后面是有讲究的：等 Linux 装好后删掉安装分区，这块空间正好可以无缝并回 <code>C:</code>；如果中途反悔执行撤销（Undo），<code>C:</code> 也能一把把安装分区和预留空间全部吃回来。</p>
+<p>在工程实现上，hop 也非常克制，v0.3.4 的单文件 <code>hop.exe</code> 只有 <strong>769 KB</strong>，不需要预装任何运行库：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>技术栈</th>
+<th>负责的事</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>界面与底层探针（<code>src/</code>）</td>
+<td>C# &#x2F; WinForms（.NET Framework 4.8）</td>
+<td>窗口交互、直接读写 UEFI 变量（<code>Boot####</code> 与 <code>BootNext</code>）、按原始字节识别分区签名、重启后拉起自身</td>
+</tr>
+<tr>
+<td>磁盘与安装引擎（<code>engine/</code>）</td>
+<td>内嵌 Windows PowerShell 5.1</td>
+<td>检测系统阻塞项、下载校验官方 ISO、调用 Windows 原生 Storage 命令调整分区、拷贝校验文件与回滚</td>
+</tr>
+</tbody></table>
+<p>因为 <code>.NET Framework 4.8</code> 和 <code>PowerShell 5.1</code> 都是 Windows 10&#x2F;11 原生自带的，下载 <code>hop.exe</code> 双击即可运行。整个准备流程有明确的安全分界线：</p>
+<ol>
+<li>检查系统环境、UEFI 启动项读写权限；从官方源下载并校验 ISO（也可指定本地 ISO）。</li>
+<li>挂载 ISO，检查 Secure Boot 兼容性、EFI 分区剩余空间并规划分区布局——<strong>到这一步为止，磁盘上没有任何改动。</strong></li>
+<li>保存状态文件，暂停 BitLocker（3 次重启），关闭快速启动（Fast Startup）。</li>
+<li>压缩选定分区并创建安装分区，逐文件拷贝 ISO 内容并校验；把镜像里带签名的引导程序拷贝到 Windows EFI 分区的 <code>\EFI\hop</code>。</li>
+<li>写入 UEFI 启动项，但<strong>直到点击「Restart now」才设置一次性启动（<code>BootNext</code>）</strong>。平时正常重启依然进 Windows；第 3–4 步中途失败也会自动回滚。</li>
+</ol>
+<h2 id="二、最戳痛点的两招：Make-room-与离线缩容工具"><a href="#二、最戳痛点的两招：Make-room-与离线缩容工具" class="headerlink" title="二、最戳痛点的两招：Make room 与离线缩容工具"></a>二、最戳痛点的两招：Make room 与离线缩容工具</h2><p>用过 Windows「压缩卷」的人基本都踩过这个坑：资源管理器明明显示 C 盘还有上百 GB 空闲，磁盘管理却只允许缩出几百 MB，甚至直接提示无法压缩。原因在于 Windows 只能把分区收缩到「最后一个不可移动文件」之前——休眠文件、页面文件、系统还原点，乃至 NTFS 自己的 <code>$Mft::$BITMAP</code> 都可能卡在分区尾部。</p>
+<p><img src="/img/hop/make-room.gif" srcset="https://luluvippic.oss-cn-beijing.aliyuncs.com/img/loading.gif" lazyload alt="C 盘有 92 GB 空闲却无法分配，通过 Make room 清理卡位文件后即可释放全部空间"></p>
+<p>hop 针对这个问题准备了两层手段：</p>
+<ul>
+<li><strong>第一层：Make room（系统内清障）</strong>。一键关闭休眠与页面文件、清理变更日志，重启后把能挪的系统文件往前挪；如果遇到系统还原点挡路，因为删除不可逆，会先弹窗征求确认。空间腾出后（或你中途退出 hop），它会把休眠和页面文件设置自动恢复；就算你重启后没再打开 hop，预设的计划任务也会在约 20 分钟后自动把设置还原。</li>
+<li><strong>第二层：hop shrink tool（离线缩容）</strong>。如果 Windows 运行时 NTFS 依然死活不放手（比如 <code>$Mft::$BITMAP</code> 钉在盘尾），hop 会下载一个约 <strong>27 MB</strong> 的离线缩容工具：由 Fedora 官方签名的 shim、GRUB 与内核（因此支持在开启 Secure Boot 的机器上启动），搭配精简 initramfs（含 <code>busybox</code>、<code>ntfsresize</code>、<code>sfdisk</code> 等）。重启到 Windows 外面完成无锁缩容，再自动重启回 Windows 继续安装。</li>
+</ul>
+<p>为了防止缩容翻车，离线工具加了硬约束：按 GPT 分区 ID 精确匹配目标分区、写入前先跑 <code>ntfsresize --no-action</code> 预演、拒绝 BitLocker 或设备加密分区、笔记本必须插电源、有待重启的系统更新时直接拒绝执行。</p>
+<h2 id="三、支持的发行版，以及「全盘替换-Windows」"><a href="#三、支持的发行版，以及「全盘替换-Windows」" class="headerlink" title="三、支持的发行版，以及「全盘替换 Windows」"></a>三、支持的发行版，以及「全盘替换 Windows」</h2><p>hop 内置了官方下载目录，会自动从各发行版官网或官方镜像站拉取 ISO 并核对校验值，也支持选本地已下载的镜像。按当前 v0.3.4 文档整理的支持范围与限制如下：</p>
+<table>
+<thead>
+<tr>
+<th>发行版</th>
+<th>并存安装</th>
+<th>全盘替换 Windows</th>
+<th>关键限制与说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ubuntu 及官方风味（Budgie &#x2F; Xubuntu &#x2F; Cinnamon &#x2F; Edubuntu &#x2F; Studio）</td>
+<td>支持</td>
+<td>支持</td>
+<td>常规 UEFI + Secure Boot 可直接引导；Ubuntu 24.04 安装器若遇 BitLocker 提示，可改用 hop 给出的手动分区步骤</td>
+</tr>
+<tr>
+<td>elementary OS</td>
+<td>支持</td>
+<td>支持</td>
+<td>完整支持并存与第二块硬盘</td>
+</tr>
+<tr>
+<td>Fedora Workstation &#x2F; Ultramarine</td>
+<td>支持</td>
+<td>支持</td>
+<td>通过内核参数绕开 Anaconda 锁定安装盘的限制，会提前校验 EFI 剩余空间</td>
+</tr>
+<tr>
+<td>Linux Mint &#x2F; Zorin OS</td>
+<td>支持</td>
+<td>Zorin 支持</td>
+<td>暂不支持装到第二块硬盘（与安装器处理 EFI 的行为有关）</td>
+</tr>
+<tr>
+<td>Debian</td>
+<td>支持</td>
+<td>支持</td>
+<td>暂不支持装到第二块硬盘</td>
+</tr>
+<tr>
+<td>Pop!_OS</td>
+<td>支持</td>
+<td>不提供</td>
+<td>需要先关闭 Secure Boot</td>
+</tr>
+<tr>
+<td>Arch Linux &#x2F; CachyOS</td>
+<td>支持</td>
+<td>Arch 支持</td>
+<td>均需关闭 Secure Boot；CachyOS 暂不支持第二块硬盘</td>
+</tr>
+<tr>
+<td>Omarchy</td>
+<td>支持</td>
+<td>支持（含 4.5.0）</td>
+<td>需关闭 Secure Boot，且必须<strong>彻底关闭并解密 BitLocker</strong>（仅暂停不行）；装在第二块硬盘目前仅限自备 4.0 ISO</td>
+</tr>
+<tr>
+<td>Kubuntu</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>ISO 内存在超过 4 GB 的单文件，超出 FAT32 上限</td>
+</tr>
+<tr>
+<td>Lubuntu &#x2F; Ubuntu Unity</td>
+<td>暂不开放</td>
+<td>不提供</td>
+<td>使用了不同的安装器且尚未完成端到端启动验证，v0.3.4 暂时拦截</td>
+</tr>
+</tbody></table>
+<p>其中「<strong>全盘替换 Windows</strong>」的设计很值得看一眼：hop 本身并不会抹掉你的硬盘，它同样只是建好安装分区，但在拷贝引导菜单时，会按发行版家族注入 <code>toram</code>（Ubuntu &#x2F; Debian）或 <code>copytoram</code>（Arch &#x2F; Omarchy）等内核参数。重启进入安装环境后，live 系统先把镜像整个搬进内存、彻底释放硬盘占用，这样 Linux 安装器才能安全擦除自己刚刚启动的那块硬盘。</p>
+<p>这项操作被藏在独立入口里，需要手动输入 <code>ERASE</code> 确认，并且会检查本机内存必须大于「ISO 体积 + 4 GB」（例如 Omarchy 4.5 约需 10 GB 内存），避免重启后因内存不足卡死在半路。</p>
+<h2 id="四、后悔药、指引与防误删设计"><a href="#四、后悔药、指引与防误删设计" class="headerlink" title="四、后悔药、指引与防误删设计"></a>四、后悔药、指引与防误删设计</h2><p>双系统工具最怕「装一半回不去」或者「删 Linux 时误伤数据盘」，hop 在这几处做得比较细：</p>
+<ul>
+<li><strong>告诉你每一步点什么</strong>：不同发行版安装器界面差别很大，hop 会在重启前把该发行版安装器里的精确选项列出来（例如何时选并存、何时选手动分区）。</li>
+<li><strong>重启后掉回 Windows 怎么办</strong>：再次打开 hop，它会检查 <code>BootNext</code> 变量是否被固件清空，以此判断是主板固件忽略了一次性启动项，还是 Secure Boot 拦下了引导文件，直接给出对应解法并提供 <strong>Open BIOS</strong> 一键重启进固件设置。</li>
+<li><strong>Undo changes（一键撤销）</strong>：如果 Linux 还没装，撤销会删掉安装分区、EFI 下的 <code>\EFI\hop</code> 和 UEFI 启动项，把空间全数还给原盘；如果 Linux 已经装完，撤销则只清掉临时安装分区，保留装好的 Linux。</li>
+<li><strong>按分区签名识别卸载</strong>：在 Windows 眼里，Linux 的 ext4 分区和锁住的 BitLocker 分区一样都是「无盘符、不可读」。<code>DiskProbe.cs</code> 会直接读取分区头部字节确认它确实是 Linux 文件系统，且在第二块硬盘上只允许卸载由 hop 记录在 <code>linux-disks.json</code> 里的系统，避免误删你原本就有的盘。</li>
+</ul>
+<h2 id="五、已知的坑与必须先看清的边界"><a href="#五、已知的坑与必须先看清的边界" class="headerlink" title="五、已知的坑与必须先看清的边界"></a>五、已知的坑与必须先看清的边界</h2><p>把文档和 v0.3.4 更新日志翻完，下面这几点开工前一定要看清楚：</p>
+<ul>
+<li><strong>项目仍处于早期（v0.3.4）</strong>：作者在 v0.3.4 发布说明中写得很坦白——该版本包含一轮全量代码审计修复，很多改动是在虚拟机或读代码时验证的，尚未覆盖海量真机硬件。<strong>动分区前，请务必备份不能丢的数据。</strong></li>
+<li><strong>没有代码签名</strong>：<code>hop.exe</code> 尚未做商业代码签名，首次运行时 Windows SmartScreen 会拦一下，需要点「更多信息 → 仍要运行」；同时建议顺手核对 release 里的 <code>hop.exe.sha256</code>。</li>
+<li><strong>提前记下 BitLocker 恢复密钥</strong>：虽然 hop 会暂停 BitLocker 三次重启，但修改 UEFI 启动项仍有可能在某些机型上触发 BitLocker 恢复蓝屏。动手前先到 <a target="_blank" rel="noopener" href="https://account.microsoft.com/devices/recoverykey">account.microsoft.com&#x2F;devices&#x2F;recoverykey</a> 把恢复密钥存到手机里。</li>
+<li><strong>硬件与磁盘硬门槛</strong>：仅支持 <strong>Windows 10（1803+）&#x2F; 11</strong>、<strong>UEFI + GPT</strong>、<strong>内置硬盘</strong>（NVMe &#x2F; SATA &#x2F; SAS &#x2F; ATA &#x2F; SCSI）。不支持外接 U 盘，也通过设备移除策略拦截了雷电 &#x2F; USB4 外接 NVMe 硬盘盒；不支持 RAID 或动态磁盘。</li>
+<li><strong>Windows 恢复分区（WinRE）更新冲突</strong>：因为 Linux 分区紧跟在 <code>C:</code> 后面，如果日后 Windows 推送 WinRE 更新并报事件 4502（恢复分区空间不足），系统无法跨过 Linux 给恢复分区扩容，届时需要按微软 KB5028997 手动处理。</li>
+<li><strong>双系统老熟人问题</strong>：切回 Windows 发现时间差 8 小时，在 Linux 下执行 <code>timedatectl set-local-rtc 1</code>；Linux 里挂载 Windows 分区只读，不要强制挂载，完整重启一次 Windows（非关机&#x2F;休眠）即可；NVIDIA 笔记本进安装器黑屏，在 GRUB 菜单按 <code>e</code> 给 <code>linux</code> 行补上 <code>nomodeset</code>；部分联想主板开启了 <code>Boot Order Lock</code> 会自动删掉启动项，需要进 BIOS 关掉。</li>
+</ul>
+<h2 id="六、适合谁-不适合谁"><a href="#六、适合谁-不适合谁" class="headerlink" title="六、适合谁 &#x2F; 不适合谁"></a>六、适合谁 &#x2F; 不适合谁</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Windows 10&#x2F;11（UEFI + GPT），想装真机 Linux 双系统但不想找 U 盘刻录</td>
+<td>适合，流程完整且带撤销与清理机制</td>
+</tr>
+<tr>
+<td>C 盘明明有空间却被 Windows 磁盘管理卡住缩不动</td>
+<td>适合，Make room 与离线缩容正好对症</td>
+</tr>
+<tr>
+<td>想先试水某款发行版，不合适就干净退回单 Windows</td>
+<td>适合，Undo 和内置卸载链路省心不少</td>
+</tr>
+<tr>
+<td>想把 Linux 装到 U 盘、移动硬盘或雷电硬盘盒</td>
+<td>不适合，项目明确只支持电脑内置硬盘</td>
+</tr>
+<tr>
+<td>生产主力机且无任何备份、无法接受任何分区风险</td>
+<td>不适合，先做好备份，或改用传统 U 盘 &#x2F; 虚拟机</td>
+</tr>
+<tr>
+<td>目标系统是 Kubuntu、Lubuntu 或 Ubuntu Unity</td>
+<td>不适合，当前版本明确不支持或暂未放开</td>
+</tr>
+</tbody></table>
+<h2 id="七、结论"><a href="#七、结论" class="headerlink" title="七、结论"></a>七、结论</h2><p>hop 做对了一件很实际的事：它没有把「免 U 盘装 Linux」做成黑盒魔改工具，而是老老实实复用了 UEFI 规范、官方镜像、Windows 原生磁盘接口以及可审计的 PowerShell 脚本，把传统双系统安装里最容易劝退人的那几步——准备介质、清理不可移动文件、写一次性启动项、装完回收安装分区——串成了一个直观的小窗口。如果你接受它 0.3.x 阶段的早期属性、提前备好数据与 BitLocker 恢复密钥，它确实能省掉找 U 盘和查一堆命令的时间；如果追求绝对稳妥或需要装到外置存储，手边那根 Ventoy U 盘依然不用急着扔。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0/" class="category-chain-item">折腾记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" class="print-no-link">#开源软件</a>
+      
+        <a href="/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/" class="print-no-link">#双系统</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>折腾篇：hop —— 不用 U 盘，在 Windows 旁边直接装 Linux</div>
+      <div>https://blog.luluvip.cn/2026/11/27/折腾篇-hop-不用U盘在Windows旁边装Linux/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sagit.</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年11月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/11/23/%E5%88%86%E4%BA%AB%E7%AF%87-Tendedero-%E6%8A%8A%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8C%82%E5%88%B0%E5%B1%8F%E5%B9%95%E9%A1%B6%E6%B2%BF/" title="分享篇：Tendedero —— 把截图和剪贴板挂到屏幕顶沿">
+                        <span class="hidden-mobile">分享篇：Tendedero —— 把截图和剪贴板挂到屏幕顶沿</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-love"></i> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>&nbsp;&nbsp; <i class="iconfont icon-github-fill"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>&nbsp;&nbsp; <i class="iconfont icon-code"></i> <a href="https://blog.luluvip.cn" target="_blank" rel="nofollow noopener"><span>Lulu</span></a> &nbsp;&nbsp; <i class="iconfont icon-rss"></i> <a href="https://blog.luluvip.cn/atom.xml" target="_blank" rel="nofollow noopener"><span>Rss</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
